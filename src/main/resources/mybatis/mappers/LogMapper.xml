@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jifeihu.smartmonitor.mapper.LogMapper">
+	
+	
+	<select id="findLog" resultType="Log">
+		SELECT * FROM 
+			tb_log l 
+		LEFT JOIN 
+			( SELECT id u_id, username FROM tb_user ) u 
+		ON u.u_id = l.userId
+		ORDER BY time DESC
+	</select>
+	
+	<select id="findLogByDate" resultType="Log">
+		SELECT * FROM 
+			tb_log l 
+		LEFT JOIN 
+			( SELECT id u_id, username FROM tb_user ) u 
+		ON u.u_id = l.userId
+		WHERE Date(time) = #{date} 
+	</select>
+	
+	<insert id="addLog">
+		insert into tb_log values (
+			null,
+			#{type},
+			#{content},
+			#{username},
+			#{time}
+		)
+	</insert>
+</mapper>

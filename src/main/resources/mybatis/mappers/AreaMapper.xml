@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jifeihu.smartmonitor.mapper.AreaMapper">
+	
+	<select id="findAll" resultType="Area">
+		select * from tb_area
+	</select>
+	
+	<select id="findOne" resultType="Area">
+		select * from tb_area where id = #{areaId}
+	</select>
+	
+	<update id="update">
+		update tb_area set name = #{area.name},
+		description = #{area.description}
+		where id = #{area.id}
+	</update>
+	
+	<delete id="delete">
+		delete from tb_area where id = #{areaId}
+	</delete>
+	
+	<insert id="add">
+		insert into tb_area values(null,#{area.name},#{area.description})
+	</insert>
+	
+</mapper>

@@ -1,0 +1,51 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util-4.0.xsd
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd  
+    http://www.springframework.org/schema/websocket 
+    http://www.springframework.org/schema/websocket/spring-websocket.xsd">
+
+	<!--导入外部配置文件  -->
+	<context:property-placeholder location="classpath:/db-mysql.properties"/>
+	
+	<!-- 扫描包 -->
+	<context:component-scan base-package="com.jifeihu.smartmonitor.service" />
+
+	<!-- 数据源 -->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+		<property name="driverClassName" value="${jdbc.driver}"/>
+		<property name="jdbcUrl" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
+   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+   		<property name="maxUploadSize" value="10485760"></property>
+   </bean>
+   
+	<bean id="websocket_msg" class="com.jifeihu.smartmonitor.websocket.MessageWebSocketHandler"/>  
+	<bean id="websocket_monitor" class="com.jifeihu.smartmonitor.websocket.MonitorWebSocketHandler"/>
+   
+   <websocket:handlers>  
+	    <websocket:mapping path="/message" handler="websocket_msg"/>
+	    <websocket:mapping path="/monitor" handler="websocket_monitor"/>  
+	    <websocket:handshake-interceptors>  
+	    <bean class="com.jifeihu.smartmonitor.interceptor.WebSocketHandshakeInterceptor"/>  
+	    </websocket:handshake-interceptors>  
+	</websocket:handlers>  
+	
+</beans>

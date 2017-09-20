@@ -18,8 +18,8 @@
 	<mvc:annotation-driven />
 
 	<!-- 配置扫描器，使得@Controller注解生效 -->
-	<context:component-scan base-package="com.jifeihu.smartmonitor.controller" />
-	<context:component-scan base-package="com.jifeihu.smartmonitor.aspect" />
+	<context:component-scan base-package="com.github.brandonbai.smartmonitor.controller" />
+	<context:component-scan base-package="com.github.brandonbai.smartmonitor.aspect" />
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	<!-- 定义视图解析器 -->
 	<bean
@@ -33,7 +33,7 @@
 	<!-- <mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
-			<bean id="token" class="com.jifeihu.smartmonitor.interceptor.TokenInterceptor" />
+			<bean id="token" class="com.github.brandonbai.smartmonitor.interceptor.TokenInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors> -->
 	  

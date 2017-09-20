@@ -2,6 +2,7 @@ package com.jifeihu.smartmonitor.service;
 
 import java.util.List;
 
+import com.github.pagehelper.PageInfo;
 import com.jifeihu.smartmonitor.exception.MsgException;
 import com.jifeihu.smartmonitor.pojo.Command;
 import com.jifeihu.smartmonitor.pojo.Device;
@@ -15,7 +16,7 @@ public interface DeviceService {
 
 	List<Device> getDevices(Integer areaId);
 
-	List<Device> getAllDevices(int pageNum, int pageSize);
+	PageInfo<Device> getAllDevices(int pageNum, int pageSize);
 	
 	List<Command> getCommands(Integer deviceId);
 

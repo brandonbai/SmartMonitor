@@ -1,12 +1,11 @@
 package com.jifeihu.smartmonitor.service;
 
-import java.util.List;
-
+import com.github.pagehelper.PageInfo;
 import com.jifeihu.smartmonitor.pojo.Node;
 
 public interface NodeService {
 
-	List<Node> getAll(int pageNum, int pageSize);
+	PageInfo<Node> getAll(int pageNum, int pageSize);
 	
 	Node getOne(Integer nodeId);
 	

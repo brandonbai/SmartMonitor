@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageInfo;
 import com.jifeihu.smartmonitor.mapper.DataTypeMapper;
 import com.jifeihu.smartmonitor.pojo.DataType;
 import com.jifeihu.smartmonitor.service.DataTypeService;
@@ -16,9 +17,11 @@ public class DataTypeServiceImpl implements DataTypeService {
 	private DataTypeMapper dataTypeMapper;
 	
 	@Override
-	public List<DataType> getAll(int pageNum, int pageSize) {
+	public PageInfo<DataType> getAll(int pageNum, int pageSize) {
 		
-		return dataTypeMapper.findAll(pageNum, pageSize);
+		List<DataType> list = dataTypeMapper.findAll(pageNum, pageSize);
+		
+		return new PageInfo<DataType>(list);
 	}
 
 	@Override

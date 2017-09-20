@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageInfo;
 import com.jifeihu.smartmonitor.exception.MsgException;
 import com.jifeihu.smartmonitor.mapper.DeviceMapper;
 import com.jifeihu.smartmonitor.pojo.Command;
@@ -84,7 +85,10 @@ public class DeviceServiceImpl implements DeviceService {
 	}
 
 	@Override
-	public List<Device> getAllDevices(int pageNum, int pageSize) {
-		return deviceMapper.getAllDevices(pageNum, pageSize);
+	public PageInfo<Device> getAllDevices(int pageNum, int pageSize) {
+		
+		List<Device> list = deviceMapper.getAllDevices(pageNum, pageSize);
+		
+		return new PageInfo<Device>(list);
 	}
 }

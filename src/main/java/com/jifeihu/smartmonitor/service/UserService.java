@@ -1,5 +1,6 @@
 package com.jifeihu.smartmonitor.service;
 
+import com.github.pagehelper.PageInfo;
 import com.jifeihu.smartmonitor.exception.MsgException;
 import com.jifeihu.smartmonitor.pojo.User;
 
@@ -20,6 +21,8 @@ public interface UserService {
 	 */
 	public void updateUser(User user) throws MsgException;
 
+	public PageInfo<User> findAll(Integer pageNum, Integer pageSize);
+	
 	public User findUserByUsername(String username);
 
 	public void changePassword(String username, String password, String newPassword) throws MsgException;

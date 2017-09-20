@@ -48,7 +48,7 @@ public class MonitorWebSocketHandler implements WebSocketHandler {
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
         LOGGER.info("接收到下位机消息："+message.getPayload().toString());
         // 获取全部传感器信息
-        List<Sensor> sensorList = sensorService.findAllSensor(0,0);
+        List<Sensor> sensorList = sensorService.findAllSensor(0,0).getList();
         Map<Integer, Sensor> map = new HashMap<>();
         for (Sensor sensor : sensorList) {
             map.put(sensor.getId(), sensor);

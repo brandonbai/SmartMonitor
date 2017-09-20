@@ -1,12 +1,11 @@
 package com.jifeihu.smartmonitor.controller.sysadmin;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageInfo;
 import com.jifeihu.smartmonitor.pojo.Area;
 import com.jifeihu.smartmonitor.pojo.Response;
 import com.jifeihu.smartmonitor.service.AreaService;
@@ -53,8 +52,8 @@ public class AreaController {
 	@RequestMapping("/list")
 	public Response areaList(@RequestParam(defaultValue="0")Integer pageNum, @RequestParam(defaultValue="0")Integer pageSize) {
 		
-		List<Area> areaList = areaService.getAll(pageNum, pageSize);
+		PageInfo<Area> pageInfo = areaService.getAll(pageNum, pageSize);
 		
-		return new Response().success(areaList);
+		return new Response().success(pageInfo);
 	}
 }

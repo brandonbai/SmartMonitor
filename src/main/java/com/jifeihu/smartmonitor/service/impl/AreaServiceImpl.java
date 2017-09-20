@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageInfo;
 import com.jifeihu.smartmonitor.mapper.AreaMapper;
 import com.jifeihu.smartmonitor.pojo.Area;
 import com.jifeihu.smartmonitor.service.AreaService;
@@ -15,9 +16,11 @@ public class AreaServiceImpl implements AreaService {
 	@Autowired
 	private AreaMapper areaMapper;
 	
-	public List<Area> getAll(int pageNum, int pageSize) {
+	public PageInfo<Area> getAll(int pageNum, int pageSize) {
 		
-		return areaMapper.findAll(pageNum, pageSize);
+		List<Area> list = areaMapper.findAll(pageNum, pageSize);
+		
+		return new PageInfo<Area>(list);
 		
 	}
 	

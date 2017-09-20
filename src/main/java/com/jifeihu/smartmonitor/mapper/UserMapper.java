@@ -1,5 +1,7 @@
 package com.jifeihu.smartmonitor.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.jifeihu.smartmonitor.exception.MsgException;
@@ -27,4 +29,6 @@ public interface UserMapper {
 	public User findUserByUsername(String username);
 
 	void changePassword(User user);
+
+	public List<User> findAll(Integer pageNum, Integer pageSize);
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageInfo;
 import com.jifeihu.smartmonitor.mapper.NodeMapper;
 import com.jifeihu.smartmonitor.pojo.Node;
 import com.jifeihu.smartmonitor.service.NodeService;
@@ -16,9 +17,11 @@ public class NodeServiceImpl implements NodeService{
 	private NodeMapper nodeMapper;
 	
 	@Override
-	public List<Node> getAll(int pageNum, int pageSize) {
+	public PageInfo<Node> getAll(int pageNum, int pageSize) {
 		
-		return nodeMapper.findAll(pageNum, pageSize);
+		List<Node> list = nodeMapper.findAll(pageNum, pageSize);
+		
+		return new PageInfo<Node>(list);
 	}
 
 	@Override

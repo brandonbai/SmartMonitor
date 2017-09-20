@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageInfo;
 import com.jifeihu.smartmonitor.mapper.AreaMapper;
 import com.jifeihu.smartmonitor.mapper.SensorMapper;
 import com.jifeihu.smartmonitor.mapper.SensorValueMapper;
@@ -54,13 +55,13 @@ public class SensorServiceImpl implements SensorService {
 	}
 
 	@Override
-	public List<Sensor> findAllSensor(int pageNum, int pageSize) {
+	public PageInfo<Sensor> findAllSensor(int pageNum, int pageSize) {
 		List<Sensor> sensorList = sensorMapper.findAllSensor(pageNum, pageSize);
 		for (int i = 0; i < sensorList.size(); i++) {
 			Sensor sensor = sensorList.get(i);
 			sensor.setRealValue(monitorWebSocketHandler.getRealTimeValue(sensor.getId()));
 		}
-		return sensorList;
+		return new PageInfo<Sensor>(sensorList);
 	}
 
 	@Override

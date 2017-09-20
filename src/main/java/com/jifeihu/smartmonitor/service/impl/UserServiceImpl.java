@@ -1,9 +1,12 @@
 package com.jifeihu.smartmonitor.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageInfo;
 import com.jifeihu.smartmonitor.exception.MsgException;
 import com.jifeihu.smartmonitor.mapper.UserMapper;
 import com.jifeihu.smartmonitor.pojo.User;
@@ -16,12 +19,21 @@ public class UserServiceImpl implements UserService {
 	@Resource
 	private UserMapper userMapper;
 	
+	@Override
 	public User findUser(String username, String password) throws MsgException {
 		User user = userMapper.findUserByUsername(username);
 		if(user == null || !user.getPassword().equals(MD5.getMd5Hash(password))) {
 			throw new MsgException("用户名或密码错误");
 		}
 		return user;
+	}
+	
+	@Override
+	public PageInfo<User> findAll(Integer pageNum, Integer pageSize) {
+		
+		List<User> list = userMapper.findAll(pageNum, pageSize);
+		
+		return new PageInfo<User>(list);
 	}
 	
 	@Override

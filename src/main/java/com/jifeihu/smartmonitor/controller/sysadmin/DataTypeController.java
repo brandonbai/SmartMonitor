@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageInfo;
 import com.jifeihu.smartmonitor.pojo.DataType;
 import com.jifeihu.smartmonitor.pojo.Response;
 import com.jifeihu.smartmonitor.service.DataTypeService;
@@ -51,9 +52,9 @@ public class DataTypeController {
 	@RequestMapping("/list")
 	public Response dataTypeList(@RequestParam(defaultValue="0")Integer pageNum, @RequestParam(defaultValue="0")Integer pageSize) {
 		
-		dataTypeService.getAll(pageNum, pageSize);
+		PageInfo<DataType> pageInfo = dataTypeService.getAll(pageNum, pageSize);
 		
-		return new Response().success();
+		return new Response().success(pageInfo);
 	}
 	
 }

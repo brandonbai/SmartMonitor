@@ -32,22 +32,26 @@ public class TokenServiceImpl implements TokenService {
 
 	@Override
 	public boolean checkToken() {
-		return !TextUtils.isEmpty(getToken()) && tokenMap.containsKey(getToken());
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		Object user = request.getSession().getAttribute("_user");
+		return (!TextUtils.isEmpty(getToken()) && tokenMap.containsKey(getToken()))||user!=null;
 	}
 
 	@Override
 	public void deleteToken() {
-			tokenMap.remove(getToken());
-		}
+		tokenMap.remove(getToken());
+	}
 
 	@Override
 	public User getUser() {
-		return tokenMap.get(getToken());
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		Object user = request.getSession().getAttribute("_user");
+		return tokenMap.get(getToken()) == null ? (User)user : tokenMap.get(getToken());
 	}
 
 	@Override
 	public String getUsername() {
-		return tokenMap.get(getToken()).getUsername();
+		return getUser().getUsername();
 	}
 
 	private String getToken() {

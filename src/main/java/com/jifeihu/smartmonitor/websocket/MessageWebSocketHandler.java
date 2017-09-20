@@ -31,7 +31,12 @@ public class MessageWebSocketHandler implements WebSocketHandler {
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-        User user = tokenService.getUser(session.getHandshakeHeaders().get("token").get(0));
+    	User user = null;
+    	try {
+    		user = tokenService.getUser(session.getHandshakeHeaders().get("token").get(0));
+		} catch (Exception e) {
+			user = (User)session.getAttributes().get("_user");
+		}
         sessionConcurrentSkipListMap.put(user.getId(), session);
         logger.info(user.getUsername()+"与服务器建立消息通知WebSocket");
     }
@@ -49,7 +54,12 @@ public class MessageWebSocketHandler implements WebSocketHandler {
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) throws Exception {
-        User user = tokenService.getUser(session.getHandshakeHeaders().get("token").get(0));
+    	User user = null;
+    	try {
+    		user = tokenService.getUser(session.getHandshakeHeaders().get("token").get(0));
+		} catch (Exception e) {
+			user = (User)session.getAttributes().get("_user");
+		}
         sessionConcurrentSkipListMap.remove(user.getId());
         logger.info(user.getUsername()+"关闭与客户端的连接");
     }

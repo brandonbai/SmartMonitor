@@ -1,6 +1,7 @@
 package com.jifeihu.smartmonitor.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,13 +26,15 @@ public class UserController {
 	private TokenService tokenService;
 
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public Response login(String username, String password) throws MsgException {
+	public Response login(HttpSession session, String username, String password) throws MsgException {
 		if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
 			// 输入的数据为空
 			throw new MsgException("用户名或密码不能为空");
 		}
 		User user = userService.findUser(username, password);
+		session.setAttribute("_user", user);
 		String token = tokenService.createToken(user);
+		
 		return new Response().success(token);
 	}
 

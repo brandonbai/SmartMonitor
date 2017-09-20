@@ -33,7 +33,7 @@
 
 	<aop:config>
 		<!-- 定义切面，所有的service的所有方法 -->
-		<aop:pointcut id="txPointcut" expression="execution(* com.jifeihu.smartmonitor.service.*.*(..))" />
+		<aop:pointcut id="txPointcut" expression="execution(* com.github.brandonbai.smartmonitor.service.*.*(..))" />
 		<!-- 应用事务策略到Service切面 -->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
 	</aop:config>

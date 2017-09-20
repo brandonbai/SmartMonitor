@@ -24,7 +24,7 @@
 	<context:property-placeholder location="classpath:/db-mysql.properties"/>
 	
 	<!-- 扫描包 -->
-	<context:component-scan base-package="com.jifeihu.smartmonitor.service" />
+	<context:component-scan base-package="com.github.brandonbai.smartmonitor.service" />
 
 	<!-- 数据源 -->
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
@@ -37,14 +37,14 @@
    		<property name="maxUploadSize" value="10485760"></property>
    </bean>
    
-	<bean id="websocket_msg" class="com.jifeihu.smartmonitor.websocket.MessageWebSocketHandler"/>  
-	<bean id="websocket_monitor" class="com.jifeihu.smartmonitor.websocket.MonitorWebSocketHandler"/>
+	<bean id="websocket_msg" class="com.github.brandonbai.smartmonitor.websocket.MessageWebSocketHandler"/>  
+	<bean id="websocket_monitor" class="com.github.brandonbai.smartmonitor.websocket.MonitorWebSocketHandler"/>
    
    <websocket:handlers>  
 	    <websocket:mapping path="/message" handler="websocket_msg"/>
 	    <websocket:mapping path="/monitor" handler="websocket_monitor"/>  
 	    <websocket:handshake-interceptors>  
-	    <bean class="com.jifeihu.smartmonitor.interceptor.WebSocketHandshakeInterceptor"/>  
+	    <bean class="com.github.brandonbai.smartmonitor.interceptor.WebSocketHandshakeInterceptor"/>  
 	    </websocket:handshake-interceptors>  
 	</websocket:handlers>  
 	

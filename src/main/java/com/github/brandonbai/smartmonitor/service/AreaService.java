@@ -1,7 +1,7 @@
 package com.github.brandonbai.smartmonitor.service;
 
+import com.github.brandonbai.smartmonitor.pojo.Area;
 import com.github.pagehelper.PageInfo;
-import com.jifeihu.smartmonitor.pojo.Area;
 
 public interface AreaService {
 

@@ -1,8 +1,8 @@
 package com.github.brandonbai.smartmonitor.service;
 
+import com.github.brandonbai.smartmonitor.exception.MsgException;
+import com.github.brandonbai.smartmonitor.pojo.User;
 import com.github.pagehelper.PageInfo;
-import com.jifeihu.smartmonitor.exception.MsgException;
-import com.jifeihu.smartmonitor.pojo.User;
 
 public interface UserService {
 	/**

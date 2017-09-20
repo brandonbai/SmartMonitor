@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jifeihu.smartmonitor.annotation.RolePermission;
-import com.jifeihu.smartmonitor.annotation.RoleType;
-import com.jifeihu.smartmonitor.pojo.Response;
-import com.jifeihu.smartmonitor.pojo.Threshold;
-import com.jifeihu.smartmonitor.service.ThresholdService;
+import com.github.brandonbai.smartmonitor.annotation.RolePermission;
+import com.github.brandonbai.smartmonitor.annotation.RoleType;
+import com.github.brandonbai.smartmonitor.pojo.Response;
+import com.github.brandonbai.smartmonitor.pojo.Threshold;
+import com.github.brandonbai.smartmonitor.service.ThresholdService;
 
 @RestController
 @RequestMapping("/threshold/")

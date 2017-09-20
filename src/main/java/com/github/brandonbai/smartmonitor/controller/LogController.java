@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jifeihu.smartmonitor.pojo.Response;
-import com.jifeihu.smartmonitor.service.LogService;
+import com.github.brandonbai.smartmonitor.pojo.Response;
+import com.github.brandonbai.smartmonitor.service.LogService;
 
 @RestController
 @RequestMapping("/log")

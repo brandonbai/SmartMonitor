@@ -1,7 +1,7 @@
 package com.github.brandonbai.smartmonitor.pojo;
 
-import com.jifeihu.smartmonitor.exception.MsgException;
-import com.jifeihu.smartmonitor.utils.TextUtils;
+import com.github.brandonbai.smartmonitor.exception.MsgException;
+import com.github.brandonbai.smartmonitor.utils.TextUtils;
 
 public class User {
 	private Integer id;
@@ -92,31 +92,31 @@ public class User {
 	public void checkUpdate() throws MsgException {
 		
 		if(TextUtils.isEmpty(username)) {
-			throw new MsgException("�û�����Ϊ��");
+			throw new MsgException("用户名不能为空");
 		}
 		
 		if(TextUtils.isEmpty(password)) {
-			throw new MsgException("���벻��Ϊ��");
+			throw new MsgException("密码不能为空");
 		}
 		
 		if(TextUtils.isEmpty(newPassword)) {
-			throw new MsgException("�����벻��Ϊ��");
+			throw new MsgException("新密码不能为空");
 		}
 		
 		if(TextUtils.isEmpty(name)) {
-			throw new MsgException("������Ϊ��");
+			throw new MsgException("姓名不能为空");
 		}
 		
 		if(!newPassword.matches("\\w{6,15}")) {
-			throw new MsgException("���볤��Ϊ6~15");
+			throw new MsgException("密码位数为6~15");
 		}
 		
 		if(TextUtils.isEmpty(tel)) {
-			throw new MsgException("�绰����Ϊ��");
+			throw new MsgException("电话不能为空");
 		}
 		
-		if(!tel.matches("1[358]\\d{9}")) {
-			throw new MsgException("�ֻ�����ʽ����ȷ");
+		if(!tel.matches("^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$")) {
+			throw new MsgException("手机号码格式不正确");
 		}
 		
 	}

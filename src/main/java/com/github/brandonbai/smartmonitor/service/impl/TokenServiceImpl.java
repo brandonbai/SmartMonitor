@@ -4,16 +4,16 @@ import java.util.Calendar;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.jifeihu.smartmonitor.pojo.User;
-import com.jifeihu.smartmonitor.service.TokenService;
-import com.jifeihu.smartmonitor.utils.MD5;
-import com.jifeihu.smartmonitor.utils.TextUtils;
-
-import javax.servlet.http.HttpServletRequest;
+import com.github.brandonbai.smartmonitor.pojo.User;
+import com.github.brandonbai.smartmonitor.service.TokenService;
+import com.github.brandonbai.smartmonitor.utils.MD5;
+import com.github.brandonbai.smartmonitor.utils.TextUtils;
 
 @Component
 public class TokenServiceImpl implements TokenService {

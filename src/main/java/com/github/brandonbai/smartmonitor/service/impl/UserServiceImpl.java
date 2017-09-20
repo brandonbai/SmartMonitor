@@ -6,12 +6,12 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.github.brandonbai.smartmonitor.exception.MsgException;
+import com.github.brandonbai.smartmonitor.mapper.UserMapper;
+import com.github.brandonbai.smartmonitor.pojo.User;
+import com.github.brandonbai.smartmonitor.service.UserService;
+import com.github.brandonbai.smartmonitor.utils.MD5;
 import com.github.pagehelper.PageInfo;
-import com.jifeihu.smartmonitor.exception.MsgException;
-import com.jifeihu.smartmonitor.mapper.UserMapper;
-import com.jifeihu.smartmonitor.pojo.User;
-import com.jifeihu.smartmonitor.service.UserService;
-import com.jifeihu.smartmonitor.utils.MD5;
 
 @Service
 public class UserServiceImpl implements UserService {

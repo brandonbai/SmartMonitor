@@ -1,6 +1,6 @@
 package com.github.brandonbai.smartmonitor.service;
 
-import com.jifeihu.smartmonitor.pojo.User;
+import com.github.brandonbai.smartmonitor.pojo.User;
 
 public interface TokenService {
 

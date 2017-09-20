@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.jifeihu.smartmonitor.exception.MsgException;
-import com.jifeihu.smartmonitor.pojo.Threshold;
+import com.github.brandonbai.smartmonitor.exception.MsgException;
+import com.github.brandonbai.smartmonitor.pojo.Threshold;
 
 public interface ThresholdMapper {
 	/**

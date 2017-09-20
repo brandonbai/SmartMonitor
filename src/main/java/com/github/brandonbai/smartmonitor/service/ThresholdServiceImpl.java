@@ -6,8 +6,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.jifeihu.smartmonitor.mapper.ThresholdMapper;
-import com.jifeihu.smartmonitor.pojo.Threshold;
+import com.github.brandonbai.smartmonitor.mapper.ThresholdMapper;
+import com.github.brandonbai.smartmonitor.pojo.Threshold;
 
 @Service
 public class ThresholdServiceImpl implements ThresholdService {

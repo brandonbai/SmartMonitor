@@ -1,19 +1,31 @@
 package com.github.brandonbai.smartmonitor.websocket;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jifeihu.smartmonitor.pojo.*;
-import com.jifeihu.smartmonitor.service.*;
-
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.socket.*;
-
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.socket.CloseStatus;
+import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketHandler;
+import org.springframework.web.socket.WebSocketMessage;
+import org.springframework.web.socket.WebSocketSession;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.brandonbai.smartmonitor.pojo.Command;
+import com.github.brandonbai.smartmonitor.pojo.Device;
+import com.github.brandonbai.smartmonitor.pojo.Log;
+import com.github.brandonbai.smartmonitor.pojo.Sensor;
+import com.github.brandonbai.smartmonitor.pojo.Threshold;
+import com.github.brandonbai.smartmonitor.pojo.User;
+import com.github.brandonbai.smartmonitor.service.DeviceService;
+import com.github.brandonbai.smartmonitor.service.LogService;
+import com.github.brandonbai.smartmonitor.service.SensorService;
+import com.github.brandonbai.smartmonitor.service.TokenService;
 
 /**
  * Created by jifeihu on 2017/3/30.

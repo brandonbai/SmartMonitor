@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.jifeihu.smartmonitor.exception.MsgException;
-import com.jifeihu.smartmonitor.pojo.Response;
+import com.github.brandonbai.smartmonitor.exception.MsgException;
+import com.github.brandonbai.smartmonitor.pojo.Response;
 
 @ControllerAdvice
 @ResponseBody

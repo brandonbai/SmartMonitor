@@ -2,10 +2,10 @@ package com.github.brandonbai.smartmonitor.service;
 
 import java.util.List;
 
+import com.github.brandonbai.smartmonitor.exception.MsgException;
+import com.github.brandonbai.smartmonitor.pojo.Command;
+import com.github.brandonbai.smartmonitor.pojo.Device;
 import com.github.pagehelper.PageInfo;
-import com.jifeihu.smartmonitor.exception.MsgException;
-import com.jifeihu.smartmonitor.pojo.Command;
-import com.jifeihu.smartmonitor.pojo.Device;
 
 
 public interface DeviceService {

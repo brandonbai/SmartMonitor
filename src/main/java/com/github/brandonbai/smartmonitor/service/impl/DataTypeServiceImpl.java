@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.brandonbai.smartmonitor.mapper.DataTypeMapper;
+import com.github.brandonbai.smartmonitor.pojo.DataType;
+import com.github.brandonbai.smartmonitor.service.DataTypeService;
 import com.github.pagehelper.PageInfo;
-import com.jifeihu.smartmonitor.mapper.DataTypeMapper;
-import com.jifeihu.smartmonitor.pojo.DataType;
-import com.jifeihu.smartmonitor.service.DataTypeService;
 
 @Service
 public class DataTypeServiceImpl implements DataTypeService {

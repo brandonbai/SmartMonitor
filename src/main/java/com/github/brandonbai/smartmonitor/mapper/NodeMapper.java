@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.jifeihu.smartmonitor.pojo.Node;
+import com.github.brandonbai.smartmonitor.pojo.Node;
 
 public interface NodeMapper {
 

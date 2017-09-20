@@ -1,7 +1,7 @@
 package com.github.brandonbai.smartmonitor.service;
 
+import com.github.brandonbai.smartmonitor.pojo.Node;
 import com.github.pagehelper.PageInfo;
-import com.jifeihu.smartmonitor.pojo.Node;
 
 public interface NodeService {
 

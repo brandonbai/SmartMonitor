@@ -1,13 +1,13 @@
 package com.github.brandonbai.smartmonitor.interception;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.jifeihu.smartmonitor.service.TokenService;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.github.brandonbai.smartmonitor.service.TokenService;
 
 /**
  * token拦截器

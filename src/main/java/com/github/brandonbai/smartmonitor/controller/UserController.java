@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jifeihu.smartmonitor.exception.MsgException;
-import com.jifeihu.smartmonitor.pojo.Response;
-import com.jifeihu.smartmonitor.pojo.User;
-import com.jifeihu.smartmonitor.service.TokenService;
-import com.jifeihu.smartmonitor.service.UserService;
-import com.jifeihu.smartmonitor.utils.TextUtils;
+import com.github.brandonbai.smartmonitor.exception.MsgException;
+import com.github.brandonbai.smartmonitor.pojo.Response;
+import com.github.brandonbai.smartmonitor.pojo.User;
+import com.github.brandonbai.smartmonitor.service.TokenService;
+import com.github.brandonbai.smartmonitor.service.UserService;
+import com.github.brandonbai.smartmonitor.utils.TextUtils;
 
 @RestController
 @RequestMapping("/user/")

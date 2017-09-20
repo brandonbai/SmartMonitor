@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.brandonbai.smartmonitor.exception.MsgException;
+import com.github.brandonbai.smartmonitor.mapper.DeviceMapper;
+import com.github.brandonbai.smartmonitor.pojo.Command;
+import com.github.brandonbai.smartmonitor.pojo.Device;
+import com.github.brandonbai.smartmonitor.service.DeviceService;
+import com.github.brandonbai.smartmonitor.websocket.MonitorWebSocketHandler;
 import com.github.pagehelper.PageInfo;
-import com.jifeihu.smartmonitor.exception.MsgException;
-import com.jifeihu.smartmonitor.mapper.DeviceMapper;
-import com.jifeihu.smartmonitor.pojo.Command;
-import com.jifeihu.smartmonitor.pojo.Device;
-import com.jifeihu.smartmonitor.service.DeviceService;
-import com.jifeihu.smartmonitor.websocket.MonitorWebSocketHandler;
 
 @Service
 public class DeviceServiceImpl implements DeviceService {

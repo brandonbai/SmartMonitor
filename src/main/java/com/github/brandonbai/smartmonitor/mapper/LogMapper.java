@@ -2,7 +2,7 @@ package com.github.brandonbai.smartmonitor.mapper;
 
 import java.util.List;
 
-import com.jifeihu.smartmonitor.pojo.Log;
+import com.github.brandonbai.smartmonitor.pojo.Log;
 
 public interface LogMapper {  
 	

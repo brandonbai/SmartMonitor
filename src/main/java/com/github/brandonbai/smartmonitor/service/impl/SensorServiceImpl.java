@@ -9,14 +9,14 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.brandonbai.smartmonitor.mapper.AreaMapper;
+import com.github.brandonbai.smartmonitor.mapper.SensorMapper;
+import com.github.brandonbai.smartmonitor.mapper.SensorValueMapper;
+import com.github.brandonbai.smartmonitor.pojo.Sensor;
+import com.github.brandonbai.smartmonitor.pojo.SensorValue;
+import com.github.brandonbai.smartmonitor.service.SensorService;
+import com.github.brandonbai.smartmonitor.websocket.MonitorWebSocketHandler;
 import com.github.pagehelper.PageInfo;
-import com.jifeihu.smartmonitor.mapper.AreaMapper;
-import com.jifeihu.smartmonitor.mapper.SensorMapper;
-import com.jifeihu.smartmonitor.mapper.SensorValueMapper;
-import com.jifeihu.smartmonitor.pojo.Sensor;
-import com.jifeihu.smartmonitor.pojo.SensorValue;
-import com.jifeihu.smartmonitor.service.SensorService;
-import com.jifeihu.smartmonitor.websocket.MonitorWebSocketHandler;
 
 @Service
 public class SensorServiceImpl implements SensorService {

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.jifeihu.smartmonitor.pojo.DataType;
+import com.github.brandonbai.smartmonitor.pojo.DataType;
 
 public interface DataTypeMapper {
 

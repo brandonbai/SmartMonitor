@@ -13,9 +13,9 @@ import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jifeihu.smartmonitor.pojo.Log;
-import com.jifeihu.smartmonitor.pojo.User;
-import com.jifeihu.smartmonitor.service.TokenService;
+import com.github.brandonbai.smartmonitor.pojo.Log;
+import com.github.brandonbai.smartmonitor.pojo.User;
+import com.github.brandonbai.smartmonitor.service.TokenService;
 
 /**
  * Created by jifeihu on 2017/3/30.

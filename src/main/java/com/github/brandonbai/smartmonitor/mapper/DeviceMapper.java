@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.jifeihu.smartmonitor.pojo.Command;
-import com.jifeihu.smartmonitor.pojo.Device;
+import com.github.brandonbai.smartmonitor.pojo.Command;
+import com.github.brandonbai.smartmonitor.pojo.Device;
 
 public interface DeviceMapper {
 	

@@ -9,13 +9,13 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.jifeihu.smartmonitor.annotation.RolePermission;
-import com.jifeihu.smartmonitor.annotation.RoleType;
-import com.jifeihu.smartmonitor.pojo.Log;
-import com.jifeihu.smartmonitor.pojo.Response;
-import com.jifeihu.smartmonitor.pojo.User;
-import com.jifeihu.smartmonitor.service.LogService;
-import com.jifeihu.smartmonitor.service.TokenService;
+import com.github.brandonbai.smartmonitor.annotation.RolePermission;
+import com.github.brandonbai.smartmonitor.annotation.RoleType;
+import com.github.brandonbai.smartmonitor.pojo.Log;
+import com.github.brandonbai.smartmonitor.pojo.Response;
+import com.github.brandonbai.smartmonitor.pojo.User;
+import com.github.brandonbai.smartmonitor.service.LogService;
+import com.github.brandonbai.smartmonitor.service.TokenService;
 
 /**
  * 权限控制切面

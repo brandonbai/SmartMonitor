@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.brandonbai.smartmonitor.mapper.AreaMapper;
+import com.github.brandonbai.smartmonitor.pojo.Area;
+import com.github.brandonbai.smartmonitor.service.AreaService;
 import com.github.pagehelper.PageInfo;
-import com.jifeihu.smartmonitor.mapper.AreaMapper;
-import com.jifeihu.smartmonitor.pojo.Area;
-import com.jifeihu.smartmonitor.service.AreaService;
 
 @Service
 public class AreaServiceImpl implements AreaService {

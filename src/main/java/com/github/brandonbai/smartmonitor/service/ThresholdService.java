@@ -2,7 +2,7 @@ package com.github.brandonbai.smartmonitor.service;
 
 import java.util.List;
 
-import com.jifeihu.smartmonitor.pojo.Threshold;
+import com.github.brandonbai.smartmonitor.pojo.Threshold;
 
 
 public interface ThresholdService {

@@ -8,10 +8,10 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.jifeihu.smartmonitor.pojo.Log;
-import com.jifeihu.smartmonitor.pojo.Threshold;
-import com.jifeihu.smartmonitor.service.LogService;
-import com.jifeihu.smartmonitor.service.TokenService;
+import com.github.brandonbai.smartmonitor.pojo.Log;
+import com.github.brandonbai.smartmonitor.pojo.Threshold;
+import com.github.brandonbai.smartmonitor.service.LogService;
+import com.github.brandonbai.smartmonitor.service.TokenService;
 
 /**
  * 日志存储切面

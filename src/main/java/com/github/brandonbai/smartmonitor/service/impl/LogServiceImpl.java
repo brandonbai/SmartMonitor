@@ -7,10 +7,10 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jifeihu.smartmonitor.mapper.LogMapper;
-import com.jifeihu.smartmonitor.pojo.Log;
-import com.jifeihu.smartmonitor.service.LogService;
-import com.jifeihu.smartmonitor.websocket.MessageWebSocketHandler;
+import com.github.brandonbai.smartmonitor.mapper.LogMapper;
+import com.github.brandonbai.smartmonitor.pojo.Log;
+import com.github.brandonbai.smartmonitor.service.LogService;
+import com.github.brandonbai.smartmonitor.websocket.MessageWebSocketHandler;
 
 @Service
 public class LogServiceImpl implements LogService {

@@ -3,9 +3,9 @@ package com.github.brandonbai.smartmonitor.service;
 import java.util.Date;
 import java.util.List;
 
+import com.github.brandonbai.smartmonitor.pojo.Sensor;
+import com.github.brandonbai.smartmonitor.pojo.SensorValue;
 import com.github.pagehelper.PageInfo;
-import com.jifeihu.smartmonitor.pojo.Sensor;
-import com.jifeihu.smartmonitor.pojo.SensorValue;
 
 public interface SensorService {
 	

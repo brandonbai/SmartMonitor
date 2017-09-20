@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.jifeihu.smartmonitor.pojo.SensorValue;
+import com.github.brandonbai.smartmonitor.pojo.SensorValue;
 
 public interface SensorValueMapper {
 	

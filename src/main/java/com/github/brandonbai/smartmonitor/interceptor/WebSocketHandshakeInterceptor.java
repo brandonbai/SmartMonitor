@@ -1,4 +1,4 @@
-package com.github.brandonbai.smartmonitor.interception;
+package com.github.brandonbai.smartmonitor.interceptor;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package com.github.brandonbai.smartmonitor.interception;
+package com.github.brandonbai.smartmonitor.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

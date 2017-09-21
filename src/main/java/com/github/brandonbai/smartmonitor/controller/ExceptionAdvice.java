@@ -1,5 +1,7 @@
 package com.github.brandonbai.smartmonitor.controller;
 
+import java.io.IOException;
+
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -16,6 +18,9 @@ import com.github.brandonbai.smartmonitor.pojo.Response;
 public class ExceptionAdvice {
 
 	private static final Logger logger = Logger.getLogger(ExceptionAdvice.class);
+	private static final String MSG_400 = "请求参数解析失败";
+	private static final String MSG_500 = "服务运行异常";
+	private static final String MSG_404 = "找不到资源";
 	
     /**
      * 400 - Bad Request
@@ -23,10 +28,19 @@ public class ExceptionAdvice {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public Response handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
-        logger.error("参数解析失败", e);
-        return new Response().failure("参数解析失败");
+        logger.error(MSG_400, e);
+        return new Response().failure(MSG_400);
     }
-
+    
+    /**
+     * 404 - Not Found
+     */
+    @ResponseStatus(value=HttpStatus.NOT_FOUND, reason="IOException occured")  
+    @ExceptionHandler(IOException.class)  
+    public Response handleIOException(){  
+    	return new Response().failure(MSG_404);
+    }  
+    
     /**
      * 500 - Internal Server Error
      */
@@ -36,7 +50,7 @@ public class ExceptionAdvice {
         if(e instanceof MsgException) {
             logger.error(e.getMessage());
         }else {
-            logger.error("服务运行异常", e);
+            logger.error(MSG_500, e);
         }
         return new Response().failure(e.getMessage());
     }

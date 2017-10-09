@@ -8,5 +8,17 @@ package com.github.brandonbai.smartmonitor.annotation;
  * 
  */
 public enum RoleType {
-	ROLE_USER, ROLE_ADMIN, ROLE_SUPER_ADMIN
+	
+	ROLE_ADMIN(1), ROLE_USER(2);
+	
+	private int id;
+	
+	RoleType(int id) {
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
+	}
+	
 }

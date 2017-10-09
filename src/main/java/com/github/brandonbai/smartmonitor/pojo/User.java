@@ -8,7 +8,7 @@ public class User {
 	private String username;
 	private String password;
 	private String newPassword;
-	private Integer power;
+	private Integer roleId;
 	private String name;
 	private Integer state;
 	private String tel;
@@ -44,13 +44,13 @@ public class User {
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
 	}
-
-	public Integer getPower() {
-		return power;
+	
+	public Integer getRoleId() {
+		return roleId;
 	}
 
-	public void setPower(Integer power) {
-		this.power = power;
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
 	}
 
 	public String getName() {
@@ -80,8 +80,8 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password="
-				+ password + ", newPassword=" + newPassword + ", power="
-				+ power + ", name=" + name + ", state=" + state + ", tel="
+				+ password + ", newPassword=" + newPassword + ", roleId="
+				+ roleId + ", name=" + name + ", state=" + state + ", tel="
 				+ tel + "]";
 	}
 

@@ -38,19 +38,7 @@ public class PermissionAspect {
         // 权限验证
         if(rolePermission.value().equals(RoleType.ROLE_ADMIN)) {
             User user = tokenService.getUser();
-            if(user.getPower()<10) {
-                Log log = new Log();
-                log.setType(Log.CONTROL_DEVICE);
-                log.setTime(new Date());
-                log.setContent("无权限用户尝试无权操作-"+pjp.getSignature().getName());
-                log.setUsername(user.getId()+"");
-                logService.addLog(log);
-                return new Response().failure("无权限");
-            }
-        }
-        if(rolePermission.value().equals(RoleType.ROLE_SUPER_ADMIN)) {
-            User user = tokenService.getUser();
-            if(user.getPower()<100) {
+            if(user.getRoleId() != RoleType.ROLE_ADMIN.getId()) {
                 Log log = new Log();
                 log.setType(Log.CONTROL_DEVICE);
                 log.setTime(new Date());

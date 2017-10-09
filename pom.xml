@@ -27,7 +27,8 @@
 		<servlet-api.version>2.5</servlet-api.version>
 		<jsp-api.version>2.0</jsp-api.version>
 		
-		<!--引入在对象转化为json的工具  -->
+		<apache.poi.version>3.16</apache.poi.version>
+		
 		<jackson.version>2.4.2</jackson.version>
 	</properties>
 	
@@ -75,7 +76,7 @@
 			<version>${mybatis.paginator.version}</version>
 		</dependency>	
 						
-		<!-- 通用Mapper，所有的单表的代码都不用编写 -->
+		<!-- 通用Mapper -->
 		<dependency>
 			<groupId>com.github.abel533</groupId>
 			<artifactId>mapper</artifactId>
@@ -104,12 +105,28 @@
 			<scope>compile</scope>
 		</dependency>	
 
-		<!-- Apache Shiro 权限架构 -->
+		<!-- Apache Shiro -->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-all</artifactId>
 			<version>1.2.3</version>
-		</dependency>	
+		</dependency>
+		<!-- Apache POI -->
+		<dependency>
+	       <groupId>org.apache.poi</groupId>
+	       <artifactId>poi</artifactId>
+	       <version>${apache.poi.version}</version>
+	    </dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
 		
 		<!-- 分页插件 -->
 		<dependency>

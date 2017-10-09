@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<set>
 			<if test="username != null">username=#{username},</if>
 			<if test="name != null">name=#{name},</if>
-			<if test="power != null">power=#{power},</if>
+			<if test="roleId != null">role_id=#{roleId},</if>
 			<if test="state != null">state=#{state},</if>
 			<if test="tel != null">tel=#{tel},</if>
 		</set>

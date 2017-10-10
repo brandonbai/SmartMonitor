@@ -25,9 +25,9 @@
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 前缀 -->
-		<property name="prefix" value="/WEB-INF/htmls" />
+		<property name="prefix" value="/WEB-INF/pages" />
 		<!-- 后缀 -->
-		<property name="suffix" value=".html" />
+		<property name="suffix" value=".jsp" />
 	</bean>
 	
 	<!-- <mvc:interceptors>

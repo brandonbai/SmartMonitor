@@ -1,7 +1,7 @@
 package com.github.brandonbai.smartmonitor.pojo;
 
 /**
- * Created by Administrator on 2017/3/25.
+ * Created by Feihu Ji on 2017/3/25.
  */
 public class Command {
     private Integer deviceId;

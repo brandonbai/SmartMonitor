@@ -1,5 +1,12 @@
 package com.github.brandonbai.smartmonitor.pojo;
 
+/**
+ * 
+ * DataType 
+ * @author Feihu Ji
+ * @sine 2017/3/25
+ *
+ */
 public class DataType {
 
 	private Integer id;

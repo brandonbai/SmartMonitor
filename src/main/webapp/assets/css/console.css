@@ -1,0 +1,20 @@
+@media screen and (min-width: 993px){
+  header{
+    padding-left:180px;
+  }
+  main{
+    padding-left:180px;
+  }
+}
+.toDaCenter{
+  text-align:center;
+}
+.toDaRight{
+  text-align:right;
+}
+.toDaLeft{
+  text-align:left;
+}
+.toDaJustify{
+  text-align:justify;
+}

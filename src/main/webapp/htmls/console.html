@@ -1,242 +1,736 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>控制台</title>
 
-    <title>控制台</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet prefetch" href="../assets/css/materialize.css">
+<link rel="stylesheet prefetch"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet prefetch" href="../assets/css/font-awesome.css">
 
-    <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/console.css">
 
-    <!-- Custom styles for this template -->
-    <link href="../assets/css/dashboard.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <script src="../assets//js/ie-emulation-modes-warning.js"></script>
+</head>
 
-  </head>
+<body>
+	<header>
+		<nav class="top-nav  grey indigo darken-4 ">
+			<div class="container">
+				<div class="nav-wrapper ">
+					<a class="page-title">控制台</a>
+				</div>
+			</div>
+		</nav>
+		<ul id="slide-out" class="side-nav fixed">
+			<li><div class="userView">
+					<div class="background">
+						<img src="../assets/image/plane.jpg">
+					</div>
+					<a href="#!user"><img class="circle"
+						src="../assets/image/plane.jpg"></a> <a href="#!name"><span
+						class="white-text name">Brandon Bai</span></a> <a href="#!email"><span
+						class="white-text email">jifeihu@foxmail.com</span></a>
+				</div></li>
+			<li><a href="#page-dashboard"><i class="material-icons">dashboard</i>概览</a></li>
+			<li><a href="#page-manage"><i class="material-icons">settings_application</i>系统管理</a></li>
+			<li><div class="divider"></div></li>
+			<li><a href="#page-monitor" class="waves-effect"><i class="material-icons">message</i>消息通知</a></li>
+			<li><a href="#page-message" class="waves-effect"><i class="material-icons">trending_up</i>数据监测</a></li>
+			<li><a href="#page-control" class="waves-effect"><i class="material-icons">settings_input_composite</i>远程控制</a></li>
+		</ul>
+		<a href="#" data-activates="slide-out" class="button-collapse"><i
+			class="material-icons">menu</i></a>
+	</header>
+	<main>
+	<div class="container">
 
-  <body>
+                    <!--chart dashboard start-->
+                    <div id="chart-dashboard">
+                        <div class="row">
+                            <div class="col s12 m8 l8">
+                                <div class="card">
+                                    <div class="card-move-up waves-effect waves-block waves-light">
+                                        <div class="move-up cyan darken-1">
+                                            <div>
+                                                <span class="chart-title white-text">Revenue</span>
+                                                <div class="chart-revenue cyan darken-2 white-text">
+                                                    <p class="chart-revenue-total">$4,500.85</p>
+                                                    <p class="chart-revenue-per"><i class="mdi-navigation-arrow-drop-up"></i> 21.80 %</p>
+                                                </div>
+                                                <div class="switch chart-revenue-switch right">
+                                                    <label class="cyan-text text-lighten-5">
+                                                      Month
+                                                      <input type="checkbox">
+                                                      <span class="lever"></span> Year
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="trending-line-chart-wrapper">
+                                                <canvas id="trending-line-chart" height="149" width="645" style="width: 587px; height: 136px;"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <a class="btn-floating btn-move-up waves-effect waves-light darken-2 right"><i class="mdi-content-add activator"></i></a>
+                                        <div class="col s12 m3 l3">
+                                            <div id="doughnut-chart-wrapper">
+                                                <canvas id="doughnut-chart" height="92" width="139" style="width: 127px; height: 84px;"></canvas>
+                                                <div class="doughnut-chart-status">4500
+                                                    <p class="ultra-small center-align">Sold</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col s12 m2 l2">
+                                            <ul class="doughnut-chart-legend">
+                                                <li class="mobile ultra-small"><span class="legend-color"></span>Mobile</li>
+                                                <li class="kitchen ultra-small"><span class="legend-color"></span> Kitchen</li>
+                                                <li class="home ultra-small"><span class="legend-color"></span> Home</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col s12 m5 l6">
+                                            <div class="trending-bar-chart-wrapper">
+                                                <canvas id="trending-bar-chart" height="91" width="304" style="width: 277px; height: 83px;"></canvas>                                                
+                                            </div>
+                                        </div>
+                                    </div>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div>
-      </div>
-    </nav>
+                                    <div class="card-reveal">
+                                        <span class="card-title grey-text text-darken-4">Revenue by Month <i class="mdi-navigation-close right"></i></span>
+                                        <table class="responsive-table">
+                                            <thead>
+                                                <tr>
+                                                    <th data-field="id">ID</th>
+                                                    <th data-field="month">Month</th>
+                                                    <th data-field="item-sold">Item Sold</th>
+                                                    <th data-field="item-price">Item Price</th>
+                                                    <th data-field="total-profit">Total Profit</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>January</td>
+                                                    <td>122</td>
+                                                    <td>100</td>
+                                                    <td>$122,00.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>February</td>
+                                                    <td>122</td>
+                                                    <td>100</td>
+                                                    <td>$122,00.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>March</td>
+                                                    <td>122</td>
+                                                    <td>100</td>
+                                                    <td>$122,00.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>April</td>
+                                                    <td>122</td>
+                                                    <td>100</td>
+                                                    <td>$122,00.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>May</td>
+                                                    <td>122</td>
+                                                    <td>100</td>
+                                                    <td>$122,00.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td>June</td>
+                                                    <td>122</td>
+                                                    <td>100</td>
+                                                    <td>$122,00.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td>July</td>
+                                                    <td>122</td>
+                                                    <td>100</td>
+                                                    <td>$122,00.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>8</td>
+                                                    <td>August</td>
+                                                    <td>122</td>
+                                                    <td>100</td>
+                                                    <td>$122,00.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>9</td>
+                                                    <td>Septmber</td>
+                                                    <td>122</td>
+                                                    <td>100</td>
+                                                    <td>$122,00.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>10</td>
+                                                    <td>Octomber</td>
+                                                    <td>122</td>
+                                                    <td>100</td>
+                                                    <td>$122,00.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>11</td>
+                                                    <td>November</td>
+                                                    <td>122</td>
+                                                    <td>100</td>
+                                                    <td>$122,00.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>December</td>
+                                                    <td>122</td>
+                                                    <td>100</td>
+                                                    <td>$122,00.00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
 
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+                                </div>
+                            </div>
+
+                            <div class="col s12 m4 l4">
+                                <div class="card">
+                                    <div class="card-move-up teal waves-effect waves-block waves-light">
+                                        <div class="move-up">
+                                            <p class="margin white-text">Browser Stats</p>
+                                            <canvas id="trending-radar-chart" height="125" width="332" style="width: 302px; height: 114px;"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="card-content  teal darken-2">
+                                        <a class="btn-floating btn-move-up waves-effect waves-light darken-2 right"><i class="mdi-content-add activator"></i></a>
+                                        <div class="line-chart-wrapper">
+                                            <p class="margin white-text">Revenue by country</p>
+                                            <canvas id="line-chart" height="114" width="302" style="width: 275px; height: 104px;"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="card-reveal">
+                                        <span class="card-title grey-text text-darken-4">Revenue by country <i class="mdi-navigation-close right"></i></span>
+                                        <table class="responsive-table">
+                                            <thead>
+                                                <tr>
+                                                    <th data-field="country-name">Country Name</th>
+                                                    <th data-field="item-sold">Item Sold</th>
+                                                    <th data-field="total-profit">Total Profit</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>USA</td>
+                                                    <td>65</td>
+                                                    <td>$452.55</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>UK</td>
+                                                    <td>76</td>
+                                                    <td>$452.55</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Canada</td>
+                                                    <td>65</td>
+                                                    <td>$452.55</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brazil</td>
+                                                    <td>76</td>
+                                                    <td>$452.55</td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td>India</td>
+                                                    <td>65</td>
+                                                    <td>$452.55</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>France</td>
+                                                    <td>76</td>
+                                                    <td>$452.55</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Austrelia</td>
+                                                    <td>65</td>
+                                                    <td>$452.55</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Russia</td>
+                                                    <td>76</td>
+                                                    <td>$452.55</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--chart dashboard end-->
+
+                    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+                    <!--card stats start-->
+                    <div id="card-stats">
+                        <div class="row">
+                            <div class="col s12 m6 l3">
+                                <div class="card">
+                                    <div class="card-content  green white-text">
+                                        <p class="card-stats-title"><i class="mdi-social-group-add"></i> New Clients</p>
+                                        <h4 class="card-stats-number">566</h4>
+                                        <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 15% <span class="green-text text-lighten-5">from yesterday</span>
+                                        </p>
+                                    </div>
+                                    <div class="card-action  green darken-2">
+                                        <div id="clients-bar" class="center-align"><canvas width="227" height="25" style="display: inline-block; width: 227px; height: 25px; vertical-align: top;"></canvas></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 l3">
+                                <div class="card">
+                                    <div class="card-content pink lighten-1 white-text">
+                                        <p class="card-stats-title"><i class="mdi-editor-insert-drive-file"></i> New Invoice</p>
+                                        <h4 class="card-stats-number">1806</h4>
+                                        <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-down"></i> 3% <span class="deep-purple-text text-lighten-5">from last month</span>
+                                        </p>
+                                    </div>
+                                    <div class="card-action  pink darken-2">
+                                        <div id="invoice-line" class="center-align"><canvas style="display: inline-block; width: 193px; height: 25px; vertical-align: top;" width="193" height="25"></canvas></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 l3">
+                                <div class="card">
+                                    <div class="card-content blue-grey white-text">
+                                        <p class="card-stats-title"><i class="mdi-action-trending-up"></i> Today Profit</p>
+                                        <h4 class="card-stats-number">$806.52</h4>
+                                        <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 80% <span class="blue-grey-text text-lighten-5">from yesterday</span>
+                                        </p>
+                                    </div>
+                                    <div class="card-action blue-grey darken-2">
+                                        <div id="profit-tristate" class="center-align"><canvas width="227" height="25" style="display: inline-block; width: 227px; height: 25px; vertical-align: top;"></canvas></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 l3">
+                                <div class="card">
+                                    <div class="card-content purple white-text">
+                                        <p class="card-stats-title"><i class="mdi-editor-attach-money"></i>Total Sales</p>
+                                        <h4 class="card-stats-number">$8990.63</h4>
+                                        <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 70% <span class="purple-text text-lighten-5">last month</span>
+                                        </p>
+                                    </div>
+                                    <div class="card-action purple darken-2">
+                                        <div id="sales-compositebar" class="center-align"><canvas width="214" height="25" style="display: inline-block; width: 214px; height: 25px; vertical-align: top;"></canvas></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--card stats end-->
+
+                    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+                    <!--card widgets start-->
+                    <div id="card-widgets">
+                        <div class="row">
+
+                            <div class="col s12 m12 l4">
+                                <ul id="task-card" class="collection with-header">
+                                    <li class="collection-header cyan">
+                                        <h4 class="task-card-title">My Task</h4>
+                                        <p class="task-card-date">March 26, 2015</p>
+                                    </li>
+                                    <li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                        <input type="checkbox" id="task1">
+                                        <label for="task1" style="text-decoration: none;">Create Mobile App UI. <a href="http://demo.geekslabs.com/materialize-v1.0/index.html#" class="secondary-content"><span class="ultra-small">Today</span></a>
+                                        </label>
+                                        <span class="task-cat teal">Mobile App</span>
+                                    </li>
+                                    <li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                        <input type="checkbox" id="task2">
+                                        <label for="task2" style="text-decoration: none;">Check the new API standerds. <a href="http://demo.geekslabs.com/materialize-v1.0/index.html#" class="secondary-content"><span class="ultra-small">Monday</span></a>
+                                        </label>
+                                        <span class="task-cat purple">Web API</span>
+                                    </li>
+                                    <li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                        <input type="checkbox" id="task3" checked="checked">
+                                        <label for="task3" style="text-decoration: line-through;">Check the new Mockup of ABC. <a href="http://demo.geekslabs.com/materialize-v1.0/index.html#" class="secondary-content"><span class="ultra-small">Wednesday</span></a>
+                                        </label>
+                                        <span class="task-cat pink">Mockup</span>
+                                    </li>
+                                    <li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                        <input type="checkbox" id="task4" checked="checked" disabled="disabled">
+                                        <label for="task4" style="text-decoration: line-through;">I did it !</label>
+                                        <span class="task-cat cyan">Mobile App</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col s12 m6 l4">
+                                <div id="flight-card" class="card">
+                                    <div class="card-header amber darken-2">
+                                        <div class="card-title">
+                                            <h4 class="flight-card-title">Flight</h4>
+                                            <p class="flight-card-date">June 18, Thu 04:50</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-content-bg white-text">
+                                        <div class="card-content">
+                                            <div class="row flight-state-wrapper">
+                                                <div class="col s5 m5 l5 center-align">
+                                                    <div class="flight-state">
+                                                        <h4 class="margin">LDN</h4>
+                                                        <p class="ultra-small">London</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col s2 m2 l2 center-align">
+                                                    <i class="mdi-device-airplanemode-on flight-icon"></i>
+                                                </div>
+                                                <div class="col s5 m5 l5 center-align">
+                                                    <div class="flight-state">
+                                                        <h4 class="margin">SFO</h4>
+                                                        <p class="ultra-small">San Francisco</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col s6 m6 l6 center-align">
+                                                    <div class="flight-info">
+                                                        <p class="small"><span class="grey-text text-lighten-4">Depart:</span> 04.50</p>
+                                                        <p class="small"><span class="grey-text text-lighten-4">Flight:</span> IB 5786</p>
+                                                        <p class="small"><span class="grey-text text-lighten-4">Terminal:</span> B</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col s6 m6 l6 center-align flight-state-two">
+                                                    <div class="flight-info">
+                                                        <p class="small"><span class="grey-text text-lighten-4">Arrive:</span> 08.50</p>
+                                                        <p class="small"><span class="grey-text text-lighten-4">Flight:</span> IB 5786</p>
+                                                        <p class="small"><span class="grey-text text-lighten-4">Terminal:</span> C</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col s12 m6 l4">
+                                <div id="profile-card" class="card">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img class="activator" src="./Materialize - Material Design Admin Template_files/user-bg.jpg" alt="user background">
+                                    </div>
+                                    <div class="card-content">
+                                        <img src="./Materialize - Material Design Admin Template_files/avatar.jpg" alt="" class="circle responsive-img activator card-profile-image">
+                                        <a class="btn-floating activator btn-move-up waves-effect waves-light darken-2 right">
+                                            <i class="mdi-action-account-circle"></i>
+                                        </a>
+
+                                        <span class="card-title activator grey-text text-darken-4">Roger Waters</span>
+                                        <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Project Manager</p>
+                                        <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
+                                        <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
+
+                                    </div>
+                                    <div class="card-reveal">
+                                        <span class="card-title grey-text text-darken-4">Roger Waters <i class="mdi-navigation-close right"></i></span>
+                                        <p>Here is some more information about this card.</p>
+                                        <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Project Manager</p>
+                                        <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
+                                        <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
+                                        <p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18th June 1990</p>
+                                        <p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i> BAR - AUS</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <!-- blog card -->
+                            <div class="col s12 m12 l4">
+                                <div class="blog-card">
+                                <div class="card">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img src="./Materialize - Material Design Admin Template_files/30.jpg" alt="blog-img">
+                                    </div>
+                                    <ul class="card-action-buttons">
+                                        <li><a class="btn-floating waves-effect waves-light green accent-4"><i class="mdi-social-share"></i></a>
+                                        </li>                            
+                                        <li><a class="btn-floating waves-effect waves-light light-blue"><i class="mdi-action-info activator"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="card-content">
+                                        <p class="row">
+                                          <span class="left"><a href="http://demo.geekslabs.com/materialize-v1.0/index.html">Web Design</a></span>
+                                          <span class="right">18th June, 2015</span>
+                                        </p>
+                                        <h4 class="card-title grey-text text-darken-4"><a href="http://demo.geekslabs.com/materialize-v1.0/index.html#" class="grey-text text-darken-4">Materialize Featured Blog Post Card</a>
+                                        </h4>                                        
+                                        <div class="row">
+                                          <div class="col s2">
+                                            <img src="./Materialize - Material Design Admin Template_files/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+                                          </div>
+                                          <div class="col s9"> By <a href="http://demo.geekslabs.com/materialize-v1.0/index.html#">John Doe</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="card-reveal">
+                                        <span class="card-title grey-text text-darken-4"><i class="mdi-navigation-close right"></i> Apple MacBook Pro A1278 13"</span>
+                                        <p>Here is some more information about this blog that is only revealed once clicked on.</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <!-- product-card -->
+                            <div class="col s12 m12 l4">
+                                <div class="product-card">
+                                    <div class="card">
+                                        <div class="card-image waves-effect waves-block waves-light">
+                                            <a href="http://demo.geekslabs.com/materialize-v1.0/index.html#" class="btn-floating btn-large btn-price waves-effect waves-light  pink accent-2">$189</a>
+                                            <img src="./Materialize - Material Design Admin Template_files/33.jpg" alt="product-img">
+                                        </div>
+                                        <ul class="card-action-buttons">
+                                            <li><a class="btn-floating waves-effect waves-light green accent-4"><i class="mdi-av-repeat"></i></a>
+                                            </li>
+                                            <li><a class="btn-floating waves-effect waves-light red accent-2"><i class="mdi-action-favorite"></i></a>
+                                            </li>
+                                            <li><a class="btn-floating waves-effect waves-light light-blue"><i class="mdi-action-info activator"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="card-content">
+
+                                            <div class="row">
+                                                <div class="col s8">
+                                                    <p class="card-title grey-text text-darken-4"><a href="http://demo.geekslabs.com/materialize-v1.0/index.html#" class="grey-text text-darken-4">Featured Product of The Month</a>
+                                                    </p>
+                                                </div>
+                                                <div class="col s4 no-padding">
+                                                    <a href="http://demo.geekslabs.com/materialize-v1.0/index.html"></a><img src="./Materialize - Material Design Admin Template_files/amazon.jpg" alt="amazon" class="responsive-img">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-reveal">
+                                            <span class="card-title grey-text text-darken-4"><i class="mdi-navigation-close right"></i> Apple MacBook Pro A1278 13"</span>
+                                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- map-card -->
+                            <div class="col s12 m12 l4">
+                                <div class="map-card">
+                                    <div class="card">
+                                        <div class="card-image waves-effect waves-block waves-light">
+                                            <div id="map-canvas" data-lat="40.747688" data-lng="-74.004142" class="" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"><div tabindex="0" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;) 8 8, default;"><div style="z-index: 1; position: absolute; top: 0px; left: 0px; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; position: absolute; left: -24px; top: -173px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -24px; top: 83px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 232px; top: -173px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 232px; top: 83px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -24px; top: -173px;"><canvas draggable="false" height="282" width="282" style="user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -24px; top: 83px;"><canvas draggable="false" height="282" width="282" style="user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 232px; top: -173px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 232px; top: 83px;"></div></div></div></div><div style="position: absolute; z-index: 0; left: 0px; top: 0px;"><div style="overflow: hidden;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="position: absolute; left: -24px; top: 83px; transition: opacity 200ms ease-out;"><img draggable="false" alt="" src="./Materialize - Material Design Admin Template_files/vt" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 232px; top: -173px; transition: opacity 200ms ease-out;"><img draggable="false" alt="" src="./Materialize - Material Design Admin Template_files/vt(1)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 232px; top: 83px; transition: opacity 200ms ease-out;"><img draggable="false" alt="" src="./Materialize - Material Design Admin Template_files/vt(2)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -24px; top: -173px; transition: opacity 200ms ease-out;"><img draggable="false" alt="" src="./Materialize - Material Design Admin Template_files/vt(3)" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div></div></div><div style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0;" class="gm-style-pbc"><p class="gm-style-pbt"></p></div><div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;"><div style="z-index: 1; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;"></div></div><div style="z-index: 4; position: absolute; top: 0px; left: 0px; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a target="_blank" href="https://maps.google.com/maps?ll=40.67,-73.94&amp;z=10&amp;t=m&amp;hl=zh-CN&amp;gl=US&amp;mapclient=apiv3" title="鐐瑰嚮浠ュ湪 Google 鍦板浘涓婃煡鐪嬫鍖哄煙" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 66px; height: 26px; cursor: pointer;"><img src="./Materialize - Material Design Admin Template_files/google_white5_hdpi.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a></div><div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 248px; height: 148px; position: absolute; left: 5px; top: 35px;"><div style="padding: 0px 0px 10px; font-size: 16px;">鍦板浘鏁版嵁</div><div style="font-size: 13px;">鍦板浘鏁版嵁 漏2017 GS(2011)6020 Google</div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img src="./Materialize - Material Design Admin Template_files/mapcnt6.png" draggable="false" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div><div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 132px; bottom: 0px; width: 56px;"><div draggable="false" class="gm-style-cc" style="user-select: none; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer;">鍦板浘鏁版嵁</a><span style="display: none;">鍦板浘鏁版嵁 漏2017 GS(2011)6020 Google</span></div></div></div><div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">鍦板浘鏁版嵁 漏2017 GS(2011)6020 Google</div></div><div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; user-select: none; height: 14px; line-height: 14px; position: absolute; right: 77px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a href="https://www.google.com/intl/zh-CN_US/help/terms_maps.html" target="_blank" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">浣跨敤鏉℃</a></div></div><div style="cursor: pointer; width: 25px; height: 25px; overflow: hidden; margin: 10px 14px; position: absolute; top: 0px; right: 0px;"><img src="./Materialize - Material Design Admin Template_files/sv9.png" draggable="false" class="gm-fullscreen-control" style="position: absolute; left: -52px; top: -86px; width: 164px; height: 175px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div draggable="false" class="gm-style-cc" style="user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a target="_new" title="鍚?Google 鎶ュ憡閬撹矾鍦板浘鎴栧浘鍍忎腑鐨勯敊璇? href="https://www.google.com/maps/@40.67,-73.94,10z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;">鎶ュ憡鍦板浘閿欒</a></div></div><div class="gmnoprint gm-bundled-control gm-bundled-control-on-bottom" draggable="false" controlwidth="28" controlheight="93" style="margin: 10px; user-select: none; position: absolute; bottom: 107px; right: 28px;"><div class="gmnoprint" controlwidth="28" controlheight="55" style="position: absolute; left: 0px; top: 38px;"><div draggable="false" style="user-select: none; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; cursor: pointer; background-color: rgb(255, 255, 255); width: 28px; height: 55px;"><div title="鏀惧ぇ" aria-label="鏀惧ぇ" tabindex="0" style="position: relative; width: 28px; height: 27px; left: 0px; top: 0px;"><div style="overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;"><img src="./Materialize - Material Design Admin Template_files/tmapctrl_hdpi.png" draggable="false" style="position: absolute; left: 0px; top: 0px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;"></div></div><div style="position: relative; overflow: hidden; width: 67%; height: 1px; left: 16%; background-color: rgb(230, 230, 230); top: 0px;"></div><div title="缂╁皬" aria-label="缂╁皬" tabindex="0" style="position: relative; width: 28px; height: 27px; left: 0px; top: 0px;"><div style="overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;"><img src="./Materialize - Material Design Admin Template_files/tmapctrl_hdpi.png" draggable="false" style="position: absolute; left: 0px; top: -15px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;"></div></div></div></div><div class="gm-svpc" controlwidth="28" controlheight="28" style="background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; width: 28px; height: 28px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;) 8 8, default; position: absolute; left: 0px; top: 0px;"><div style="position: absolute; left: 1px; top: 1px;"></div><div style="position: absolute; left: 1px; top: 1px;"><div aria-label="琛楁櫙灏忎汉鎺т欢" style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px;"><img src="./Materialize - Material Design Admin Template_files/cb_scout5_hdpi.png" draggable="false" style="position: absolute; left: -147px; top: -26px; width: 215px; height: 835px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div aria-label="琛楁櫙灏忎汉浣嶄簬鍦板浘涓婇潰" style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Materialize - Material Design Admin Template_files/cb_scout5_hdpi.png" draggable="false" style="position: absolute; left: -147px; top: -52px; width: 215px; height: 835px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div aria-label="琛楁櫙灏忎汉鎺т欢" style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Materialize - Material Design Admin Template_files/cb_scout5_hdpi.png" draggable="false" style="position: absolute; left: -147px; top: -78px; width: 215px; height: 835px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div></div><div class="gmnoprint" controlwidth="28" controlheight="0" style="display: none; position: absolute;"><div title="灏嗗湴鍥炬棆杞?90 搴? style="width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; cursor: pointer; background-color: rgb(255, 255, 255); display: none;"><img src="./Materialize - Material Design Admin Template_files/tmapctrl4_hdpi.png" draggable="false" style="position: absolute; left: -141px; top: 6px; width: 170px; height: 54px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div class="gm-tilt" style="width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; top: 0px; cursor: pointer; background-color: rgb(255, 255, 255);"><img src="./Materialize - Material Design Admin Template_files/tmapctrl4_hdpi.png" draggable="false" style="position: absolute; left: -141px; top: -13px; width: 170px; height: 54px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div></div></div></div></div>
+                                        </div>
+                                        <div class="card-content">                    
+                                            <a class="btn-floating activator btn-move-up waves-effect waves-light darken-2 right">
+                                                <i class="mdi-maps-pin-drop"></i>
+                                            </a>
+                                            <h4 class="card-title grey-text text-darken-4"><a href="http://demo.geekslabs.com/materialize-v1.0/index.html#" class="grey-text text-darken-4">Company Name LLC</a>
+                                            </h4>
+                                            <p class="blog-post-content">Some more information about this company.</p>
+                                        </div>
+                                        <div class="card-reveal">
+                                            <span class="card-title grey-text text-darken-4">Company Name LLC <i class="mdi-navigation-close right"></i></span>                   
+                                            <p>Here is some more information about this company. As a creative studio we believe no client is too big nor too small to work with us to obtain good advantage.By combining the creativity of artists with the precision of engineers we develop custom solutions that achieve results.Some more information about this company.</p>
+                                            <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Manager Name</p>
+                                            <p><i class="mdi-communication-business cyan-text text-darken-2"></i> 125, ABC Street, New Yourk, USA</p>
+                                            <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
+                                            <p><i class="mdi-communication-email cyan-text text-darken-2"></i> support@geekslabs.com</p>                    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                    <!--card widgets end-->
+
+                    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+                    <!--work collections start-->
+                    <div id="work-collections">
+                        <div class="row">
+                            <div class="col s12 m12 l6">
+                                <ul id="projects-collection" class="collection">
+                                    <li class="collection-item avatar">
+                                        <i class="mdi-file-folder circle light-blue darken-2"></i>
+                                        <span class="collection-header">Projects</span>
+                                        <p>Your Favorites</p>
+                                        <a href="http://demo.geekslabs.com/materialize-v1.0/index.html#" class="secondary-content"><i class="mdi-action-grade"></i></a>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <div class="col s6">
+                                                <p class="collections-title">Web App</p>
+                                                <p class="collections-content">AEC Company</p>
+                                            </div>
+                                            <div class="col s3">
+                                                <span class="task-cat cyan">Development</span>
+                                            </div>
+                                            <div class="col s3">
+                                                <div id="project-line-1"><canvas style="display: inline-block; width: 89px; height: 30px; vertical-align: top;" width="89" height="30"></canvas></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <div class="col s6">
+                                                <p class="collections-title">Mobile App for Social</p>
+                                                <p class="collections-content">iSocial App</p>
+                                            </div>
+                                            <div class="col s3">
+                                                <span class="task-cat grey darken-3">UI/UX</span>
+                                            </div>
+                                            <div class="col s3">
+                                                <div id="project-line-2"><canvas style="display: inline-block; width: 89px; height: 30px; vertical-align: top;" width="89" height="30"></canvas></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <div class="col s6">
+                                                <p class="collections-title">Website</p>
+                                                <p class="collections-content">MediTab</p>
+                                            </div>
+                                            <div class="col s3">
+                                                <span class="task-cat teal">Marketing</span>
+                                            </div>
+                                            <div class="col s3">
+                                                <div id="project-line-3"><canvas style="display: inline-block; width: 89px; height: 30px; vertical-align: top;" width="89" height="30"></canvas></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <div class="col s6">
+                                                <p class="collections-title">AdWord campaign</p>
+                                                <p class="collections-content">True Line</p>
+                                            </div>
+                                            <div class="col s3">
+                                                <span class="task-cat green">SEO</span>
+                                            </div>
+                                            <div class="col s3">
+                                                <div id="project-line-4"><canvas style="display: inline-block; width: 89px; height: 30px; vertical-align: top;" width="89" height="30"></canvas></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col s12 m12 l6">
+                                <ul id="issues-collection" class="collection">
+                                    <li class="collection-item avatar">
+                                        <i class="mdi-action-bug-report circle red darken-2"></i>
+                                        <span class="collection-header">Issues</span>
+                                        <p>Assigned to you</p>
+                                        <a href="http://demo.geekslabs.com/materialize-v1.0/index.html#" class="secondary-content"><i class="mdi-action-grade"></i></a>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <div class="col s7">
+                                                <p class="collections-title"><strong>#102</strong> Home Page</p>
+                                                <p class="collections-content">Web Project</p>
+                                            </div>
+                                            <div class="col s2">
+                                                <span class="task-cat pink accent-2">P1</span>
+                                            </div>
+                                            <div class="col s3">
+                                                <div class="progress">
+                                                     <div class="determinate" style="width: 70%"></div>   
+                                                </div>                                                
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <div class="col s7">
+                                                <p class="collections-title"><strong>#108</strong> API Fix</p>
+                                                <p class="collections-content">API Project </p>
+                                            </div>
+                                            <div class="col s2">
+                                                <span class="task-cat yellow darken-4">P2</span>
+                                            </div>
+                                            <div class="col s3">
+                                                <div class="progress">
+                                                    <div class="determinate" style="width: 40%"></div>   
+                                                </div>                                                
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <div class="col s7">
+                                                <p class="collections-title"><strong>#205</strong> Profile page css</p>
+                                                <p class="collections-content">New Project </p>
+                                            </div>
+                                            <div class="col s2">                                                
+                                                <span class="task-cat light-green darken-3">P3</span>
+                                            </div>
+                                            <div class="col s3">
+                                                <div class="progress">
+                                                    <div class="determinate" style="width: 95%"></div>   
+                                                </div>                                                
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <div class="col s7">
+                                                <p class="collections-title"><strong>#188</strong> SAP Changes</p>
+                                                <p class="collections-content">SAP Project</p>
+                                            </div>
+                                            <div class="col s2">
+                                                <span class="task-cat pink accent-2">P1</span>
+                                            </div>
+                                            <div class="col s3">
+                                                <div class="progress">
+                                                     <div class="determinate" style="width: 10%"></div>   
+                                                </div>                                                
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--work collections end-->
+
+                    <!-- Floating Action Button -->
+                    <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
+                        <a class="btn-floating btn-large">
+                          <i class="mdi-action-stars"></i>
+                        </a>
+                        <ul>
+                          <li><a href="http://demo.geekslabs.com/materialize-v1.0/css-helpers.html" class="btn-floating red"><i class="large mdi-communication-live-help"></i></a></li>
+                          <li><a href="http://demo.geekslabs.com/materialize-v1.0/app-widget.html" class="btn-floating yellow darken-1"><i class="large mdi-device-now-widgets"></i></a></li>
+                          <li><a href="http://demo.geekslabs.com/materialize-v1.0/app-calendar.html" class="btn-floating green"><i class="large mdi-editor-insert-invitation"></i></a></li>
+                          <li><a href="http://demo.geekslabs.com/materialize-v1.0/app-email.html" class="btn-floating blue"><i class="large mdi-communication-email"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- Floating Action Button -->
+
+                </div>
+                <!--end container-->
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
 
-          <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+	</main>
+	<script src="../assets/js/jquery-3.2.1.js"></script>
+	<script src="../assets/js/materialize.min.js"></script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <script src="../assets/js/jquery-3.2.1.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../assets/js/jquery-3.2.1.min.js"><\/script>')</script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+	<script src="../assets/js/console.js"></script>
+
+</body>
 </html>

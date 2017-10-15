@@ -10,6 +10,14 @@ import com.github.brandonbai.smartmonitor.pojo.Response;
 import com.github.brandonbai.smartmonitor.service.AreaService;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * 
+ * AreaController 
+ * @Description: 区域处理
+ * @author Feihu Ji
+ * @sine 2016年10月15日
+ *
+ */
 @RestController
 @RequestMapping("/area")
 public class AreaController {

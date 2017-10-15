@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class SensorValue {
 	private Integer sensorId;
-	private String SensorName;
+	private String sensorName;
 	private Date time;
 	private Integer value;
 
@@ -17,10 +17,10 @@ public class SensorValue {
 	}
 
 	public String getSensorName() {
-		return SensorName;
+		return sensorName;
 	}
 	public void setSensorName(String sensorName) {
-		SensorName = sensorName;
+		this.sensorName = sensorName;
 	}
 	public Date getTime() {
 		return time;

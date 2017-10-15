@@ -10,6 +10,14 @@ import com.github.brandonbai.smartmonitor.pojo.Response;
 import com.github.brandonbai.smartmonitor.service.DataTypeService;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * 
+ * DataTypeController 
+ * @Description: 数据类型处理
+ * @author Feihu Ji
+ * @sine 2016年10月15日
+ *
+ */
 @RestController
 @RequestMapping("/datatype")
 public class DataTypeController {

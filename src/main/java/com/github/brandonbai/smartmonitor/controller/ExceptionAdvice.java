@@ -11,6 +11,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.github.brandonbai.smartmonitor.exception.MsgException;
 import com.github.brandonbai.smartmonitor.pojo.Response;
 
+/**
+ * 
+ * ExceptionAdvice 
+ * @Description: 异常处理
+ * @author Feihu Ji
+ * @sine 2017年10月15日
+ *
+ */
+
 @ControllerAdvice
 @ResponseBody
 public class ExceptionAdvice {

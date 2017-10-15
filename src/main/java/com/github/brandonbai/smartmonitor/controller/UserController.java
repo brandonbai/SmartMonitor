@@ -15,6 +15,14 @@ import com.github.brandonbai.smartmonitor.service.TokenService;
 import com.github.brandonbai.smartmonitor.service.UserService;
 import com.github.brandonbai.smartmonitor.utils.TextUtils;
 
+/**
+ * 
+ * UserController 
+ * @Description: 用户相关
+ * @author Feihu Ji
+ * @sine 2016年10月15日
+ *
+ */
 @RestController
 @RequestMapping("/user/")
 public class UserController {

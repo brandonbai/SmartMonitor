@@ -29,6 +29,7 @@ public class SensorServiceImpl implements SensorService {
 	@Autowired
 	private MonitorWebSocketHandler monitorWebSocketHandler;
 	
+	@Override
 	public List<SensorValue> findDataByTime(Integer sensorId, Date firstTime, Date lastTime) {
 		if(sensorId != null) {
 			if(firstTime==null || lastTime==null) {

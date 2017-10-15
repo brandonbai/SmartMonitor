@@ -16,6 +16,14 @@ import com.github.brandonbai.smartmonitor.pojo.SensorValue;
 import com.github.brandonbai.smartmonitor.service.SensorService;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * 
+ * SensorController 
+ * @Description: 传感器相关
+ * @author Feihu Ji
+ * @sine 2016年10月15日
+ *
+ */
 @RestController
 @RequestMapping("/sysinfo/")
 public class SensorController {

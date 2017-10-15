@@ -10,6 +10,14 @@ import com.github.brandonbai.smartmonitor.pojo.Response;
 import com.github.brandonbai.smartmonitor.service.NodeService;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * 
+ * NodeController 
+ * @Description: 节点处理
+ * @author Feihu Ji
+ * @sine 2016年10月15日
+ * 
+ */
 @RestController
 @RequestMapping("/node")
 public class NodeController {

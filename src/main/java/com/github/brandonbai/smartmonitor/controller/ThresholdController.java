@@ -13,6 +13,14 @@ import com.github.brandonbai.smartmonitor.pojo.Response;
 import com.github.brandonbai.smartmonitor.pojo.Threshold;
 import com.github.brandonbai.smartmonitor.service.ThresholdService;
 
+/**
+ * 
+ * ThresholdController 
+ * @Description: 阈值处理
+ * @author Feihu Ji
+ * @sine 2016年10月15日
+ *
+ */
 @RestController
 @RequestMapping("/threshold/")
 public class ThresholdController {

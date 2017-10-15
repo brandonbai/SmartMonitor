@@ -17,6 +17,14 @@ import com.github.brandonbai.smartmonitor.service.DeviceService;
 import com.github.brandonbai.smartmonitor.utils.TextUtils;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * 
+ * DeviceController 
+ * @Description: 设备相关
+ * @author Feihu Ji
+ * @sine 2016年10月15日
+ *
+ */
 @RestController
 @RequestMapping("/device/")
 public class DeviceController {

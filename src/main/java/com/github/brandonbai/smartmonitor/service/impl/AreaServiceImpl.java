@@ -16,6 +16,7 @@ public class AreaServiceImpl implements AreaService {
 	@Autowired
 	private AreaMapper areaMapper;
 	
+	@Override
 	public PageInfo<Area> getAll(int pageNum, int pageSize) {
 		
 		List<Area> list = areaMapper.findAll(pageNum, pageSize);
@@ -24,6 +25,7 @@ public class AreaServiceImpl implements AreaService {
 		
 	}
 	
+	@Override
 	public Area getOne(Integer areaId) {
 		
 		
@@ -31,18 +33,21 @@ public class AreaServiceImpl implements AreaService {
 		
 	}
 	
+	@Override
 	public void update(Area area) {
 
 		areaMapper.update(area);
 		
 	}
 	
+	@Override
 	public void delete(Integer areaId) {
 		
 		areaMapper.delete(areaId);
 		
 	}
 	
+	@Override
 	public void add(Area area) {
 		
 		areaMapper.add(area);

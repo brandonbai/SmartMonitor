@@ -8,8 +8,10 @@ package com.github.brandonbai.smartmonitor.annotation;
  * 
  */
 public enum RoleType {
-	
-	ROLE_ADMIN(1), ROLE_USER(2);
+	/**管理员*/
+	ROLE_ADMIN(1), 
+	/**用户*/
+	ROLE_USER(2);
 	
 	private int id;
 	

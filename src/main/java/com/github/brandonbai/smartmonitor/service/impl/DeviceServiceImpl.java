@@ -26,6 +26,7 @@ public class DeviceServiceImpl implements DeviceService {
 	 * @param command 命令
 	 * @return 下位机返回的结果
 	 */
+	@Override
 	public void controlDevice(String command) throws MsgException {
 		Device device = deviceMapper.findDeviceByCommand(command);
 		if(device != null) {

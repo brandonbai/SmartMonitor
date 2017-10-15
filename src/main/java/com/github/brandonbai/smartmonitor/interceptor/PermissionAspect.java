@@ -18,7 +18,11 @@ import com.github.brandonbai.smartmonitor.service.LogService;
 import com.github.brandonbai.smartmonitor.service.TokenService;
 
 /**
- * 权限控制切面
+ * 
+ * PermissionAspect 
+ * @Description: 权限控制切面
+ * @author Feihu Ji
+ * @sine 2016年10月15日
  *
  */
 @Aspect

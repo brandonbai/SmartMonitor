@@ -18,6 +18,13 @@ import com.github.brandonbai.smartmonitor.service.SensorService;
 import com.github.brandonbai.smartmonitor.websocket.MonitorWebSocketHandler;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * 
+ * SensorServiceImpl 
+ * @author Feihu Ji
+ * @sine 2016年10月19日
+ *
+ */
 @Service
 public class SensorServiceImpl implements SensorService {
 	@Resource

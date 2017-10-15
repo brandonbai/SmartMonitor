@@ -7,6 +7,13 @@ import org.apache.ibatis.annotations.Param;
 import com.github.brandonbai.smartmonitor.exception.MsgException;
 import com.github.brandonbai.smartmonitor.pojo.User;
 
+/**
+ * 
+ * UserMapper 
+ * @author Feihu Ji
+ * @sine 2016年10月17日
+ *
+ */
 public interface UserMapper {
 	
 	/**

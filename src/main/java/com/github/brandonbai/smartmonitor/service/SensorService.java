@@ -7,6 +7,13 @@ import com.github.brandonbai.smartmonitor.pojo.Sensor;
 import com.github.brandonbai.smartmonitor.pojo.SensorValue;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * 
+ * SensorService 
+ * @author Feihu Ji
+ * @sine 2016年10月19日
+ *
+ */
 public interface SensorService {
 	
 	List<SensorValue> findDataByTime(Integer sensorId, Date firstTime, Date lastTime);

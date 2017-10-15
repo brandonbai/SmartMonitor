@@ -10,6 +10,13 @@ import com.github.brandonbai.smartmonitor.pojo.Area;
 import com.github.brandonbai.smartmonitor.service.AreaService;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * 
+ * AreaServiceImpl 
+ * @author Feihu Ji
+ * @sine 2016年10月19日
+ *
+ */
 @Service
 public class AreaServiceImpl implements AreaService {
 

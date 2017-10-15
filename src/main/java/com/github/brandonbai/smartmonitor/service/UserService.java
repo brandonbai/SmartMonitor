@@ -4,6 +4,13 @@ import com.github.brandonbai.smartmonitor.exception.MsgException;
 import com.github.brandonbai.smartmonitor.pojo.User;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * 
+ * UserService 
+ * @author Feihu Ji
+ * @sine 2016年10月19日
+ *
+ */
 public interface UserService {
 	/**
 	 * �����û�

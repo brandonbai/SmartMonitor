@@ -1,7 +1,11 @@
 package com.github.brandonbai.smartmonitor.utils;
 
 /**
- * 文本工具类
+ * 
+ * TextUtils 
+ * @Description: 文本工具
+ * @author Feihu Ji
+ * @sine 2016年10月19日
  *
  */
 public class TextUtils {

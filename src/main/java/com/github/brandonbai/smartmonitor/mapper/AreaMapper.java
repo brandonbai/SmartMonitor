@@ -6,6 +6,13 @@ import org.apache.ibatis.annotations.Param;
 
 import com.github.brandonbai.smartmonitor.pojo.Area;
 
+/**
+ * 
+ * AreaMapper 
+ * @author Feihu Ji
+ * @sine 2016年10月17日
+ *
+ */
 public interface AreaMapper {
 	
 	public List<Area> findAll(@Param("pageNum") int pageNum, 

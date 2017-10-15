@@ -13,6 +13,13 @@ import com.github.brandonbai.smartmonitor.service.UserService;
 import com.github.brandonbai.smartmonitor.utils.MD5;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * 
+ * UserServiceImpl 
+ * @author Feihu Ji
+ * @sine 2016年10月19日
+ *
+ */
 @Service
 public class UserServiceImpl implements UserService {
 	

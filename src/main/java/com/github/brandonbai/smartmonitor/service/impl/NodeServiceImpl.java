@@ -10,6 +10,13 @@ import com.github.brandonbai.smartmonitor.pojo.Node;
 import com.github.brandonbai.smartmonitor.service.NodeService;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * 
+ * NodeServiceImpl 
+ * @author Feihu Ji
+ * @sine 2016年10月19日
+ *
+ */
 @Service
 public class NodeServiceImpl implements NodeService{
 

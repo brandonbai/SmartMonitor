@@ -2,6 +2,14 @@ package com.github.brandonbai.smartmonitor.pojo;
 
 import java.util.Date;
 
+/**
+ * 
+ * Log 
+ * @Description: 日志
+ * @author Feihu Ji
+ * @sine 2016年10月11日
+ *
+ */
 public class Log {
 
 	public static final int INFORMATION_CONNECT = 1;

@@ -6,6 +6,13 @@ import org.apache.ibatis.annotations.Param;
 
 import com.github.brandonbai.smartmonitor.pojo.Sensor;
 
+/**
+ * 
+ * SensorMapper 
+ * @author Feihu Ji
+ * @sine 2016年10月17日
+ *
+ */
 public interface SensorMapper {
 
 	List<Sensor> findSensorByAreaId(Integer areaId);

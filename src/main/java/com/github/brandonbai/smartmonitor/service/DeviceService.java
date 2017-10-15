@@ -7,7 +7,13 @@ import com.github.brandonbai.smartmonitor.pojo.Command;
 import com.github.brandonbai.smartmonitor.pojo.Device;
 import com.github.pagehelper.PageInfo;
 
-
+/**
+ * 
+ * DeviceService 
+ * @author Feihu Ji
+ * @sine 2016年10月19日
+ *
+ */
 public interface DeviceService {
 	
 	void controlDevice(String command) throws MsgException;

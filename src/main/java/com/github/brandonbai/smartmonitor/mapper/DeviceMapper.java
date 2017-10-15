@@ -7,6 +7,13 @@ import org.apache.ibatis.annotations.Param;
 import com.github.brandonbai.smartmonitor.pojo.Command;
 import com.github.brandonbai.smartmonitor.pojo.Device;
 
+/**
+ * 
+ * DeviceMapper 
+ * @author Feihu Ji
+ * @sine 2016年10月17日
+ *
+ */
 public interface DeviceMapper {
 	
 	public void updateDeviceState(@Param("id") Integer id, @Param("state") Boolean state);

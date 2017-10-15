@@ -15,11 +15,21 @@ import com.github.brandonbai.smartmonitor.service.TokenService;
 import com.github.brandonbai.smartmonitor.utils.MD5;
 import com.github.brandonbai.smartmonitor.utils.TextUtils;
 
+/**
+ * 
+ * TokenServiceImpl 
+ * @author Feihu Ji
+ * @sine 2016年10月19日
+ *
+ */
 @Component
 public class TokenServiceImpl implements TokenService {
 
+	/**
+	 * TOKEN标记
+	 */
 	private static final String TOKEN_NAME = "token";
-	// 保存token-username的线程安全map
+	/** 保存token-username的线程安全map*/
 	private static Map<String, User> tokenMap = new ConcurrentHashMap<>();
 
 	@Override

@@ -10,6 +10,13 @@ import com.github.brandonbai.smartmonitor.pojo.DataType;
 import com.github.brandonbai.smartmonitor.service.DataTypeService;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * 
+ * DataTypeServiceImpl 
+ * @author Feihu Ji
+ * @sine 2016年10月19日
+ *
+ */
 @Service
 public class DataTypeServiceImpl implements DataTypeService {
 

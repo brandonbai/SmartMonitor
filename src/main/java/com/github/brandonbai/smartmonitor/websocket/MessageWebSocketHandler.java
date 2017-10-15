@@ -18,7 +18,12 @@ import com.github.brandonbai.smartmonitor.pojo.User;
 import com.github.brandonbai.smartmonitor.service.TokenService;
 
 /**
- * Created by jifeihu on 2017/3/30.
+ * 
+ * MessageWebSocketHandler 
+ * @Description: WebSocket消息处理类
+ * @author Feihu Ji
+ * @sine 2017年3月30日
+ *
  */
 public class MessageWebSocketHandler implements WebSocketHandler {
 	

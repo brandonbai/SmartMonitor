@@ -13,10 +13,13 @@ import org.springframework.web.socket.server.HandshakeInterceptor;
 import com.github.brandonbai.smartmonitor.service.TokenService;
 
 /**
- * WebSocket握手拦截器
  * 
+ * WebSocketHandshakeInterceptor 
+ * @Description: WebSocket握手拦截器 
+ * @author Feihu Ji
+ * @sine 2016年11月11日
+ *
  */
-
 public class WebSocketHandshakeInterceptor implements HandshakeInterceptor {
 
     private static final Logger logger = Logger.getLogger(WebSocketHandshakeInterceptor.class);

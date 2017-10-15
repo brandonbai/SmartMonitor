@@ -6,6 +6,13 @@ import org.apache.ibatis.annotations.Param;
 
 import com.github.brandonbai.smartmonitor.pojo.Node;
 
+/**
+ * 
+ * NodeMapper 
+ * @author Feihu Ji
+ * @sine 2016年10月17日
+ *
+ */
 public interface NodeMapper {
 
 	List<Node> findAll(@Param("pageNum") int pageNum, 

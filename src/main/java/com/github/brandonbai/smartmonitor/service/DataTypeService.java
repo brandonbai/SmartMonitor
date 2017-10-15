@@ -3,6 +3,13 @@ package com.github.brandonbai.smartmonitor.service;
 import com.github.brandonbai.smartmonitor.pojo.DataType;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * 
+ * DataTypeService 
+ * @author Feihu Ji
+ * @sine 2016年10月19日
+ *
+ */
 public interface DataTypeService {
 
 	PageInfo<DataType> getAll(int pageNum, int pageSize);

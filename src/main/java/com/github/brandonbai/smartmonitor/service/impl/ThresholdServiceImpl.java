@@ -1,4 +1,4 @@
-package com.github.brandonbai.smartmonitor.service;
+package com.github.brandonbai.smartmonitor.service.impl;
 
 import java.util.List;
 
@@ -8,7 +8,15 @@ import org.springframework.stereotype.Service;
 
 import com.github.brandonbai.smartmonitor.mapper.ThresholdMapper;
 import com.github.brandonbai.smartmonitor.pojo.Threshold;
+import com.github.brandonbai.smartmonitor.service.ThresholdService;
 
+/**
+ * 
+ * ThresholdServiceImpl 
+ * @author Feihu Ji
+ * @sine 2016年10月19日
+ *
+ */
 @Service
 public class ThresholdServiceImpl implements ThresholdService {
 	

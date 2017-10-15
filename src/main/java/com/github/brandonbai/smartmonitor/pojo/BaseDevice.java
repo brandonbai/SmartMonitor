@@ -1,5 +1,13 @@
 package com.github.brandonbai.smartmonitor.pojo;
 
+/**
+ * 
+ * BaseDevice 
+ * @Description: 设备基类
+ * @author Feihu Ji
+ * @sine 2016年10月11日
+ *
+ */
 public class BaseDevice {
 	private Integer id;
 	private String name;

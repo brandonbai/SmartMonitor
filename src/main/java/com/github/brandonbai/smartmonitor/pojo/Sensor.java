@@ -1,16 +1,21 @@
 package com.github.brandonbai.smartmonitor.pojo;
 
 /**
- * 传感器
+ * 
+ * Sensor 
+ * @Description: 传感器
+ * @author Feihu Ji
+ * @sine 2016年10月11日
+ *
  */
 public class Sensor extends BaseDevice {
-	// 单位
+	/** 单位 */
 	private String unit;
-	// 实时值
+	/** 实时值*/
 	private Integer realValue;
-	// 阈值
+	/** 阈值*/
 	private Threshold threshold;
-	// 设备id
+	/** 设备id*/
 	private Integer deviceId;
 
 	public Integer getRealValue() {

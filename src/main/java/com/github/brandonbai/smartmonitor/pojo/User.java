@@ -3,6 +3,14 @@ package com.github.brandonbai.smartmonitor.pojo;
 import com.github.brandonbai.smartmonitor.exception.MsgException;
 import com.github.brandonbai.smartmonitor.utils.TextUtils;
 
+/**
+ * 
+ * User 
+ * @Description: 用户
+ * @author Feihu Ji
+ * @sine 2016年10月11日
+ *
+ */
 public class User {
 	private Integer id;
 	private String username;

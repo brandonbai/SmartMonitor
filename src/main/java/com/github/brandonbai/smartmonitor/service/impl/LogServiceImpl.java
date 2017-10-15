@@ -12,6 +12,13 @@ import com.github.brandonbai.smartmonitor.pojo.Log;
 import com.github.brandonbai.smartmonitor.service.LogService;
 import com.github.brandonbai.smartmonitor.websocket.MessageWebSocketHandler;
 
+/**
+ * 
+ * LogServiceImpl 
+ * @author Feihu Ji
+ * @sine 2016年10月19日
+ *
+ */
 @Service
 public class LogServiceImpl implements LogService {
 	

@@ -2,6 +2,14 @@ package com.github.brandonbai.smartmonitor.pojo;
 
 import java.util.Date;
 
+/**
+ * 
+ * SensorValue 
+ * @Description: 传感器采集数值
+ * @author Feihu Ji
+ * @sine 2016年10月11日
+ *
+ */
 public class SensorValue {
 	private Integer sensorId;
 	private String sensorName;

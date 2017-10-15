@@ -3,8 +3,9 @@ package com.github.brandonbai.smartmonitor.pojo;
 /**
  * 
  * DataType 
+ * @Description: 数据类型
  * @author Feihu Ji
- * @sine 2017/3/25
+ * @sine 2016年10月11日
  *
  */
 public class DataType {

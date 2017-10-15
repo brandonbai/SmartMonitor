@@ -5,7 +5,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * md5
+ * 
+ * MD5 
+ * @author Feihu Ji
+ * @sine 2016年10月16日
+ *
  */
 public class MD5 {
 	

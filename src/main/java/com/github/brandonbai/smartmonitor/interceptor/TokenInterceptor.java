@@ -10,8 +10,12 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.github.brandonbai.smartmonitor.service.TokenService;
 
 /**
- * token拦截器
  * 
+ * TokenInterceptor 
+ * @Description: token拦截器
+ * @author Feihu Ji
+ * @sine 2016年11月11日
+ *
  */
 public class TokenInterceptor extends HandlerInterceptorAdapter {
 

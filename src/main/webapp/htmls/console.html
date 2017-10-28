@@ -56,7 +56,6 @@
 					</li>
                  </ul>
 			</li>
-			<li><div class="divider"></div></li>
 			<li><a href="#monitor" class="waves-effect"><i
 					class="material-icons">message</i>消息通知</a></li>
 			<li><a href="#message" class="waves-effect"><i
@@ -71,9 +70,15 @@
 	<div class="container"></div>
 	</main>
 	<script src="../assets/js/jquery-3.2.1.js"></script>
+	<script src="../assets/js/echarts.min.js"></script>
 	<script src="../assets/js/materialize.min.js"></script>
 	<script>
-		$(".button-collapse").sideNav();
+	$('.button-collapse').sideNav({
+	      menuWidth: 240, // Default is 240
+	      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+	      draggable: true // Choose whether you can drag to open on touch screens
+	    }
+	  );
 		$(function() {
 			var firstUrl = $("li>a.waves-effect:first:not(.collapsible-header)").attr("href").substring(1).concat(".html");
 			$("main>div.container").load(firstUrl);

@@ -3,7 +3,7 @@
     padding-left:180px;
   }
   main{
-    padding-left:180px;
+    padding-left:300px;
   }
 }
 .toDaCenter{
@@ -17,4 +17,10 @@
 }
 .toDaJustify{
   text-align:justify;
+}
+.collapsible-header{
+	padding-left: 32px!important;
+}
+.collapsible-body {
+    padding-left: 20px!important;
 }

@@ -33,23 +33,23 @@
 					<li><a href="#manage" class="collapsible-header  waves-effect waves-teal"><i class="material-icons">settings_application</i>系统管理</a>
 						<div class="collapsible-body">
 							<ul>
-							<li class="inactive_son">
-		                        <a href="javascript:void(0);" class="waves-effect">
-		                        	<i class="material-icons">settings_application</i>
+							<li>
+		                        <a href="#user_manage" class="waves-effect">
+		                        	<i class="material-icons">perm_identity</i>
 		                        	用户管理
 		                        </a>
 		                    </li>
-		                    <li class="onActive">
-		                        <a href="#branch_center" class="waves-effect"><i class="material-icons">settings_application</i>区域管理</a>
+		                    <li>
+		                        <a href="#area_manage" class="waves-effect"><i class="material-icons">store</i>区域管理</a>
 		                    </li>
-		                    <li class="inactive_son">
-		                        <a href="javascript:void(0);" class="waves-effect"><i class="material-icons">settings_application</i>节点管理</a>
+		                    <li>
+		                        <a href="#node_manage" class="waves-effect"><i class="material-icons">scanner</i>节点管理</a>
 		                    </li>
-		                    <li class="onActive">
-		                        <a href="#user_manage" class="waves-effect"><i class="material-icons">settings_application</i>传感器管理</a>
+		                    <li>
+		                        <a href="#sensor_manage" class="waves-effect"><i class="material-icons">wb_iridescent</i>传感器管理</a>
 		                    </li>
-		                    <li class="onActive">
-		                        <a href="#role_manage" class="waves-effect"><i class="material-icons">settings_application</i>设备管理</a>
+		                    <li>
+		                        <a href="#device_manage" class="waves-effect"><i class="material-icons">perm_device_information</i>设备管理</a>
 		                    </li>
 						</ul>
 						</div>
@@ -75,9 +75,9 @@
 	<script>
 		$(".button-collapse").sideNav();
 		$(function() {
-			var firstUrl = $(".side-nav>li").children("a.waves-effect:first").attr("href").substring(1).concat(".html");
+			var firstUrl = $("li>a.waves-effect:first:not(.collapsible-header)").attr("href").substring(1).concat(".html");
 			$("main>div.container").load(firstUrl);
-			$(".side-nav>li").children("a.waves-effect").click(function(){
+			$("li>a.waves-effect:not(.collapsible-header)").click(function(){
 				var url = $(this).attr("href").substring(1).concat(".html");
 				$("main>div.container").load(url);
 			});

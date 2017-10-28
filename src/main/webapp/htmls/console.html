@@ -27,65 +27,61 @@
 						class="white-text name">Brandon Bai</span></a> <a href="#!email"><span
 						class="white-text email">jifeihu@foxmail.com</span></a>
 				</div></li>
-			<li><a href="#page-dashboard"><i class="material-icons">dashboard</i>概览</a></li>
-			<li><a href="#page-manage"><i class="material-icons">settings_application</i>系统管理</a></li>
+			<li><a href="#dashboard" class="waves-effect"><i class="material-icons">dashboard</i>概览</a></li>
+			<li>
+				<ul class="collapsible collapsible-accordion">
+					<li><a href="#manage" class="collapsible-header  waves-effect waves-teal"><i class="material-icons">settings_application</i>系统管理</a>
+						<div class="collapsible-body">
+							<ul>
+							<li class="inactive_son">
+		                        <a href="javascript:void(0);" class="waves-effect">
+		                        	<i class="material-icons">settings_application</i>
+		                        	用户管理
+		                        </a>
+		                    </li>
+		                    <li class="onActive">
+		                        <a href="#branch_center" class="waves-effect"><i class="material-icons">settings_application</i>区域管理</a>
+		                    </li>
+		                    <li class="inactive_son">
+		                        <a href="javascript:void(0);" class="waves-effect"><i class="material-icons">settings_application</i>节点管理</a>
+		                    </li>
+		                    <li class="onActive">
+		                        <a href="#user_manage" class="waves-effect"><i class="material-icons">settings_application</i>传感器管理</a>
+		                    </li>
+		                    <li class="onActive">
+		                        <a href="#role_manage" class="waves-effect"><i class="material-icons">settings_application</i>设备管理</a>
+		                    </li>
+						</ul>
+						</div>
+					</li>
+                 </ul>
+			</li>
 			<li><div class="divider"></div></li>
-			<li><a href="#page-monitor" class="waves-effect"><i
+			<li><a href="#monitor" class="waves-effect"><i
 					class="material-icons">message</i>消息通知</a></li>
-			<li><a href="#page-message" class="waves-effect"><i
+			<li><a href="#message" class="waves-effect"><i
 					class="material-icons">trending_up</i>数据监测</a></li>
-			<li><a href="#page-control" class="waves-effect"><i
+			<li><a href="#control" class="waves-effect"><i
 					class="material-icons">settings_input_composite</i>远程控制</a></li>
 		</ul>
 		<a href="#" data-activates="slide-out" class="button-collapse"><i
 			class="material-icons">menu</i></a>
 	</header>
 	<main>
-	<div class="container">
-		<div id="chart-dashboard">
-			<div class="row">
-				<div class="col s12 m8 l8">
-					<div class="card">
-						status
-					</div>
-				</div>
-				<div class="col s12 m4 l4">
-					<div class="card">
-						other
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="card-stats">
-			<div class="row">
-				<div class="col s12 m6 l3">
-					<div class="card">
-						temp
-					</div>
-				</div>
-				<div class="col s12 m6 l3">
-					<div class="card">
-						soil
-					</div>
-				</div>
-				<div class="col s12 m6 l3">
-					<div class="card">
-						humi
-					</div>
-				</div>
-				<div class="col s12 m6 l3">
-					<div class="card">
-						light
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div class="container"></div>
 	</main>
 	<script src="../assets/js/jquery-3.2.1.js"></script>
 	<script src="../assets/js/materialize.min.js"></script>
 	<script>
 		$(".button-collapse").sideNav();
+		$(function() {
+			var firstUrl = $(".side-nav>li").children("a.waves-effect:first").attr("href").substring(1).concat(".html");
+			$("main>div.container").load(firstUrl);
+			$(".side-nav>li").children("a.waves-effect").click(function(){
+				var url = $(this).attr("href").substring(1).concat(".html");
+				$("main>div.container").load(url);
+			});
+		});
 	</script>
 </body>
 </html>

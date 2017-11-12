@@ -80,6 +80,24 @@
 	    }
 	  );
 		$(function() {
+			var websocket = null;
+			if('WebSocket' in window){
+			    websocket = new WebSocket("ws://smartmonitor/websocket");
+			}else{
+			    alert('Not support websocket')
+			}
+			websocket.onerror = function(){
+			    setMessage("-");
+			};
+			websocket.onmessage = function(event){
+				setMessage(event.data);
+			}
+			window.onbeforeunload = function(){
+			    websocket.close();
+			}
+			function setMessage(msg) {
+			    // TODO
+			}
 			var firstUrl = $("li>a.waves-effect:first:not(.collapsible-header)").attr("href").substring(1).concat(".html");
 			$("main>div.container").load(firstUrl);
 			$("li>a.waves-effect:not(.collapsible-header)").click(function(){

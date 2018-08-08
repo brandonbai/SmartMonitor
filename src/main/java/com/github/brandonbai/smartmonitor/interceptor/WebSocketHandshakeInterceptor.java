@@ -15,9 +15,9 @@ import com.github.brandonbai.smartmonitor.service.TokenService;
 /**
  * 
  * WebSocketHandshakeInterceptor 
- * @Description: WebSocket握手拦截器 
+ * WebSocket握手拦截器
  * @author Feihu Ji
- * @sine 2016年11月11日
+ * @since 2016年11月11日
  *
  */
 public class WebSocketHandshakeInterceptor implements HandshakeInterceptor {
@@ -36,7 +36,7 @@ public class WebSocketHandshakeInterceptor implements HandshakeInterceptor {
 
     @Override
     public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler handler,
-                                   Map<String, Object> attribute) throws Exception {
+                                   Map<String, Object> attribute) {
         logger.info("beforeHandshake "+request.getURI());
         if(request instanceof ServletServerHttpRequest) {
             return tokenService.checkToken();

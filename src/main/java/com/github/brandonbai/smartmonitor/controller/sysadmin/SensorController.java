@@ -19,9 +19,9 @@ import com.github.pagehelper.PageInfo;
 /**
  * 
  * SensorController 
- * @Description: 传感器相关
+ * 传感器相关
  * @author Feihu Ji
- * @sine 2016年10月15日
+ * @since 2016年10月15日
  *
  */
 @RestController

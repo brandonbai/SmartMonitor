@@ -6,7 +6,7 @@ import com.github.brandonbai.smartmonitor.pojo.User;
  * 
  * TokenService 
  * @author Feihu Ji
- * @sine 2016年10月19日
+ * @since 2016年10月19日
  *
  */
 public interface TokenService {

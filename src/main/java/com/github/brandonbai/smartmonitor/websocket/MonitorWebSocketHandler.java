@@ -30,16 +30,16 @@ import com.github.brandonbai.smartmonitor.service.TokenService;
 /**
  * 
  * MonitorWebSocketHandler 
- * @Description: WebSocket数据监测处理类
+ * WebSocket数据监测处理类
  * @author Feihu Ji
- * @sine 2017年3月30日
+ * @since 2017年3月30日
  *
  */
 public class MonitorWebSocketHandler implements WebSocketHandler {
 
 	private static final Logger LOGGER = Logger.getLogger(MonitorWebSocketHandler.class);
     private static final ObjectMapper MAPPER = new ObjectMapper();
-    private Map<Integer, Integer> realTimeValueMap = new ConcurrentHashMap<Integer, Integer>();
+    private Map<Integer, Integer> realTimeValueMap = new ConcurrentHashMap<>();
     private WebSocketSession webSocketSession;
     @Autowired
     private LogService logService;
@@ -111,13 +111,13 @@ public class MonitorWebSocketHandler implements WebSocketHandler {
     }
 
     @Override
-    public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
+    public void handleTransportError(WebSocketSession session, Throwable exception) {
         showAndAddLog("下位机连接错误："+exception, Log.INFORMATION_CONNECT);
         webSocketSession = null;
     }
 
     @Override
-    public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) throws Exception {
+    public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) {
         showAndAddLog("与下位机断开连接", Log.INFORMATION_CONNECT);
         webSocketSession = null;
     }
@@ -147,7 +147,7 @@ public class MonitorWebSocketHandler implements WebSocketHandler {
     /**
      * 获取实时监测值
      * @param key 传感器ID
-     * @return
+     * @return int value
      */
     public int getRealTimeValue(int key) {
         if(realTimeValueMap.containsKey(key)) {

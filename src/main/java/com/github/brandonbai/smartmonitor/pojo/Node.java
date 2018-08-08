@@ -3,9 +3,9 @@ package com.github.brandonbai.smartmonitor.pojo;
 /**
  * 
  * Node 
- * @Description: 节点类
+ * 节点类
  * @author Feihu Ji
- * @sine 2016年10月11日
+ * @since 2016年10月11日
  *
  */
 public class Node {

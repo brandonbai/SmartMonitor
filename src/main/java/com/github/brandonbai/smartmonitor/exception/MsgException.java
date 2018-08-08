@@ -3,9 +3,9 @@ package com.github.brandonbai.smartmonitor.exception;
 /**
  * 
  * MsgException 
- * @Description: 自定义异常
+ * 自定义异常
  * @author Feihu Ji
- * @sine 2016年10月15日
+ * @since 2016年10月15日
  *
  */
 @SuppressWarnings("serial")

@@ -3,9 +3,9 @@ package com.github.brandonbai.smartmonitor.pojo;
 /**
  * 
  * Sensor 
- * @Description: 传感器
+ * 传感器
  * @author Feihu Ji
- * @sine 2016年10月11日
+ * @since 2016年10月11日
  *
  */
 public class Sensor extends BaseDevice {

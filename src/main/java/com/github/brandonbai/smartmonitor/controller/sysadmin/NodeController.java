@@ -13,9 +13,9 @@ import com.github.pagehelper.PageInfo;
 /**
  * 
  * NodeController 
- * @Description: 节点处理
+ * 节点处理
  * @author Feihu Ji
- * @sine 2016年10月15日
+ * @since 2016年10月15日
  * 
  */
 @RestController

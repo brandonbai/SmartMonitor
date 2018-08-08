@@ -16,9 +16,9 @@ import com.github.brandonbai.smartmonitor.service.TokenService;
 /**
  * 
  * LogAspect 
- * @Description: 日志存储切面
+ * 日志存储切面
  * @author Feihu Ji
- * @sine 2016年10月15日
+ * @since 2016年10月15日
  *
  */
 @Aspect

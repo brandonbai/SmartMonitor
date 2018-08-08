@@ -12,10 +12,9 @@ import com.github.brandonbai.smartmonitor.service.LogService;
 /**
  * 
  * LogController 
- * @Description: 日志处理
+ * 日志处理
  * @author Feihu Ji
- * @sine 2016年10月15日
- *
+ * @since 2016年10月15日
  */
 @RestController
 @RequestMapping("/log")

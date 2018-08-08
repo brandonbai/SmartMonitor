@@ -3,9 +3,9 @@ package com.github.brandonbai.smartmonitor.pojo;
 /**
  * 
  * BaseDevice 
- * @Description: 设备基类
+ * 设备基类
  * @author Feihu Ji
- * @sine 2016年10月11日
+ * @since 2016年10月11日
  *
  */
 public class BaseDevice {

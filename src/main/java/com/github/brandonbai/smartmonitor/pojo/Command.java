@@ -3,9 +3,9 @@ package com.github.brandonbai.smartmonitor.pojo;
 /**
  * 
  * Command 
- * @Description: 设备指令
+ * 设备指令
  * @author Feihu Ji
- * @sine 2017年3月25日
+ * @since 2017年3月25日
  *
  */
 public class Command {

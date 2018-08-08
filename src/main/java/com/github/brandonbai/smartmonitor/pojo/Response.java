@@ -3,9 +3,9 @@ package com.github.brandonbai.smartmonitor.pojo;
 /**
  * 
  * Response 
- * @Description: 统一返回的JSON格式对应的实体类
+ * 统一返回的JSON格式对应的实体类
  * @author Feihu Ji
- * @sine 2016年10月11日
+ * @since 2016年10月11日
  *
  */
 public class Response {

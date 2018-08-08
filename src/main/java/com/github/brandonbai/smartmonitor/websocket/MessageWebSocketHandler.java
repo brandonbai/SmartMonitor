@@ -20,9 +20,9 @@ import com.github.brandonbai.smartmonitor.service.TokenService;
 /**
  * 
  * MessageWebSocketHandler 
- * @Description: WebSocket消息处理类
+ * WebSocket消息处理类
  * @author Feihu Ji
- * @sine 2017年3月30日
+ * @since 2017年3月30日
  *
  */
 public class MessageWebSocketHandler implements WebSocketHandler {
@@ -35,8 +35,8 @@ public class MessageWebSocketHandler implements WebSocketHandler {
     private TokenService tokenService;
 
     @Override
-    public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-    	User user = null;
+    public void afterConnectionEstablished(WebSocketSession session) {
+    	User user;
     	try {
     		user = tokenService.getUser(session.getHandshakeHeaders().get("token").get(0));
 		} catch (Exception e) {
@@ -47,19 +47,19 @@ public class MessageWebSocketHandler implements WebSocketHandler {
     }
 
     @Override
-    public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
+    public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) {
 
         logger.info("收到客户端消息"+message.getPayload().toString());
     }
 
     @Override
-    public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
+    public void handleTransportError(WebSocketSession session, Throwable exception) {
         logger.info("发生错误"+exception.getMessage());
     }
 
     @Override
-    public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) throws Exception {
-    	User user = null;
+    public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) {
+    	User user;
     	try {
     		user = tokenService.getUser(session.getHandshakeHeaders().get("token").get(0));
 		} catch (Exception e) {
@@ -85,7 +85,7 @@ public class MessageWebSocketHandler implements WebSocketHandler {
             String msg = MAPPER.writeValueAsString(log);
             for (Map.Entry<Integer, WebSocketSession> entry : sessionConcurrentSkipListMap.entrySet()) {
                 WebSocketSession session = entry.getValue();
-                if(entry.getKey() != userId && session.isOpen()) {
+                if(!entry.getKey().equals(userId) && session.isOpen()) {
                     try {
                         session.sendMessage(new TextMessage(msg));
                     } catch (Exception e) {

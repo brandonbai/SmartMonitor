@@ -6,9 +6,9 @@ import com.github.brandonbai.smartmonitor.utils.TextUtils;
 /**
  * 
  * User 
- * @Description: 用户
+ * 用户
  * @author Feihu Ji
- * @sine 2016年10月11日
+ * @since 2016年10月11日
  *
  */
 public class User {
@@ -94,8 +94,8 @@ public class User {
 	}
 
 	/**
-	 * �޸��û���Ϣ�������֤
-	 * @throws MsgException
+	 * 修改检查
+	 * @throws MsgException 自定义异常
 	 */
 	public void checkUpdate() throws MsgException {
 		

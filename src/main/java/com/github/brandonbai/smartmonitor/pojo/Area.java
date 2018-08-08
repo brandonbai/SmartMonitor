@@ -3,9 +3,9 @@ package com.github.brandonbai.smartmonitor.pojo;
 /**
  * 
  * Area 
- * @Description: 区域类
+ * 区域类
  * @author Feihu Ji
- * @sine 2017年10月11日
+ * @since 2017年10月11日
  *
  */
 public class Area {

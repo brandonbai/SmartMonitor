@@ -13,9 +13,9 @@ import com.github.pagehelper.PageInfo;
 /**
  * 
  * AreaController 
- * @Description: 区域处理
+ * 区域处理
  * @author Feihu Ji
- * @sine 2016年10月15日
+ * @since 2016年10月15日
  *
  */
 @RestController

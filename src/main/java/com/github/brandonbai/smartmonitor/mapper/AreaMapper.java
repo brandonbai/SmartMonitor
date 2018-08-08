@@ -10,20 +10,20 @@ import com.github.brandonbai.smartmonitor.pojo.Area;
  * 
  * AreaMapper 
  * @author Feihu Ji
- * @sine 2016年10月17日
+ * @since 2016年10月17日
  *
  */
 public interface AreaMapper {
 	
-	public List<Area> findAll(@Param("pageNum") int pageNum, 
+	List<Area> findAll(@Param("pageNum") int pageNum,
             @Param("pageSize") int pageSize);
 
-	public Area findOne(Integer areaId);
+	Area findOne(Integer areaId);
 
-	public void update(Area area);
+	void update(Area area);
 
-	public void delete(Integer areaId);
+	void delete(Integer areaId);
 
-	public void add(Area area);
+	void add(Area area);
 
 }

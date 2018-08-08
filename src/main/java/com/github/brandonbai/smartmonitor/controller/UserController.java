@@ -18,9 +18,9 @@ import com.github.brandonbai.smartmonitor.utils.TextUtils;
 /**
  * 
  * UserController 
- * @Description: 用户相关
+ * 用户相关
  * @author Feihu Ji
- * @sine 2016年10月15日
+ * @since 2016年10月15日
  *
  */
 @RestController
@@ -64,7 +64,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "userInfo", method = RequestMethod.GET)
-	public Response userInfo() throws MsgException {
+	public Response userInfo() {
 
 		User user = tokenService.getUser();
 

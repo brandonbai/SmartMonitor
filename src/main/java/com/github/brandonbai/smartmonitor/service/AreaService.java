@@ -7,7 +7,7 @@ import com.github.pagehelper.PageInfo;
  * 
  * AreaService 
  * @author Feihu Ji
- * @sine 2016年10月19日
+ * @since 2016年10月19日
  *
  */
 public interface AreaService {

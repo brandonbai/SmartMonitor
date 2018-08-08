@@ -12,9 +12,9 @@ import com.github.brandonbai.smartmonitor.service.TokenService;
 /**
  * 
  * TokenInterceptor 
- * @Description: token拦截器
+ * token拦截器
  * @author Feihu Ji
- * @sine 2016年11月11日
+ * @since 2016年11月11日
  *
  */
 public class TokenInterceptor extends HandlerInterceptorAdapter {
@@ -25,7 +25,7 @@ public class TokenInterceptor extends HandlerInterceptorAdapter {
     private TokenService tokenService;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse httpServletResponse, Object o) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse httpServletResponse, Object o) {
         logger.info("token拦截器拦截到请求"+request.getRequestURI());
         // 检查 token 有效性
         return tokenService.checkToken();

@@ -10,7 +10,7 @@ import com.github.brandonbai.smartmonitor.pojo.Node;
  * 
  * NodeMapper 
  * @author Feihu Ji
- * @sine 2016年10月17日
+ * @since 2016年10月17日
  *
  */
 public interface NodeMapper {
@@ -18,7 +18,7 @@ public interface NodeMapper {
 	List<Node> findAll(@Param("pageNum") int pageNum, 
             @Param("pageSize") int pageSize);
 
-	Node findOnde(Integer nodeId);
+	Node findOne(Integer nodeId);
 
 	void update(Node node);
 

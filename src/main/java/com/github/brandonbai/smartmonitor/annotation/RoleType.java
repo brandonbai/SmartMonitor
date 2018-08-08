@@ -3,7 +3,7 @@ package com.github.brandonbai.smartmonitor.annotation;
 /**
  * 
  * RoleType 
- * @Description: 角色类型
+ * 角色类型
  * @author Feihu Ji
  * 
  */

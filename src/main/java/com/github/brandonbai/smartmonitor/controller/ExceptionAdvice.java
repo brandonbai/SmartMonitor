@@ -14,9 +14,9 @@ import com.github.brandonbai.smartmonitor.pojo.Response;
 /**
  * 
  * ExceptionAdvice 
- * @Description: 异常处理
+ * 异常处理
  * @author Feihu Ji
- * @sine 2017年10月15日
+ * @since 2017年10月15日
  *
  */
 

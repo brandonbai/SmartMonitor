@@ -11,25 +11,25 @@ import com.github.brandonbai.smartmonitor.pojo.Device;
  * 
  * DeviceMapper 
  * @author Feihu Ji
- * @sine 2016年10月17日
+ * @since 2016年10月17日
  *
  */
-public interface DeviceMapper {
-	
-	public void updateDeviceState(@Param("id") Integer id, @Param("state") Boolean state);
-	
-	public List<Device> findDevice(Integer areaId);
+ interface DeviceMapper {
 
-	public List<Command> getCommands(Integer deviceId);
+	void updateDeviceState(@Param("id") Integer id, @Param("state") Boolean state);
 
-	public Device getDevice(Integer deviceId);
+	List<Device> findDevice(Integer areaId);
 
-	public Command getAutoCommand(@Param("deviceId") Integer deviceId, @Param("flag") String flag);
+	List<Command> getCommands(Integer deviceId);
 
-	public List<Device> getAllDevices(@Param("pageNum") int pageNum, 
-            @Param("pageSize") int pageSize);
+	Device getDevice(Integer deviceId);
 
-	public Device findDeviceByCommand(String command);
+	Command getAutoCommand(@Param("deviceId") Integer deviceId, @Param("flag") String flag);
 
-	public String getFlagByCommand(String command);
+	List<Device> getAllDevices(@Param("pageNum") int pageNum,
+							   @Param("pageSize") int pageSize);
+
+	Device findDeviceByCommand(String command);
+
+	String getFlagByCommand(String command);
 }

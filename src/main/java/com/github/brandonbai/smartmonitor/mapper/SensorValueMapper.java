@@ -11,7 +11,7 @@ import com.github.brandonbai.smartmonitor.pojo.SensorValue;
  * 
  * SensorValueMapper 
  * @author Feihu Ji
- * @sine 2016年10月17日
+ * @since 2016年10月17日
  *
  */
 public interface SensorValueMapper {

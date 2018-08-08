@@ -5,9 +5,9 @@ import java.util.Date;
 /**
  * 
  * SensorValue 
- * @Description: 传感器采集数值
+ * 传感器采集数值
  * @author Feihu Ji
- * @sine 2016年10月11日
+ * @since 2016年10月11日
  *
  */
 public class SensorValue {

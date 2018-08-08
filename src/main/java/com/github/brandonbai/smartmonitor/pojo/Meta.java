@@ -3,9 +3,9 @@ package com.github.brandonbai.smartmonitor.pojo;
 /**
  * 
  * Meta 
- * @Description: 统一返回JSON对应的信息类
+ * 统一返回JSON对应的信息类
  * @author Feihu Ji
- * @sine 2016年10月15日
+ * @since 2016年10月15日
  *
  */
 public class Meta {

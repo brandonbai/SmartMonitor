@@ -20,9 +20,9 @@ import com.github.pagehelper.PageInfo;
 /**
  * 
  * DeviceController 
- * @Description: 设备相关
+ * 设备相关
  * @author Feihu Ji
- * @sine 2016年10月15日
+ * @since 2016年10月15日
  *
  */
 @RestController

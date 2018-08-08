@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
  * 
  * MD5 
  * @author Feihu Ji
- * @sine 2016年10月16日
+ * @since 2016年10月16日
  *
  */
 public class MD5 {

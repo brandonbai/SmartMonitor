@@ -8,34 +8,36 @@ import com.github.brandonbai.smartmonitor.exception.MsgException;
 import com.github.brandonbai.smartmonitor.pojo.User;
 
 /**
- * 
- * UserMapper 
- * @author Feihu Ji
- * @sine 2016年10月17日
+ * UserMapper
  *
+ * @author Feihu Ji
+ * @since 2016年10月17日
  */
-public interface UserMapper {
-	
-	/**
-	 * 通过用户名和密码查找用户
-	 * @param username
-	 * @param password
-	 */
-	public User findUser(@Param("username") String username, @Param("password") String password);
-	
-	/**
-	 * 修改用户信息
-	 * @param user
-	 */
-	public void update(User user) throws MsgException;
-	
-	/**
-	 * 通过用户名查找用户
-	 * @param username
-	 */
-	public User findUserByUsername(String username);
+interface UserMapper {
 
-	void changePassword(User user);
+    /**
+     * 通过用户名和密码查找用户
+     *
+     * @param username 用户名
+     * @param password 密码
+     */
+    User findUser(@Param("username") String username, @Param("password") String password);
 
-	public List<User> findAll(Integer pageNum, Integer pageSize);
+    /**
+     * 修改用户信息
+     *
+     * @param user 用户
+     */
+    void update(User user) throws MsgException;
+
+    /**
+     * 通过用户名查找用户
+     *
+     * @param username 用户名
+     */
+    User findUserByUsername(String username);
+
+    void changePassword(User user);
+
+    List<User> findAll(Integer pageNum, Integer pageSize);
 }

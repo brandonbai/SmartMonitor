@@ -10,7 +10,7 @@ import com.github.brandonbai.smartmonitor.pojo.Sensor;
  * 
  * SensorMapper 
  * @author Feihu Ji
- * @sine 2016年10月17日
+ * @since 2016年10月17日
  *
  */
 public interface SensorMapper {

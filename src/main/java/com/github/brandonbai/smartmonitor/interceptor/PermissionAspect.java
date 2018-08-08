@@ -20,9 +20,9 @@ import com.github.brandonbai.smartmonitor.service.TokenService;
 /**
  * 
  * PermissionAspect 
- * @Description: 权限控制切面
+ * 权限控制切面
  * @author Feihu Ji
- * @sine 2016年10月15日
+ * @since 2016年10月15日
  *
  */
 @Aspect

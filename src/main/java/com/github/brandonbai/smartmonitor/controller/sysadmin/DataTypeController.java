@@ -13,9 +13,9 @@ import com.github.pagehelper.PageInfo;
 /**
  * 
  * DataTypeController 
- * @Description: 数据类型处理
+ * 数据类型处理
  * @author Feihu Ji
- * @sine 2016年10月15日
+ * @since 2016年10月15日
  *
  */
 @RestController

@@ -34,7 +34,7 @@ public class NodeServiceImpl implements NodeService{
 	@Override
 	public Node getOne(Integer nodeId) {
 		
-		return nodeMapper.findOnde(nodeId);
+		return nodeMapper.findOne(nodeId);
 	}
 
 	@Override

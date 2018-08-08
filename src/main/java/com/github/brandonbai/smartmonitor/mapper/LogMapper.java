@@ -10,7 +10,7 @@ import com.github.brandonbai.smartmonitor.pojo.Log;
  * @author Feihu Ji
  * @since 2016年10月17日
  */
-interface LogMapper {
+public interface LogMapper {
 
     List<Log> findLog();
 

@@ -14,7 +14,7 @@ import com.github.brandonbai.smartmonitor.pojo.Device;
  * @since 2016年10月17日
  *
  */
- interface DeviceMapper {
+public interface DeviceMapper {
 
 	void updateDeviceState(@Param("id") Integer id, @Param("state") Boolean state);
 

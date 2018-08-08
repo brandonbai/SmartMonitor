@@ -12,7 +12,7 @@ import com.github.brandonbai.smartmonitor.pojo.Threshold;
  * @author Feihu Ji
  * @since 2016年10月17日
  */
-interface ThresholdMapper {
+public interface ThresholdMapper {
 
     List<Threshold> findAll(@Param("pageNum") int pageNum,
                             @Param("pageSize") int pageSize);

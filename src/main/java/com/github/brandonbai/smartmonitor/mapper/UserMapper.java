@@ -13,7 +13,7 @@ import com.github.brandonbai.smartmonitor.pojo.User;
  * @author Feihu Ji
  * @since 2016年10月17日
  */
-interface UserMapper {
+public interface UserMapper {
 
     /**
      * 通过用户名和密码查找用户

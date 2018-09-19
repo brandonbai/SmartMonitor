@@ -7,9 +7,9 @@ spring:
     time-zone: GMT+8
     default-property-inclusion: non-null
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username:  postgres
-    password:  postgres
+    url: jdbc:mysql://localhost:3306/smartmonitor
+    username:  root
+    password:  root
     driver-class-name:  org.postgresql.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 

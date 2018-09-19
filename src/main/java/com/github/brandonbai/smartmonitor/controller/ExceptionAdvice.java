@@ -1,6 +1,7 @@
 package com.github.brandonbai.smartmonitor.controller;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -24,7 +25,7 @@ import com.github.brandonbai.smartmonitor.pojo.Response;
 @ResponseBody
 public class ExceptionAdvice {
 
-	private static final Logger logger = Logger.getLogger(ExceptionAdvice.class);
+	private static final Logger logger = LoggerFactory.getLogger(ExceptionAdvice.class);
 	private static final String MSG_400 = "请求参数解析失败";
 	private static final String MSG_500 = "服务运行异常";
 	

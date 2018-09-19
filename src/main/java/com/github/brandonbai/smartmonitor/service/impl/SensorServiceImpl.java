@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.brandonbai.smartmonitor.mapper.AreaMapper;
@@ -15,7 +14,6 @@ import com.github.brandonbai.smartmonitor.mapper.SensorValueMapper;
 import com.github.brandonbai.smartmonitor.pojo.Sensor;
 import com.github.brandonbai.smartmonitor.pojo.SensorValue;
 import com.github.brandonbai.smartmonitor.service.SensorService;
-import com.github.brandonbai.smartmonitor.websocket.MonitorWebSocketHandler;
 import com.github.pagehelper.PageInfo;
 
 /**
@@ -33,9 +31,7 @@ public class SensorServiceImpl implements SensorService {
 	private SensorMapper sensorMapper;
 	@Resource
 	private SensorValueMapper sensorValueMapper;
-	@Autowired
-	private MonitorWebSocketHandler monitorWebSocketHandler;
-	
+
 	@Override
 	public List<SensorValue> findDataByTime(Integer sensorId, Date firstTime, Date lastTime) {
 		if(sensorId != null) {
@@ -57,7 +53,8 @@ public class SensorServiceImpl implements SensorService {
 		List<Sensor> sensorList = sensorMapper.findSensorByAreaId(areaId);
 		for (int i = 0; i < sensorList.size(); i++) {
 			Sensor sensor = sensorList.get(i);
-			sensor.setRealValue(monitorWebSocketHandler.getRealTimeValue(sensor.getId()));
+			// TODO 获取实时数值
+			//sensor.setRealValue(monitorWebSocketHandler.getRealTimeValue(sensor.getId()));
 		}
 		return sensorList;
 	}
@@ -67,7 +64,8 @@ public class SensorServiceImpl implements SensorService {
 		List<Sensor> sensorList = sensorMapper.findAllSensor(pageNum, pageSize);
 		for (int i = 0; i < sensorList.size(); i++) {
 			Sensor sensor = sensorList.get(i);
-			sensor.setRealValue(monitorWebSocketHandler.getRealTimeValue(sensor.getId()));
+			// TODO 获取实时数值
+			//sensor.setRealValue(monitorWebSocketHandler.getRealTimeValue(sensor.getId()));
 		}
 		return new PageInfo<Sensor>(sensorList);
 	}

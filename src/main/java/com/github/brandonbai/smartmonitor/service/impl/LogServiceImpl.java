@@ -4,13 +4,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.brandonbai.smartmonitor.mapper.LogMapper;
 import com.github.brandonbai.smartmonitor.pojo.Log;
 import com.github.brandonbai.smartmonitor.service.LogService;
-import com.github.brandonbai.smartmonitor.websocket.MessageWebSocketHandler;
 
 /**
  * 
@@ -24,8 +22,6 @@ public class LogServiceImpl implements LogService {
 	
 	@Resource
 	private LogMapper logMapper;
-	@Autowired
-	private MessageWebSocketHandler messageWebSocketHandler;
 
 	@Override
 	public List<Log> getLog() {
@@ -40,7 +36,8 @@ public class LogServiceImpl implements LogService {
 	@Override
 	public void addLog(Log log) {
 		logMapper.addLog(log);
-		messageWebSocketHandler.sendMessage(Integer.parseInt(log.getUsername()), log);
+		// TODO
+		//messageWebSocketHandler.sendMessage(Integer.parseInt(log.getUsername()), log);
 	}
 
 }

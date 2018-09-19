@@ -2,7 +2,6 @@ package com.github.brandonbai.smartmonitor.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.brandonbai.smartmonitor.exception.MsgException;
@@ -10,8 +9,9 @@ import com.github.brandonbai.smartmonitor.mapper.DeviceMapper;
 import com.github.brandonbai.smartmonitor.pojo.Command;
 import com.github.brandonbai.smartmonitor.pojo.Device;
 import com.github.brandonbai.smartmonitor.service.DeviceService;
-import com.github.brandonbai.smartmonitor.websocket.MonitorWebSocketHandler;
 import com.github.pagehelper.PageInfo;
+
+import javax.annotation.Resource;
 
 /**
  * 
@@ -23,10 +23,8 @@ import com.github.pagehelper.PageInfo;
 @Service
 public class DeviceServiceImpl implements DeviceService {
 	
-	@Autowired
+	@Resource
 	private DeviceMapper deviceMapper;
-	@Autowired
-	private MonitorWebSocketHandler monitorWebSocketHandler;
 
 	/** 开标识*/
 	private static final String FLAG_ON = "on";
@@ -45,26 +43,26 @@ public class DeviceServiceImpl implements DeviceService {
 			String flag = deviceMapper.getFlagByCommand(command);
 			if(FLAG_ON.equals(flag)) {
 				if(!device.getState()) {
-					if(!monitorWebSocketHandler.sendMessage(command)) {
-						throw new MsgException("发送指令失败，请检查下位机连接状况");
-					}
+//					if(!monitorWebSocketHandler.sendMessage(command)) {
+//						throw new MsgException("发送指令失败，请检查下位机连接状况");
+//					}
 					updateDeviceState(device.getId(), true);
 				}else {
 					throw new MsgException("设备已经开启，请勿重复操作");
 				}
 			} else if(FLAG_OFF.equals(flag)) {
 				if(device.getState()) {
-					if(!monitorWebSocketHandler.sendMessage(command)) {
-						throw new MsgException("发送指令失败，请检查下位机连接状况");
-					}
+//					if(!monitorWebSocketHandler.sendMessage(command)) {
+//						throw new MsgException("发送指令失败，请检查下位机连接状况");
+//					}
 					updateDeviceState(device.getId(), false);
 				}else {
 					throw new MsgException("设备已经关闭，请勿重复操作");
 				}
 			} else {
-				if(!monitorWebSocketHandler.sendMessage(command)) {
-					throw new MsgException("发送指令失败，请检查下位机连接状况");
-				}
+//				if(!monitorWebSocketHandler.sendMessage(command)) {
+//					throw new MsgException("发送指令失败，请检查下位机连接状况");
+//				}
 			}
 			
 		}

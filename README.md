@@ -4,9 +4,9 @@
 
 ### 项目架构
 
-基础框架|ORM|数据库|版本控制|项目构建|IDE
--|-|-|-|-|-
-SpringBoot|MyBatis|MySQL|Git|Maven|IntelliJ IDEA
+基础框架|ORM|数据库|版本控制|项目构建|IDE|接口文档
+-|-|-|-|-|-|-
+SpringBoot|MyBatis|MySQL|Git|Maven|IntelliJ IDEA|Swagger2
 
 ### 主要功能
 

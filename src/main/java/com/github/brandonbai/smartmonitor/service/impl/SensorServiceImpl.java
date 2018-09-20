@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import com.github.brandonbai.smartmonitor.mqtt.MqttMessageHandler;
+import com.github.brandonbai.smartmonitor.mqtt.MqttMessageConsumer;
 import org.springframework.stereotype.Service;
 
 import com.github.brandonbai.smartmonitor.mapper.SensorMapper;
@@ -30,7 +30,7 @@ public class SensorServiceImpl implements SensorService {
 	@Resource
 	private SensorValueMapper sensorValueMapper;
 	@Resource
-	private MqttMessageHandler mqttMessageHandler;
+	private MqttMessageConsumer mqttMessageHandler;
 
 	@Override
 	public List<SensorValue> findDataByTime(Integer sensorId, Date firstTime, Date lastTime) {

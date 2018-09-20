@@ -1,6 +1,7 @@
 package com.github.brandonbai.smartmonitor.config;
 
-import com.github.brandonbai.smartmonitor.mqtt.MqttMessageHandler;
+import com.github.brandonbai.smartmonitor.mqtt.MqttMessageConsumer;
+import com.github.brandonbai.smartmonitor.service.SensorService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,9 @@ import org.springframework.integration.mqtt.outbound.MqttPahoMessageHandler;
 import org.springframework.integration.mqtt.support.DefaultPahoMessageConverter;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHandler;
+
+import javax.annotation.RegEx;
+import javax.annotation.Resource;
 
 /**
  * mqtt配置
@@ -32,6 +36,9 @@ public class MqttConfig {
 
     @Value("mqtt.password")
     private String password;
+
+    @Resource
+    private SensorService sensorService;
 
     @Bean
     public MqttPahoClientFactory mqttClientFactory() {
@@ -63,7 +70,7 @@ public class MqttConfig {
     @Bean
     @ServiceActivator(inputChannel = "mqttInputChannel")
     public MessageHandler handler() {
-        return new MqttMessageHandler();
+        return new MqttMessageConsumer(sensorService);
     }
 
     @Bean

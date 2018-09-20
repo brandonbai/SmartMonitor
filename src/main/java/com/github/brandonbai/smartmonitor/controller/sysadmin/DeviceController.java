@@ -2,6 +2,8 @@ package com.github.brandonbai.smartmonitor.controller.sysadmin;
 
 import javax.annotation.Resource;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,6 +29,7 @@ import com.github.pagehelper.PageInfo;
  */
 @RestController
 @RequestMapping("/device/")
+@Api(tags="设备管理")
 public class DeviceController {
 	
 	@Resource
@@ -34,6 +37,7 @@ public class DeviceController {
 	
 	@RolePermission(RoleType.ROLE_ADMIN)
 	@RequestMapping(value = "control", method = RequestMethod.POST)
+	@ApiOperation(value="控制设备",notes = "传输控制指令", response = Response.class)
 	public Response deviceControl(String command) throws MsgException {
 		if(TextUtils.isEmpty(command)) {
 			throw new MsgException("命令为空");
@@ -43,12 +47,14 @@ public class DeviceController {
 	}
 
 	@RequestMapping("list/{areaId}")
+	@ApiOperation(value="查看设备列表", notes = "根据区域id查询设备列表", response = Response.class)
 	public Response deviceInfo(@PathVariable Integer areaId) {
 		
 		return new Response().success(deviceService.getDevices(areaId));
 	}
 	
 	@RequestMapping("list")
+	@ApiOperation(value="查询设备列表", response = Response.class)
 	public Response deviceInfo(@RequestParam(defaultValue="0")Integer pageNum, @RequestParam(defaultValue="0")Integer pageSize) {
 		
 		PageInfo<Device> pi = deviceService.getAllDevices(pageNum, pageSize);
@@ -56,6 +62,7 @@ public class DeviceController {
 	}
 	
 	@RequestMapping("commands/{deviceId}")
+	@ApiOperation(value="查询指令列表", notes = "根据设备id查询指令列表", response = Response.class)
 	public Response commands(@PathVariable Integer deviceId) {
 
 		return new Response().success(deviceService.getCommands(deviceId));

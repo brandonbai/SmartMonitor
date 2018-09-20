@@ -1,5 +1,7 @@
 package com.github.brandonbai.smartmonitor.controller.sysadmin;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,12 +22,14 @@ import com.github.pagehelper.PageInfo;
  */
 @RestController
 @RequestMapping("/node")
+@Api(tags="节点管理")
 public class NodeController {
 
 	@Autowired
 	private NodeService nodeService;
 	
 	@RequestMapping("/add")
+	@ApiOperation(value="新增节点", response = Response.class)
 	public Response nodeAdd(Node node) {
 		
 		nodeService.add(node);
@@ -34,6 +38,7 @@ public class NodeController {
 	}
 	
 	@RequestMapping("/del")
+	@ApiOperation(value="删除节点", response = Response.class)
 	public Response nodeDel(Integer nodeId) {
 		
 		nodeService.delete(nodeId);
@@ -42,6 +47,7 @@ public class NodeController {
 	}
 	
 	@RequestMapping("/update")
+	@ApiOperation(value="更新节点", response = Response.class)
 	public Response nodeUpdate(Node node) {
 		
 		nodeService.update(node);
@@ -50,6 +56,7 @@ public class NodeController {
 	}
 	
 	@RequestMapping("/one")
+	@ApiOperation(value="查询单个节点信息", response = Response.class)
 	public Response nodeOne(Integer nodeId) {
 		
 		nodeService.getOne(nodeId);
@@ -58,6 +65,7 @@ public class NodeController {
 	}
 	
 	@RequestMapping("/list")
+	@ApiOperation(value="查询节点列表", response = Response.class)
 	public Response nodeList(@RequestParam(defaultValue="0")Integer pageNum, @RequestParam(defaultValue="0")Integer pageSize) {
 		
 		PageInfo<Node> pi = nodeService.getAll(pageNum, pageSize);

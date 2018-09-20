@@ -3,6 +3,8 @@ package com.github.brandonbai.smartmonitor.controller;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,6 +27,7 @@ import com.github.brandonbai.smartmonitor.utils.TextUtils;
  */
 @RestController
 @RequestMapping("/user/")
+@Api(tags="用户管理")
 public class UserController {
 
 	@Resource
@@ -34,6 +37,7 @@ public class UserController {
 	private TokenService tokenService;
 
 	@RequestMapping(value = "login", method = RequestMethod.POST)
+	@ApiOperation(value="用户登录", response = Response.class)
 	public Response login(HttpSession session, String username, String password) throws MsgException {
 		if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
 			// 输入的数据为空
@@ -47,6 +51,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)
+	@ApiOperation(value="更新用户信息", response = Response.class)
 	public Response updateUser(User user) throws MsgException {
 		
 		user.checkUpdate();
@@ -56,6 +61,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "changepwd", method = RequestMethod.POST)
+	@ApiOperation(value="修改密码", response = Response.class)
 	public Response changePassword(String username, String password, String newPassword) throws MsgException {
 
 		userService.changePassword(username, password, newPassword);
@@ -64,6 +70,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "userInfo", method = RequestMethod.GET)
+	@ApiOperation(value="查询单条用户信息", response = Response.class)
 	public Response userInfo() {
 
 		User user = tokenService.getUser();

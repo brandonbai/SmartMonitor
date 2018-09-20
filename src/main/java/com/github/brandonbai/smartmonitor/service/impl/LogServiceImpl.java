@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.github.brandonbai.smartmonitor.mqtt.MqttMessageSender;
 import org.springframework.stereotype.Service;
 
 import com.github.brandonbai.smartmonitor.mapper.LogMapper;
@@ -23,6 +24,9 @@ public class LogServiceImpl implements LogService {
 	@Resource
 	private LogMapper logMapper;
 
+	@Resource
+	private MqttMessageSender mqttMessageSender;
+
 	@Override
 	public List<Log> getLog() {
 		return logMapper.findLog();
@@ -36,8 +40,8 @@ public class LogServiceImpl implements LogService {
 	@Override
 	public void addLog(Log log) {
 		logMapper.addLog(log);
-		// TODO
-		//messageWebSocketHandler.sendMessage(Integer.parseInt(log.getUsername()), log);
+		// 发消息
+		mqttMessageSender.sendMessage(log.getUsername(), log);
 	}
 
 }

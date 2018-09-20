@@ -17,3 +17,9 @@ mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mappers/*.xml
   type-aliases-package: com.github.brandonbai.smartmonitor.pojo
+
+# mqtt
+mqtt:
+  url: tcp://iot.eclipse.com:8443
+  username: test
+  password: test

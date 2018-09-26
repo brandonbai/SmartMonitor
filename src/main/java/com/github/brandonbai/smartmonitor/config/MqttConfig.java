@@ -69,7 +69,7 @@ public class MqttConfig {
 
     @Bean
     @ServiceActivator(inputChannel = "mqttInputChannel")
-    public MessageHandler handler() {
+    public MqttMessageConsumer handler() {
         return new MqttMessageConsumer(sensorService);
     }
 

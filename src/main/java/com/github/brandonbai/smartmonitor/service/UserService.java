@@ -19,18 +19,18 @@ public interface UserService {
 	 * @return user
 	 * @throws MsgException
 	 */
-	public User findUser(String username, String password) throws MsgException;
+	User findUser(String username, String password);
 	
 	/**
 	 * �޸��û���Ϣ
 	 * @param user
 	 * @throws MsgException
 	 */
-	public void updateUser(User user) throws MsgException;
+	void updateUser(User user) throws MsgException;
 
-	public PageInfo<User> findAll(Integer pageNum, Integer pageSize);
+	PageInfo<User> findAll(Integer pageNum, Integer pageSize);
 	
-	public User findUserByUsername(String username);
+	User findUserByUsername(String username);
 
-	public void changePassword(String username, String password, String newPassword) throws MsgException;
+	void changePassword(String username, String password, String newPassword);
 }

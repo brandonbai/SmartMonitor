@@ -3,11 +3,10 @@ package com.github.brandonbai.smartmonitor.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.github.brandonbai.smartmonitor.utils.TokenUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
-import com.github.brandonbai.smartmonitor.service.TokenService;
 
 /**
  * 
@@ -19,17 +18,9 @@ import com.github.brandonbai.smartmonitor.service.TokenService;
  */
 public class TokenInterceptor extends HandlerInterceptorAdapter {
 
-    private static final Logger logger = Logger.getLogger(TokenInterceptor.class);
-
-    @Autowired
-    private TokenService tokenService;
-
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse httpServletResponse, Object o) {
-        logger.info("token拦截器拦截到请求"+request.getRequestURI());
-        // 检查 token 有效性
-        return tokenService.checkToken();
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        TokenUtil.remove();
+        super.afterCompletion(request, response, handler, ex);
     }
-
-
 }

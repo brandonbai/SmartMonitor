@@ -26,19 +26,8 @@ import com.github.brandonbai.smartmonitor.pojo.Response;
 public class ExceptionAdvice {
 
 	private static final Logger logger = LoggerFactory.getLogger(ExceptionAdvice.class);
-	private static final String MSG_400 = "请求参数解析失败";
 	private static final String MSG_500 = "服务运行异常";
 	
-    /**
-     * 400 - Bad Request
-     */
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(HttpMessageNotReadableException.class)
-    public Response handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
-        logger.error(MSG_400, e);
-        return new Response().failure(MSG_400);
-    }
-    
     /**
      * 500 - Internal Server Error
      */

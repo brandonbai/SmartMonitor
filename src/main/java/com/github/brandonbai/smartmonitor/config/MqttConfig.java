@@ -28,13 +28,13 @@ import javax.annotation.Resource;
 @Configuration
 public class MqttConfig {
 
-    @Value("mqtt.url")
+    @Value("${mqtt.url}")
     private String url;
 
-    @Value("mqtt.username")
+    @Value("${mqtt.username}")
     private String username;
 
-    @Value("mqtt.password")
+    @Value("${mqtt.password}")
     private String password;
 
     @Resource

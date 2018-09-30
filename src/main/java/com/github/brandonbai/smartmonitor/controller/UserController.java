@@ -1,11 +1,10 @@
 package com.github.brandonbai.smartmonitor.controller;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 
+import com.github.brandonbai.smartmonitor.utils.TokenUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.brandonbai.smartmonitor.exception.MsgException;
 import com.github.brandonbai.smartmonitor.pojo.Response;
 import com.github.brandonbai.smartmonitor.pojo.User;
-import com.github.brandonbai.smartmonitor.service.TokenService;
 import com.github.brandonbai.smartmonitor.service.UserService;
 import com.github.brandonbai.smartmonitor.utils.TextUtils;
 
@@ -33,19 +31,15 @@ public class UserController {
 	@Resource
 	private UserService userService;
 
-	@Autowired
-	private TokenService tokenService;
-
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	@ApiOperation(value="用户登录", response = Response.class)
-	public Response login(HttpSession session, String username, String password) throws MsgException {
+	public Response login(String username, String password) throws MsgException {
 		if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
 			// 输入的数据为空
 			throw new MsgException("用户名或密码不能为空");
 		}
 		User user = userService.findUser(username, password);
-		session.setAttribute("_user", user);
-		String token = tokenService.createToken(user);
+		String token = TokenUtil.createToken(user);
 		
 		return new Response().success(token);
 	}
@@ -73,7 +67,7 @@ public class UserController {
 	@ApiOperation(value="查询单条用户信息", response = Response.class)
 	public Response userInfo() {
 
-		User user = tokenService.getUser();
+		User user = TokenUtil.getUser();
 
 		return new Response().success(user);
 	}

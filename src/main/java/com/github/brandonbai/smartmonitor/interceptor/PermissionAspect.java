@@ -2,6 +2,7 @@ package com.github.brandonbai.smartmonitor.interceptor;
 
 import java.util.Date;
 
+import com.github.brandonbai.smartmonitor.utils.TokenUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -16,7 +17,6 @@ import com.github.brandonbai.smartmonitor.pojo.Log;
 import com.github.brandonbai.smartmonitor.pojo.Response;
 import com.github.brandonbai.smartmonitor.pojo.User;
 import com.github.brandonbai.smartmonitor.service.LogService;
-import com.github.brandonbai.smartmonitor.service.TokenService;
 
 /**
  * 
@@ -33,16 +33,14 @@ public class PermissionAspect {
     private static final Logger LOGGER = LoggerFactory.getLogger(PermissionAspect.class);
 
     @Autowired
-    private TokenService tokenService;
-    @Autowired
     private LogService logService;
     
-    @Around("execution(* org.jifeihu.smartshed.controller..*(..)) && @annotation(rolePermission)")
+    @Around("execution(* com.github.brandonbai.smartmonitor.controller..*(..)) && @annotation(rolePermission)")
     public Object execute(ProceedingJoinPoint pjp, RolePermission rolePermission) throws Throwable {
         LOGGER.info("权限控制拦截器拦截请求");
         // 权限验证
         if(rolePermission.value().equals(RoleType.ROLE_ADMIN)) {
-            User user = tokenService.getUser();
+            User user = TokenUtil.getUser();
             if(user.getRoleId() != RoleType.ROLE_ADMIN.getId()) {
                 Log log = new Log();
                 log.setType(Log.CONTROL_DEVICE);

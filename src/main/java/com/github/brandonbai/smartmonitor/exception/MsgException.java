@@ -9,7 +9,7 @@ package com.github.brandonbai.smartmonitor.exception;
  *
  */
 @SuppressWarnings("serial")
-public class MsgException extends Exception {
+public class MsgException extends RuntimeException {
 	
 	public MsgException() {
 		

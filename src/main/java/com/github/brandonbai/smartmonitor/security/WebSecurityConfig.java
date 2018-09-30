@@ -1,6 +1,6 @@
 package com.github.brandonbai.smartmonitor.security;
 
-import com.github.brandonbai.smartmonitor.annotation.RoleType;
+import com.github.brandonbai.smartmonitor.enums.RoleType;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

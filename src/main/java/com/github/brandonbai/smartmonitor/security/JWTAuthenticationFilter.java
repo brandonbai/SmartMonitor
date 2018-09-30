@@ -1,6 +1,6 @@
 package com.github.brandonbai.smartmonitor.security;
 
-import com.github.brandonbai.smartmonitor.annotation.RoleType;
+import com.github.brandonbai.smartmonitor.enums.RoleType;
 import com.github.brandonbai.smartmonitor.exception.MsgException;
 import com.github.brandonbai.smartmonitor.pojo.User;
 import com.github.brandonbai.smartmonitor.utils.TokenUtil;
@@ -8,7 +8,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.FilterChain;

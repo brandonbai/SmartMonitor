@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.brandonbai.smartmonitor.annotation.RolePermission;
-import com.github.brandonbai.smartmonitor.annotation.RoleType;
 import com.github.brandonbai.smartmonitor.exception.MsgException;
 import com.github.brandonbai.smartmonitor.pojo.Device;
 import com.github.brandonbai.smartmonitor.pojo.Response;
@@ -35,7 +33,6 @@ public class DeviceController {
 	@Resource
 	private DeviceService deviceService;
 	
-	@RolePermission(RoleType.ROLE_ADMIN)
 	@RequestMapping(value = "control", method = RequestMethod.POST)
 	@ApiOperation(value="控制设备",notes = "传输控制指令", response = Response.class)
 	public Response deviceControl(String command) throws MsgException {

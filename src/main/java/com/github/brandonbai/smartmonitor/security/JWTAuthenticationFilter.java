@@ -1,11 +1,15 @@
 package com.github.brandonbai.smartmonitor.security;
 
+import com.github.brandonbai.smartmonitor.annotation.RoleType;
 import com.github.brandonbai.smartmonitor.exception.MsgException;
+import com.github.brandonbai.smartmonitor.pojo.User;
 import com.github.brandonbai.smartmonitor.utils.TokenUtil;
 import org.springframework.security.authentication.AuthenticationManager;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -13,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
@@ -37,12 +42,14 @@ public class JWTAuthenticationFilter extends BasicAuthenticationFilter {
 
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
         String token = request.getHeader("Authorization");
-        if(token != null) {
+        if (token != null) {
             boolean b = TokenUtil.checkToken(token);
-            if(!b) {
+            if (!b) {
                 throw new MsgException("请登录");
             }
-            return new UsernamePasswordAuthenticationToken(TokenUtil.getUser().getRoleId(), null, Collections.emptyList());
+            User user = TokenUtil.getUser();
+            List<SimpleGrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("ROLE_" + RoleType.getFlag(user.getRoleId())));
+            return new UsernamePasswordAuthenticationToken(user.getRoleId(), null, authorities);
         }
         return null;
     }

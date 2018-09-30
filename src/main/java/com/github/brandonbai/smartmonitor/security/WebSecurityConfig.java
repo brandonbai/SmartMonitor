@@ -1,5 +1,6 @@
 package com.github.brandonbai.smartmonitor.security;
 
+import com.github.brandonbai.smartmonitor.annotation.RoleType;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -24,6 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/user/login").permitAll()
+                .antMatchers("/threshold/update").hasRole(RoleType.ROLE_ADMIN.getFlag())
+                .antMatchers("/device/control").hasRole(RoleType.ROLE_ADMIN.getFlag())
                 .anyRequest().authenticated()  // 所有请求需要身份认证
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))

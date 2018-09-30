@@ -9,18 +9,25 @@ package com.github.brandonbai.smartmonitor.annotation;
  */
 public enum RoleType {
 	/**管理员*/
-	ROLE_ADMIN(1), 
+	ROLE_ADMIN("ADMIN"),
 	/**用户*/
-	ROLE_USER(2);
+	ROLE_USER("USER");
 	
-	private int id;
+	private String flag;
 	
-	RoleType(int id) {
-		this.id = id;
+	RoleType(String flag) {
+		this.flag = flag;
 	}
 
-	public int getId() {
-		return id;
+	public String getFlag() {
+		return flag;
+	}
+
+	public static String getFlag(int id) {
+		if(id == 0) {
+			return ROLE_ADMIN.flag;
+		}
+		return ROLE_USER.flag;
 	}
 	
 }

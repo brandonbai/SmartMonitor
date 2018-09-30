@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.brandonbai.smartmonitor.annotation.RolePermission;
-import com.github.brandonbai.smartmonitor.annotation.RoleType;
 import com.github.brandonbai.smartmonitor.pojo.Response;
 import com.github.brandonbai.smartmonitor.pojo.Threshold;
 import com.github.brandonbai.smartmonitor.service.ThresholdService;
@@ -37,7 +35,6 @@ public class ThresholdController {
 		return new Response().success(thresholdService.findOne(sensorId));
 	}
 
-	@RolePermission(RoleType.ROLE_ADMIN)
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	@ApiOperation(value="修改阈值", response = Response.class)
 	public Response updateThreshold(Threshold threshold) {

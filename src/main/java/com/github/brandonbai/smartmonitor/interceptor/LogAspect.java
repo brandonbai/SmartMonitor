@@ -31,7 +31,7 @@ public class LogAspect {
     private LogService logService;
 
 
-    @AfterReturning("execution(* org.jifeihu.smartshed.service..*.updateThresholds(..))")
+    @AfterReturning("execution(* com.github.brandonbai.smartmonitor.service..*.updateThresholds(..))")
     public void saveLogUpdateThreshold(JoinPoint pjp) {
         Threshold threshold = (Threshold) pjp.getArgs()[0];
         Log log = new Log();
@@ -41,7 +41,7 @@ public class LogAspect {
         log.setUsername(tokenService.getUser().getId()+"");
         logService.addLog(log);
     }
-    @AfterReturning("execution(* org.jifeihu.smartshed.service..*.controlDevice(..))")
+    @AfterReturning("execution(* com.github.brandonbai.smartmonitor.service..*.controlDevice(..))")
     public void saveLogControl(JoinPoint pjp) {
         String command = (String) pjp.getArgs()[0];
         Log log = new Log();

@@ -36,7 +36,7 @@ public class PermissionAspect {
     @Autowired
     private LogService logService;
     
-    @Around("execution(* org.jifeihu.smartshed.controller..*(..)) && @annotation(rolePermission)")
+    @Around("execution(* com.github.brandonbai.smartmonitor.controller..*(..)) && @annotation(rolePermission)")
     public Object execute(ProceedingJoinPoint pjp, RolePermission rolePermission) throws Throwable {
         LOGGER.info("权限控制拦截器拦截请求");
         // 权限验证

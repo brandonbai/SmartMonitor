@@ -13,3 +13,5 @@ SpringBoot|MyBatis|MySQL|Git|Maven|IntelliJ IDEA|Swagger2
 - 数据处理：使用MQTT协议接收并处理传感器采集到的数据
 - 设备控制：使用MQTT协议转发用户发送的指令到远程设备
 - 数据展示：使用ECharts实现数据可视化
+
+![](WX20181001-220127@2x.png)

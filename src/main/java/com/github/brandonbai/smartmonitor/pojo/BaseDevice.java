@@ -13,7 +13,6 @@ public class BaseDevice {
 	private String name;
 	private String nodeName;
 	private String areaName;
-	private String imgUrl;
 	
 	public Integer getId() {
 		return id;
@@ -39,12 +38,5 @@ public class BaseDevice {
 	public void setAreaName(String areaName) {
 		this.areaName = areaName;
 	}
-	public String getImgUrl() {
-		return imgUrl;
-	}
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
-	}
-	
 	
 }

@@ -15,7 +15,6 @@ public class User {
 	private Integer id;
 	private String username;
 	private String password;
-	private String newPassword;
 	private Integer roleId;
 	private String name;
 	private Integer state;
@@ -43,14 +42,6 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getNewPassword() {
-		return newPassword;
-	}
-
-	public void setNewPassword(String newPassword) {
-		this.newPassword = newPassword;
 	}
 	
 	public Integer getRoleId() {
@@ -88,45 +79,9 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password="
-				+ password + ", newPassword=" + newPassword + ", roleId="
+				+ password + ", roleId="
 				+ roleId + ", name=" + name + ", state=" + state + ", tel="
 				+ tel + "]";
-	}
-
-	/**
-	 * 修改检查
-	 * @throws MsgException 自定义异常
-	 */
-	public void checkUpdate() throws MsgException {
-		
-		if(TextUtils.isEmpty(username)) {
-			throw new MsgException("用户名不能为空");
-		}
-		
-		if(TextUtils.isEmpty(password)) {
-			throw new MsgException("密码不能为空");
-		}
-		
-		if(TextUtils.isEmpty(newPassword)) {
-			throw new MsgException("新密码不能为空");
-		}
-		
-		if(TextUtils.isEmpty(name)) {
-			throw new MsgException("姓名不能为空");
-		}
-		
-		if(!newPassword.matches("\\w{6,15}")) {
-			throw new MsgException("密码位数为6~15");
-		}
-		
-		if(TextUtils.isEmpty(tel)) {
-			throw new MsgException("电话不能为空");
-		}
-		
-		if(!tel.matches("^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$")) {
-			throw new MsgException("手机号码格式不正确");
-		}
-		
 	}
 	
 }

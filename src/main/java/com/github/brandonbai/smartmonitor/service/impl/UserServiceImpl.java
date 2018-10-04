@@ -64,9 +64,8 @@ public class UserServiceImpl implements UserService {
 			throw new MsgException("密码错误");
 		}
 		User userTmp = new User();
-		userTmp.setUsername(username);
+		userTmp.setId(user.getId());
 		userTmp.setPassword(MD5.getMd5Hash(password));
-		userTmp.setNewPassword(MD5.getMd5Hash(newPassword));
 		userMapper.changePassword(userTmp);
 	}
 

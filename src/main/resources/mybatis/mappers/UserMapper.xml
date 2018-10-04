@@ -30,10 +30,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="changePassword">
 		update tb_user
-		<set>
-			<if test="newPassword != null">password=#{newPassword},</if>
-		</set>
-		where username=#{username} and password=#{password}
+		set password=#{password}
+		where id = #{id}
 	</update>
 	
 </mapper>

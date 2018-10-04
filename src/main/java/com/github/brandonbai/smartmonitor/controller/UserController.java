@@ -2,6 +2,7 @@ package com.github.brandonbai.smartmonitor.controller;
 
 import javax.annotation.Resource;
 
+import com.github.brandonbai.smartmonitor.dto.UserDTO;
 import com.github.brandonbai.smartmonitor.utils.TokenUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -46,7 +47,7 @@ public class UserController {
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	@ApiOperation(value="更新用户信息", response = Response.class)
-	public Response updateUser(User user) throws MsgException {
+	public Response updateUser(UserDTO user) throws MsgException {
 		
 		user.checkUpdate();
 		userService.updateUser(user);

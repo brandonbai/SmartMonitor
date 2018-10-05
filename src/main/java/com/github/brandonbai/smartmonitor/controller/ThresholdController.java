@@ -4,10 +4,7 @@ import javax.annotation.Resource;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.github.brandonbai.smartmonitor.pojo.Response;
 import com.github.brandonbai.smartmonitor.pojo.Threshold;
@@ -23,6 +20,7 @@ import com.github.brandonbai.smartmonitor.service.ThresholdService;
  */
 @RestController
 @RequestMapping("/threshold/")
+@CrossOrigin
 @Api(tags="区阈值理")
 public class ThresholdController {
 	

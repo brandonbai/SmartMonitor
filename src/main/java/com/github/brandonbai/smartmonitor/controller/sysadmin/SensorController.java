@@ -7,10 +7,7 @@ import javax.annotation.Resource;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.github.brandonbai.smartmonitor.pojo.Response;
 import com.github.brandonbai.smartmonitor.pojo.Sensor;
@@ -28,6 +25,7 @@ import com.github.pagehelper.PageInfo;
  */
 @RestController
 @RequestMapping("/sysinfo/")
+@CrossOrigin
 @Api(tags="传感器管理")
 public class SensorController {
 	@Resource

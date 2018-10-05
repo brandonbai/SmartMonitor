@@ -4,11 +4,7 @@ import javax.annotation.Resource;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.github.brandonbai.smartmonitor.exception.MsgException;
 import com.github.brandonbai.smartmonitor.pojo.Device;
@@ -27,6 +23,7 @@ import com.github.pagehelper.PageInfo;
  */
 @RestController
 @RequestMapping("/device/")
+@CrossOrigin
 @Api(tags="设备管理")
 public class DeviceController {
 	

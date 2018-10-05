@@ -6,9 +6,7 @@ import com.github.brandonbai.smartmonitor.dto.UserDTO;
 import com.github.brandonbai.smartmonitor.utils.TokenUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.github.brandonbai.smartmonitor.exception.MsgException;
 import com.github.brandonbai.smartmonitor.pojo.Response;
@@ -26,13 +24,14 @@ import com.github.brandonbai.smartmonitor.utils.TextUtils;
  */
 @RestController
 @RequestMapping("/user/")
+@CrossOrigin
 @Api(tags="用户管理")
 public class UserController {
 
 	@Resource
 	private UserService userService;
 
-	@RequestMapping(value = "login", method = RequestMethod.POST)
+	@PostMapping(value = "login")
 	@ApiOperation(value="用户登录", response = Response.class)
 	public Response login(String username, String password) throws MsgException {
 		if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
@@ -45,9 +44,9 @@ public class UserController {
 		return new Response().success(token);
 	}
 
-	@RequestMapping(value = "update", method = RequestMethod.POST)
+	@PostMapping(value = "update")
 	@ApiOperation(value="更新用户信息", response = Response.class)
-	public Response updateUser(UserDTO user) throws MsgException {
+	public Response updateUser(@RequestBody UserDTO user) {
 		
 		user.checkUpdate();
 		userService.updateUser(user);
@@ -55,16 +54,16 @@ public class UserController {
 		return new Response().success();
 	}
 
-	@RequestMapping(value = "changepwd", method = RequestMethod.POST)
+	@PostMapping(value = "changepwd")
 	@ApiOperation(value="修改密码", response = Response.class)
-	public Response changePassword(String username, String password, String newPassword) throws MsgException {
+	public Response changePassword(String username, String password, String newPassword) {
 
 		userService.changePassword(username, password, newPassword);
 
 		return new Response().success();
 	}
 
-	@RequestMapping(value = "userInfo", method = RequestMethod.GET)
+	@PostMapping(value = "userInfo")
 	@ApiOperation(value="查询单条用户信息", response = Response.class)
 	public Response userInfo() {
 

@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="update">
-		update tb_area set name = #{area.name},
+		update tb_area set name = #{name},
 		description = #{area.description}
 		where id = #{area.id}
 	</update>
@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<insert id="add">
-		insert into tb_area values(null,#{area.name},#{area.description})
+		insert into tb_area values(null,#{name},#{description})
 	</insert>
 	
 </mapper>

@@ -2,11 +2,9 @@ package com.github.brandonbai.smartmonitor.controller.sysadmin;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.github.brandonbai.smartmonitor.pojo.Area;
 import com.github.brandonbai.smartmonitor.pojo.Response;
@@ -32,16 +30,20 @@ public class AreaController {
 	
 	@RequestMapping("/add")
 	@ApiOperation(value="新增区域", response = Response.class)
-	public Response areaAdd(Area area) {
-		
+	public Response areaAdd(@RequestBody Area area) {
+
+		if(StringUtils.isEmpty(area.getName())) {
+			return Response.err("名称不能为空");
+		}
+
 		areaService.add(area);
 		
 		return new Response().success();
 	}
 	
-	@RequestMapping("/del")
+	@RequestMapping("/del/{areaId}")
 	@ApiOperation(value="删除区域", response = Response.class)
-	public Response areaDel(Integer areaId) {
+	public Response areaDel(@PathVariable Integer areaId) {
 		
 		areaService.delete(areaId);
 		
@@ -50,16 +52,16 @@ public class AreaController {
 	
 	@RequestMapping("/update")
 	@ApiOperation(value="更新区域", response = Response.class)
-	public Response areaUpdate(Area area) {
+	public Response areaUpdate(@RequestBody Area area) {
 		
 		areaService.update(area);
 		
 		return new Response().success();
 	}
 	
-	@RequestMapping("/one")
+	@RequestMapping("/one/{areaId}")
 	@ApiOperation(value="查询单个区域", response = Response.class)
-	public Response areaOne(Integer areaId) {
+	public Response areaOne(@PathVariable Integer areaId) {
 		
 		Area area = areaService.getOne(areaId);
 		

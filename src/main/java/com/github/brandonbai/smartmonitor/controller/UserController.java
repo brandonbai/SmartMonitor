@@ -54,11 +54,11 @@ public class UserController {
 		return new Response().success();
 	}
 
-	@PostMapping(value = "changepwd")
+	@PostMapping(value = "changePwd")
 	@ApiOperation(value="修改密码", response = Response.class)
-	public Response changePassword(String username, String password, String newPassword) {
+	public Response changePassword(@RequestBody UserDTO user) {
 
-		userService.changePassword(username, password, newPassword);
+		userService.changePassword(user);
 
 		return new Response().success();
 	}

@@ -34,9 +34,9 @@ public class TokenUtil {
             return false;
         }
         User user = new User();
-        Object id = claims.getId();
+        Object id = claims.get("id");
         if(id != null) {
-            user.setId(Integer.parseInt((String)id));
+            user.setId((Integer) id);
         }
 
         String username = (String) claims.get("username");
@@ -69,7 +69,8 @@ public class TokenUtil {
         Key signingKey = generalKey();
 
         Map<String, Object> map = new HashMap<>();
-        map.put("userName", user.getUsername());
+        map.put("id", user.getId());
+        map.put("username", user.getUsername());
         map.put("roleId", user.getRoleId());
         map.put("tel", user.getTel());
         //Let's set the JWT Claims

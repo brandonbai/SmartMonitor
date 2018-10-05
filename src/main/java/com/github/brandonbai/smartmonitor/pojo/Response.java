@@ -21,10 +21,18 @@ public class Response {
 		return this;
 	}
 
+	public static Response ok() {
+		return new Response().success();
+	}
+
 	public Response success(Object data) {
 		this.meta = new Meta(true, OK);
 		this.data = data;
 		return this;
+	}
+
+	public static Response ok(Object data) {
+		return new Response().success(data);
 	}
 
 	public Response failure() {
@@ -35,6 +43,10 @@ public class Response {
 	public Response failure(String message) {
 		this.meta = new Meta(false, message);
 		return this;
+	}
+
+	public static Response err(String message) {
+		return new Response().failure(message);
 	}
 
 	public Meta getMeta() {

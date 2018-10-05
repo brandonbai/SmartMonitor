@@ -1,5 +1,6 @@
 package com.github.brandonbai.smartmonitor.service;
 
+import com.github.brandonbai.smartmonitor.dto.UserDTO;
 import com.github.brandonbai.smartmonitor.exception.MsgException;
 import com.github.brandonbai.smartmonitor.pojo.User;
 import com.github.pagehelper.PageInfo;
@@ -13,24 +14,22 @@ import com.github.pagehelper.PageInfo;
  */
 public interface UserService {
 	/**
-	 * �����û�
+	 * find user
 	 * @param username
 	 * @param password
 	 * @return user
-	 * @throws MsgException
 	 */
 	User findUser(String username, String password);
 	
 	/**
-	 * �޸��û���Ϣ
+	 * update user basic info
 	 * @param user
-	 * @throws MsgException
 	 */
-	void updateUser(User user) throws MsgException;
+	void updateUser(User user);
 
 	PageInfo<User> findAll(Integer pageNum, Integer pageSize);
 	
 	User findUserByUsername(String username);
 
-	void changePassword(String username, String password, String newPassword);
+	void changePassword(UserDTO user);
 }

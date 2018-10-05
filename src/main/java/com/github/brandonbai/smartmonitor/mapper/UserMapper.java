@@ -40,4 +40,5 @@ public interface UserMapper {
     void changePassword(User user);
 
     List<User> findAll(Integer pageNum, Integer pageSize);
+
 }

@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.github.brandonbai.smartmonitor.dto.UserDTO;
+import com.github.brandonbai.smartmonitor.utils.TokenUtil;
 import org.springframework.stereotype.Service;
 
 import com.github.brandonbai.smartmonitor.exception.MsgException;
@@ -45,10 +47,6 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public void updateUser(User user) throws MsgException {
-		User u = userMapper.findUserByUsername(user.getUsername());
-		if(u == null || !u.getPassword().equals(MD5.getMd5Hash(user.getPassword()))) {
-			throw new MsgException("密码错误");
-		}
 		userMapper.update(user);
 	}
 
@@ -58,14 +56,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void changePassword(String username, String password, String newPassword) throws MsgException {
-		User user = userMapper.findUserByUsername(username);
-		if(user == null || !user.getPassword().equals(MD5.getMd5Hash(password))) {
+	public void changePassword(UserDTO userDTO) throws MsgException {
+		User user = userMapper.findUserByUsername(TokenUtil.getUsername());
+		if(user == null || !user.getPassword().equals(MD5.getMd5Hash(userDTO.getPassword()))) {
 			throw new MsgException("密码错误");
 		}
 		User userTmp = new User();
 		userTmp.setId(user.getId());
-		userTmp.setPassword(MD5.getMd5Hash(password));
+		userTmp.setPassword(MD5.getMd5Hash(userDTO.getNewPassword()));
 		userMapper.changePassword(userTmp);
 	}
 

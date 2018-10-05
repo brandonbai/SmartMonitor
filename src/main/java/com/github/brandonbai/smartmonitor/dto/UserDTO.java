@@ -27,21 +27,21 @@ public class UserDTO extends User {
             throw new MsgException("用户名不能为空");
         }
 
-        if(TextUtils.isEmpty(getPassword())) {
-            throw new MsgException("密码不能为空");
-        }
-
-        if(TextUtils.isEmpty(newPassword)) {
-            throw new MsgException("新密码不能为空");
-        }
+//        if(TextUtils.isEmpty(getPassword())) {
+//            throw new MsgException("密码不能为空");
+//        }
+//
+//        if(TextUtils.isEmpty(newPassword)) {
+//            throw new MsgException("新密码不能为空");
+//        }
 
         if(TextUtils.isEmpty(getName())) {
             throw new MsgException("姓名不能为空");
         }
 
-        if(!newPassword.matches("\\w{6,15}")) {
-            throw new MsgException("密码位数为6~15");
-        }
+//        if(!newPassword.matches("\\w{6,15}")) {
+//            throw new MsgException("密码位数为6~15");
+//        }
 
         if(TextUtils.isEmpty(getTel())) {
             throw new MsgException("电话不能为空");

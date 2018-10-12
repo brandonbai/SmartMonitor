@@ -21,7 +21,17 @@ public interface SensorService {
 	List<Sensor> findSensorByAreaId(Integer areaId);
 
 	PageInfo<Sensor> findAllSensor(int pageNum, int pageSize);
-	
+
+	/**
+	 * 添加传感器数值
+	 * @param sensorId
+	 * @param value
+	 */
 	void addSensorValue(Integer sensorId, Integer value);
 
+	/**
+	 * 添加传感器
+	 * @param sensor
+	 */
+    void addSensor(Sensor sensor);
 }

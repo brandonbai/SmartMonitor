@@ -30,7 +30,7 @@ public class SensorServiceImpl implements SensorService {
 	@Resource
 	private SensorValueMapper sensorValueMapper;
 	@Resource
-	private MqttMessageConsumer mqttMessageHandler;
+	private MqttMessageConsumer mqttMessageConsumer;
 
 	@Override
 	public List<SensorValue> findDataByTime(Integer sensorId, Date firstTime, Date lastTime) {
@@ -54,7 +54,7 @@ public class SensorServiceImpl implements SensorService {
 		for (int i = 0; i < sensorList.size(); i++) {
 			Sensor sensor = sensorList.get(i);
 			// 获取实时数值
-			mqttMessageHandler.getValue(sensor.getId());
+			mqttMessageConsumer.getValue(sensor.getId());
 		}
 		return sensorList;
 	}
@@ -65,7 +65,7 @@ public class SensorServiceImpl implements SensorService {
 		for (int i = 0; i < sensorList.size(); i++) {
 			Sensor sensor = sensorList.get(i);
 			// 获取实时数值
-			mqttMessageHandler.getValue(sensor.getId());
+			mqttMessageConsumer.getValue(sensor.getId());
 		}
 		return new PageInfo<>(sensorList);
 	}
@@ -78,6 +78,11 @@ public class SensorServiceImpl implements SensorService {
         sensorValue.setValue(value);
 		sensorValueMapper.addSensorValue(sensorValue);
 		
+	}
+
+	@Override
+	public void addSensor(Sensor sensor) {
+		sensorMapper.insertSensor(sensor);
 	}
 
 }

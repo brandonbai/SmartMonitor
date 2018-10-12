@@ -12,6 +12,15 @@ spring:
     password:  root
     driver-class-name:  com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    database: 0
+    host: 192.168.85.145
+    port: 6379
+    password:
+    pool:
+      max-idle: 8
+      max-wait: -1
+    timeout: 0
 
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml

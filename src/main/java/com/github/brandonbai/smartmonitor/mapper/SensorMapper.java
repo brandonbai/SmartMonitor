@@ -19,4 +19,6 @@ public interface SensorMapper {
 
 	List<Sensor> findAllSensor(@Param("pageNum") int pageNum, 
             @Param("pageSize") int pageSize);
+
+    void insertSensor(Sensor sensor);
 }

@@ -45,4 +45,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ON s.id = t.tId
 	</select>
 
+	<insert id="insertSensor" >
+		INSERT INTO tb_sensor VALUES (NULL,#{name},#{unit},#{realValue},#{deviceId},#{nodeId})
+	</insert>
+
 </mapper>

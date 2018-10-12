@@ -31,10 +31,17 @@ public class SensorController {
 	@Resource
 	private SensorService sensorService;
 	
-	@RequestMapping("sensor/{areaId}")
+	@RequestMapping("sensor/info/{areaId}")
 	@ApiOperation(value="查询传感器列表", notes = "根据区域id查询传感器列表", response = Response.class)
 	public Response sensorInfo(@PathVariable Integer areaId) {
 		return new Response().success(sensorService.findSensorByAreaId(areaId));
+	}
+
+	@RequestMapping("sensor/add")
+	@ApiOperation(value="查询传感器列表", notes = "根据区域id查询传感器列表", response = Response.class)
+	public Response sensorInfo(@RequestBody Sensor sensor) {
+		sensorService.addSensor(sensor);
+		return Response.ok();
 	}
 	
 	@RequestMapping("sensor/list")

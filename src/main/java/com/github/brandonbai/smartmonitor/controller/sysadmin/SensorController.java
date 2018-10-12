@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import com.github.brandonbai.smartmonitor.pojo.Response;
@@ -40,6 +41,22 @@ public class SensorController {
 	@RequestMapping("sensor/add")
 	@ApiOperation(value="查询传感器列表", notes = "根据区域id查询传感器列表", response = Response.class)
 	public Response sensorInfo(@RequestBody Sensor sensor) {
+
+		if(sensor == null) {
+			return Response.err("名称不能为空");
+		}
+		if(StringUtils.isBlank(sensor.getName())) {
+			return Response.err("名称不能为空");
+		}
+		if(StringUtils.isBlank(sensor.getUnit())) {
+			return Response.err("单位不能为空");
+		}
+		if(sensor.getNodeId() == null || sensor.getDeviceId() == null) {
+			return Response.err("设备/节点不能为空");
+		}
+		if(sensor.getThresholdId() == null) {
+			return Response.err("阈值不能为空");
+		}
 		sensorService.addSensor(sensor);
 		return Response.ok();
 	}

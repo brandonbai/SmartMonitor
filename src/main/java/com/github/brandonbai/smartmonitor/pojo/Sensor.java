@@ -13,8 +13,8 @@ public class Sensor extends BaseDevice {
 	private String unit;
 	/** 实时值*/
 	private Integer realValue;
-	/** 阈值*/
-	private Threshold threshold;
+	/** 阈值id*/
+	private Integer thresholdId;
 	/** 设备id*/
 	private Integer deviceId;
 	/** 节点id*/
@@ -36,12 +36,12 @@ public class Sensor extends BaseDevice {
 		this.unit = unit;
 	}
 
-	public Threshold getThreshold() {
-		return threshold;
+	public Integer getThresholdId() {
+		return thresholdId;
 	}
 
-	public void setThreshold(Threshold threshold) {
-		this.threshold = threshold;
+	public void setThresholdId(Integer thresholdId) {
+		this.thresholdId = thresholdId;
 	}
 
 	public Integer getDeviceId() {

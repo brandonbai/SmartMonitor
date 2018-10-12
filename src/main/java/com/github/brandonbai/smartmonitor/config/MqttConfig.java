@@ -1,7 +1,6 @@
 package com.github.brandonbai.smartmonitor.config;
 
 import com.github.brandonbai.smartmonitor.mqtt.MqttMessageConsumer;
-import com.github.brandonbai.smartmonitor.service.SensorService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,7 +37,7 @@ public class MqttConfig {
     private String password;
 
     @Resource
-    private SensorService sensorService;
+    private MqttMessageConsumer mqttMessageConsumer;
 
     @Bean
     public MqttPahoClientFactory mqttClientFactory() {
@@ -70,7 +69,7 @@ public class MqttConfig {
     @Bean
     @ServiceActivator(inputChannel = "mqttInputChannel")
     public MqttMessageConsumer handler() {
-        return new MqttMessageConsumer(sensorService);
+        return mqttMessageConsumer;
     }
 
     @Bean

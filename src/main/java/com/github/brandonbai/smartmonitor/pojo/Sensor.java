@@ -17,6 +17,8 @@ public class Sensor extends BaseDevice {
 	private Threshold threshold;
 	/** 设备id*/
 	private Integer deviceId;
+	/** 节点id*/
+	private Integer nodeId;
 
 	public Integer getRealValue() {
 		return realValue;
@@ -49,5 +51,12 @@ public class Sensor extends BaseDevice {
 	public void setDeviceId(Integer deviceId) {
 		this.deviceId = deviceId;
 	}
-	
+
+	public Integer getNodeId() {
+		return nodeId;
+	}
+
+	public void setNodeId(Integer nodeId) {
+		this.nodeId = nodeId;
+	}
 }

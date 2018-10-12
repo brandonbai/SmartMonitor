@@ -38,7 +38,7 @@ public class AreaController {
 
 		areaService.add(area);
 		
-		return new Response().success();
+		return Response.ok();
 	}
 	
 	@RequestMapping("/del/{areaId}")
@@ -47,7 +47,7 @@ public class AreaController {
 		
 		areaService.delete(areaId);
 		
-		return new Response().success();
+		return Response.ok();
 	}
 	
 	@RequestMapping("/update")
@@ -56,7 +56,7 @@ public class AreaController {
 		
 		areaService.update(area);
 		
-		return new Response().success();
+		return Response.ok();
 	}
 	
 	@RequestMapping("/one/{areaId}")
@@ -65,7 +65,7 @@ public class AreaController {
 		
 		Area area = areaService.getOne(areaId);
 		
-		return new Response().success(area);
+		return Response.ok(area);
 	}
 	
 	@RequestMapping("/list")
@@ -74,6 +74,6 @@ public class AreaController {
 		
 		PageInfo<Area> pi = areaService.getAll(pageNum, pageSize);
 		
-		return new Response().success(pi);
+		return Response.ok(pi);
 	}
 }

@@ -67,14 +67,14 @@ public class SensorController {
 		
 		PageInfo<Sensor> pi = sensorService.findAllSensor(pageNum, pageSize);
 		
-		return new Response().success(pi);
+		return Response.ok(pi);
 	}
 	
 	@RequestMapping("sensorValue/{sensorId}")
 	@ApiOperation(value="查询传感器数值", notes = "根据传感器id和时间段查询",response = Response.class)
 	public Response sensorValue(@PathVariable Integer sensorId, Date ft, Date lt) {
 		List<SensorValue> svList = sensorService.findDataByTime(sensorId, ft, lt);
-		return new Response().success(svList);
+		return Response.ok(svList);
 	}
 
 }

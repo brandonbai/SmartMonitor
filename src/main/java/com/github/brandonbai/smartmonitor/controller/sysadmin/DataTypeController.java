@@ -36,7 +36,7 @@ public class DataTypeController {
 		
 		dataTypeService.add(dataType);
 		
-		return new Response().success();
+		return Response.ok();
 	}
 	
 	@RequestMapping("/del")
@@ -45,7 +45,7 @@ public class DataTypeController {
 		
 		dataTypeService.delete(dataTypeId);
 		
-		return new Response().success();
+		return Response.ok();
 	}
 	
 	@RequestMapping("/update")
@@ -54,7 +54,7 @@ public class DataTypeController {
 		
 		dataTypeService.update(dataType);
 		
-		return new Response().success();
+		return Response.ok();
 	}
 	
 	@RequestMapping("/one")
@@ -63,7 +63,7 @@ public class DataTypeController {
 		
 		dataTypeService.getOne(dataTypeId);
 		
-		return new Response().success();
+		return Response.ok();
 	}
 	@RequestMapping("/list")
 	@ApiOperation(value="查询数据类型列表", response = Response.class)
@@ -71,7 +71,7 @@ public class DataTypeController {
 		
 		PageInfo<DataType> pi = dataTypeService.getAll(pageNum, pageSize);
 		
-		return new Response().success(pi);
+		return Response.ok(pi);
 	}
 	
 	

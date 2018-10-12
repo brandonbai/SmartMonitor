@@ -29,13 +29,13 @@ public class LogController {
 	@ApiOperation(value="查询日志列表", notes = "分页查询",response = Response.class)
 	public Response logInfo(@RequestParam(defaultValue = "0") Integer pageNum, @RequestParam(defaultValue = "0")Integer pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
-		return  new Response().success(logService.getLog());
+		return  Response.ok(logService.getLog());
 	}
 
 	@RequestMapping("/list/{date}")
 	@ApiOperation(value="查询日志列表", notes = "根据日期查询",response = Response.class)
 	public Response logInfo(@PathVariable String date) {
-		return new Response().success(logService.getLog(date));
+		return Response.ok(logService.getLog(date));
 	}
 	
 }

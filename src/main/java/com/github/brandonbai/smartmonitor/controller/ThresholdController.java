@@ -30,14 +30,14 @@ public class ThresholdController {
 	@RequestMapping("{sensorId}")
 	@ApiOperation(value="查询阈值", notes = "根据传感器id查询阈值",response = Response.class)
 	public Response thresholdInfo(@PathVariable Integer sensorId) {
-		return new Response().success(thresholdService.findOne(sensorId));
+		return Response.ok(thresholdService.findOne(sensorId));
 	}
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	@ApiOperation(value="修改阈值", response = Response.class)
 	public Response updateThreshold(@RequestBody Threshold threshold) {
 		thresholdService.updateThresholds(threshold);
-		return new Response().success(thresholdService.findOne(threshold.getId()));
+		return Response.ok(thresholdService.findOne(threshold.getId()));
 	}
 
 }

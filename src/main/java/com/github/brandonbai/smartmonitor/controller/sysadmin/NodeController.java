@@ -33,7 +33,7 @@ public class NodeController {
 		
 		nodeService.add(node);
 		
-		return new Response().success();
+		return Response.ok();
 	}
 	
 	@RequestMapping("/del")
@@ -42,7 +42,7 @@ public class NodeController {
 		
 		nodeService.delete(nodeId);
 		
-		return new Response().success();
+		return Response.ok();
 	}
 	
 	@RequestMapping("/update")
@@ -51,7 +51,7 @@ public class NodeController {
 		
 		nodeService.update(node);
 		
-		return new Response().success();
+		return Response.ok();
 	}
 	
 	@RequestMapping("/one")
@@ -60,7 +60,7 @@ public class NodeController {
 		
 		nodeService.getOne(nodeId);
 		
-		return new Response().success();
+		return Response.ok();
 	}
 	
 	@RequestMapping("/list")
@@ -69,7 +69,7 @@ public class NodeController {
 		
 		PageInfo<Node> pi = nodeService.getAll(pageNum, pageSize);
 		
-		return new Response().success(pi);
+		return Response.ok(pi);
 	}
 	
 }

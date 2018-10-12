@@ -39,6 +39,6 @@ public class ExceptionAdvice {
         }else {
             logger.error(MSG_500, e);
         }
-        return new Response().failure(e.getMessage());
+        return Response.err(e.getMessage());
     }
 }

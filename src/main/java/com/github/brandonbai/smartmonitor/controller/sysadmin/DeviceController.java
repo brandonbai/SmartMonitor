@@ -37,14 +37,14 @@ public class DeviceController {
 			throw new MsgException("命令为空");
 		}
 		deviceService.controlDevice(command);
-		return new Response().success();
+		return Response.ok();
 	}
 
 	@RequestMapping("list/{areaId}")
 	@ApiOperation(value="查看设备列表", notes = "根据区域id查询设备列表", response = Response.class)
 	public Response deviceInfo(@PathVariable Integer areaId) {
 		
-		return new Response().success(deviceService.getDevices(areaId));
+		return Response.ok(deviceService.getDevices(areaId));
 	}
 	
 	@RequestMapping("list")
@@ -52,14 +52,14 @@ public class DeviceController {
 	public Response deviceInfo(@RequestParam(defaultValue="0")Integer pageNum, @RequestParam(defaultValue="0")Integer pageSize) {
 		
 		PageInfo<Device> pi = deviceService.getAllDevices(pageNum, pageSize);
-		return new Response().success(pi);
+		return Response.ok(pi);
 	}
 	
 	@RequestMapping("commands/{deviceId}")
 	@ApiOperation(value="查询指令列表", notes = "根据设备id查询指令列表", response = Response.class)
 	public Response commands(@PathVariable Integer deviceId) {
 
-		return new Response().success(deviceService.getCommands(deviceId));
+		return Response.ok(deviceService.getCommands(deviceId));
 	}
 
 }

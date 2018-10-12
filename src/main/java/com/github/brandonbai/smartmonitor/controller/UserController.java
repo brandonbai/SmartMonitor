@@ -41,7 +41,7 @@ public class UserController {
 		User user = userService.findUser(username, password);
 		String token = TokenUtil.createToken(user);
 		
-		return new Response().success(token);
+		return Response.ok(token);
 	}
 
 	@PostMapping(value = "update")
@@ -51,7 +51,7 @@ public class UserController {
 		user.checkUpdate();
 		userService.updateUser(user);
 		
-		return new Response().success();
+		return Response.ok();
 	}
 
 	@PostMapping(value = "changePwd")
@@ -60,7 +60,7 @@ public class UserController {
 
 		userService.changePassword(user);
 
-		return new Response().success();
+		return Response.ok();
 	}
 
 	@PostMapping(value = "userInfo")
@@ -69,7 +69,7 @@ public class UserController {
 
 		User user = TokenUtil.getUser();
 
-		return new Response().success(user);
+		return Response.ok(user);
 	}
 
 }

@@ -54,7 +54,8 @@ public class SensorServiceImpl implements SensorService {
 		for (int i = 0; i < sensorList.size(); i++) {
 			Sensor sensor = sensorList.get(i);
 			// 获取实时数值
-			mqttMessageConsumer.getValue(sensor.getId());
+			Integer value = mqttMessageConsumer.getValue(sensor.getId());
+			sensor.setRealValue(value);
 		}
 		return sensorList;
 	}
@@ -65,7 +66,8 @@ public class SensorServiceImpl implements SensorService {
 		for (int i = 0; i < sensorList.size(); i++) {
 			Sensor sensor = sensorList.get(i);
 			// 获取实时数值
-			mqttMessageConsumer.getValue(sensor.getId());
+			Integer value = mqttMessageConsumer.getValue(sensor.getId());
+			sensor.setRealValue(value);
 		}
 		return new PageInfo<>(sensorList);
 	}

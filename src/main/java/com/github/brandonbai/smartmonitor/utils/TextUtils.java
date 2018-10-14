@@ -12,14 +12,6 @@ public class TextUtils {
 	private TextUtils(){}
 	
 	/**
-	 *	判断字符串是否为空或为空字符串
-	 */
-	public static boolean isEmpty(String s) {
-		
-		return s == null || "".equals(s.trim());
-	}
-	
-	/**
 	 * 将16进制字符串转换成byte数组
 	 * 0A01050D ——> [10, 1, 5, 13]
 	 */

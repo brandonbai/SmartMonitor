@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import com.github.brandonbai.smartmonitor.exception.MsgException;
@@ -33,7 +34,7 @@ public class DeviceController {
 	@RequestMapping(value = "control", method = RequestMethod.POST)
 	@ApiOperation(value="控制设备",notes = "传输控制指令", response = Response.class)
 	public Response deviceControl(String command) throws MsgException {
-		if(TextUtils.isEmpty(command)) {
+		if(StringUtils.isEmpty(command)) {
 			throw new MsgException("命令为空");
 		}
 		deviceService.controlDevice(command);

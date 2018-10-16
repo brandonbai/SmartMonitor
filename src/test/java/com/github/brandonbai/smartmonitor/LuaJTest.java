@@ -16,8 +16,8 @@ import javax.script.ScriptEngineManager;
 public class LuaJTest {
 
     @Test
-    public void test() {
-        int size = 100000;
+    public void test1() {
+        int size = 10000;
 
         Globals globals = JsePlatform.standardGlobals();
         long start = System.currentTimeMillis();
@@ -27,11 +27,37 @@ public class LuaJTest {
             chunk.call().toboolean();
         }
         long end = System.currentTimeMillis();
-        System.out.printf("lua：%d ms\n", end - start);
+        System.out.printf("lua1：%d ms\n", end - start);
+
+    }
+
+    @Test
+    public void test2() {
+        int size = 10000;
+
+        ScriptEngineManager sem = new ScriptEngineManager();
+        ScriptEngine scriptEngine = sem.getEngineByName("lua");
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < size; i++) {
+            String jsStr = String.format("return %d > %d", i, i+1);
+            try{
+                scriptEngine.eval(jsStr);
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        long end = System.currentTimeMillis();
+        System.out.printf("lua2：%d ms\n" ,end - start);
+
+    }
+
+    @Test
+    public void test3() {
+        int size = 10000;
 
         ScriptEngineManager sem = new ScriptEngineManager();
         ScriptEngine scriptEngine = sem.getEngineByName("JavaScript");
-        start = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
         for (int i = 0; i < size; i++) {
             String jsStr = String.format("%d > %d", i, i+1);
             try{
@@ -40,7 +66,7 @@ public class LuaJTest {
                 e.printStackTrace();
             }
         }
-        end = System.currentTimeMillis();
+        long end = System.currentTimeMillis();
         System.out.printf("js：%d ms\n" ,end - start);
 
     }

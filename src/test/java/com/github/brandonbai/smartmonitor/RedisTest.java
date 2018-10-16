@@ -11,10 +11,12 @@ import org.springframework.data.redis.connection.RedisGeoCommands;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Transaction;
 
 import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -97,11 +99,11 @@ public class RedisTest {
         System.out.println(o);
 
         redisTemplate.execute((RedisConnection connection) -> {
-                Jedis jedis = (Jedis) connection.getNativeConnection();
-            Long result = jedis.bitcount(key);
-            System.out.println(result);
-            return null;
-            }
+                    Jedis jedis = (Jedis) connection.getNativeConnection();
+                    Long result = jedis.bitcount(key);
+                    System.out.println(result);
+                    return null;
+                }
         );
 
     }
@@ -109,13 +111,12 @@ public class RedisTest {
     @Test
     public void nxTest() {
         final String key = "nxKey";
-        redisTemplate.execute((RedisConnection connection) -> {
+        String result = redisTemplate.execute((RedisConnection connection) -> {
                     Jedis jedis = (Jedis) connection.getNativeConnection();
-                    String result = jedis.set(key, "a", "NX", "EX", 8000);
-                    System.out.println("OK".equals(result));
-                    return null;
+                    return jedis.set(key, "a", "NX", "EX", 8000);
                 }
         );
+        System.out.println(result);
     }
 
     @Test
@@ -124,13 +125,35 @@ public class RedisTest {
         final String requestId = "requestId1";
         final String seconds = String.valueOf(System.currentTimeMillis());
         final String script = "if (redis.call('exists',KEYS[1]) == 0 or redis.call('get',KEYS[1]) == ARGV[2]) then return redis.call('setex',KEYS[1],ARGV[1],ARGV[2]) else return -1 end";
-        redisTemplate.execute((RedisConnection connection) -> {
+        Object result = redisTemplate.execute((RedisConnection connection) -> {
                     Jedis jedis = (Jedis) connection.getNativeConnection();
-                    Object eval = jedis.eval(script, Collections.singletonList(key), Arrays.asList(String.valueOf(seconds), requestId));
-                    System.out.println(eval);
-                    return null;
+                    return jedis.eval(script, Collections.singletonList(key), Arrays.asList(String.valueOf(seconds), requestId));
                 }
         );
+        System.out.println(result);
+    }
+
+    @Test
+    public void transTest() {
+        final String key = "transKey";
+        redisTemplate.opsForValue().set(key, "1");
+        String result = redisTemplate.execute((RedisConnection connection) -> {
+                    Jedis jedis = (Jedis) connection.getNativeConnection();
+                    while (true) {
+                        jedis.watch(key);
+                        int value = Integer.parseInt(jedis.get(key));
+                        value *= 2; // 加倍
+                        Transaction tx = jedis.multi();
+                        tx.set(key, String.valueOf(value));
+                        List<Object> res = tx.exec();
+                        if (res != null) {
+                            break; // 成功了
+                        }
+                    }
+                    return jedis.get(key);
+                }
+        );
+        System.out.println(result);
     }
 
 }

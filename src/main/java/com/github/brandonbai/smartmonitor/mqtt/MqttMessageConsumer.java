@@ -1,5 +1,6 @@
 package com.github.brandonbai.smartmonitor.mqtt;
 
+import com.alibaba.fastjson.JSON;
 import com.github.brandonbai.smartmonitor.pojo.SensorValue;
 import com.github.brandonbai.smartmonitor.service.SensorService;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -15,25 +16,34 @@ import javax.annotation.Resource;
  * @author brandonbai
  * @since 2018/10/06
  */
-@Component
 public class MqttMessageConsumer implements MessageHandler {
 
-    @Resource
     private RedisTemplate<String, String> redisTemplate;
 
-    @Resource
     private SensorService sensorService;
+
+    public MqttMessageConsumer(RedisTemplate<String, String> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
 
     @Override
     public void handleMessage(Message<?> message) throws MessagingException {
-        Object payload = message.getPayload();
-        SensorValue sv = (SensorValue) payload;
-        redisTemplate.opsForValue().set(String.valueOf(sv.getSensorId()), String.valueOf(sv.getValue()));
+        String payload = (String)message.getPayload();
+        SensorValue sv = JSON.parseObject(payload, SensorValue.class);
+        redisTemplate.opsForValue().set(String.format("sensor_%d", sv.getSensorId()), String.valueOf(sv.getValue()));
         sensorService.addSensorValue(sv.getSensorId(), sv.getValue());
     }
 
     public Integer getValue(Integer key) {
-        String result = redisTemplate.opsForValue().get(String.valueOf(key));
+        String result = redisTemplate.opsForValue().get(String.format("sensor_%d", key));
         return result == null ? null : Integer.parseInt(result);
+    }
+
+    public SensorService getSensorService() {
+        return sensorService;
+    }
+
+    public void setSensorService(SensorService sensorService) {
+        this.sensorService = sensorService;
     }
 }

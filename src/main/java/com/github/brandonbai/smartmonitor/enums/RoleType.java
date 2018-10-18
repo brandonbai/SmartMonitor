@@ -5,7 +5,6 @@ package com.github.brandonbai.smartmonitor.enums;
  * RoleType 
  * 角色类型
  * @author brandonbai
- * 
  */
 public enum RoleType {
 	/**管理员*/

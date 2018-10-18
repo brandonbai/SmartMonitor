@@ -28,9 +28,9 @@ mybatis:
   type-aliases-package: com.github.brandonbai.smartmonitor.pojo
 
 mqtt:
-  url: tcp://iot.eclipse.org:1883
-  username: test
-  password: test
+  url: tcp://192.168.85.153:1883
+  username: lilei
+  password: 123456
 
 logging:
   level: info

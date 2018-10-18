@@ -1,9 +1,12 @@
 package com.github.brandonbai.smartmonitor.config;
 
 import com.github.brandonbai.smartmonitor.mqtt.MqttMessageConsumer;
+import com.github.brandonbai.smartmonitor.service.SensorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.integration.annotation.MessagingGateway;
 import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.integration.channel.DirectChannel;
@@ -36,8 +39,8 @@ public class MqttConfig {
     @Value("${mqtt.password}")
     private String password;
 
-    @Resource
-    private MqttMessageConsumer mqttMessageConsumer;
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
 
     @Bean
     public MqttPahoClientFactory mqttClientFactory() {
@@ -48,7 +51,6 @@ public class MqttConfig {
         return factory;
     }
 
-
     @Bean
     public MessageChannel mqttInputChannel() {
         return new DirectChannel();
@@ -57,7 +59,7 @@ public class MqttConfig {
     @Bean
     public MessageProducer inbound() {
         MqttPahoMessageDrivenChannelAdapter adapter =
-                new MqttPahoMessageDrivenChannelAdapter(url, "dataClient",
+                new MqttPahoMessageDrivenChannelAdapter("dataClient", mqttClientFactory(),
                         "sm/data");
         adapter.setCompletionTimeout(5000);
         adapter.setConverter(new DefaultPahoMessageConverter());
@@ -69,7 +71,7 @@ public class MqttConfig {
     @Bean
     @ServiceActivator(inputChannel = "mqttInputChannel")
     public MqttMessageConsumer handler() {
-        return mqttMessageConsumer;
+        return new MqttMessageConsumer(redisTemplate);
     }
 
     @Bean

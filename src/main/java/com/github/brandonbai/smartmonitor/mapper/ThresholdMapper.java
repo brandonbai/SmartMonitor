@@ -21,4 +21,5 @@ public interface ThresholdMapper {
 
     Threshold findOne(Integer id);
 
+    void insertThreshold(Threshold threshold);
 }

@@ -11,22 +11,12 @@ package com.github.brandonbai.smartmonitor.pojo;
 public class Sensor extends BaseDevice {
 	/** 单位 */
 	private String unit;
-	/** 实时值*/
-	private Integer realValue;
 	/** 阈值id*/
 	private Integer thresholdId;
 	/** 设备id*/
 	private Integer deviceId;
 	/** 节点id*/
 	private Integer nodeId;
-
-	public Integer getRealValue() {
-		return realValue;
-	}
-
-	public void setRealValue(Integer realValue) {
-		this.realValue = realValue;
-	}
 
 	public String getUnit() {
 		return unit;

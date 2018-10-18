@@ -14,7 +14,7 @@ public class SensorValue {
 	private Integer sensorId;
 	private String sensorName;
 	private Date time;
-	private Integer value;
+	private Double value;
 
 	public Integer getSensorId() {
 		return sensorId;
@@ -36,10 +36,10 @@ public class SensorValue {
 	public void setTime(Date time) {
 		this.time = time;
 	}
-	public Integer getValue() {
+	public Double getValue() {
 		return value;
 	}
-	public void setValue(Integer value) {
+	public void setValue(Double value) {
 		this.value = value;
 	}
 	

@@ -6,8 +6,16 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.github.brandonbai.smartmonitor.config.MqttConfig;
+import com.github.brandonbai.smartmonitor.dto.SensorDTO;
+import com.github.brandonbai.smartmonitor.mapper.ThresholdMapper;
 import com.github.brandonbai.smartmonitor.mqtt.MqttMessageConsumer;
+import com.github.brandonbai.smartmonitor.mqtt.MqttMessageSender;
+import com.github.brandonbai.smartmonitor.pojo.Threshold;
+import com.github.brandonbai.smartmonitor.service.RedisService;
+import com.github.brandonbai.smartmonitor.vo.SensorVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.integration.mqtt.outbound.MqttPahoMessageHandler;
 import org.springframework.stereotype.Service;
 
 import com.github.brandonbai.smartmonitor.mapper.SensorMapper;
@@ -31,6 +39,10 @@ public class SensorServiceImpl implements SensorService {
 	private SensorMapper sensorMapper;
 	@Resource
 	private SensorValueMapper sensorValueMapper;
+	@Resource
+	private MqttMessageSender mqttMessageSender;
+	@Resource
+	private RedisService redisService;
 
 	private MqttMessageConsumer mqttMessageConsumer;
 
@@ -56,42 +68,60 @@ public class SensorServiceImpl implements SensorService {
 	}
 
 	@Override
-	public List<Sensor> findSensorByAreaId(Integer areaId) {
+	public List<SensorVO> findSensorByAreaId(Integer areaId) {
 
-		List<Sensor> sensorList = sensorMapper.findSensorByAreaId(areaId);
+		List<SensorVO> sensorList = sensorMapper.findSensorByAreaId(areaId);
 		for (int i = 0; i < sensorList.size(); i++) {
-			Sensor sensor = sensorList.get(i);
+			SensorVO sensor = sensorList.get(i);
 			// 获取实时数值
-			Integer value = mqttMessageConsumer.getValue(sensor.getId());
+			Double value = redisService.getRealValue(sensor.getId());
 			sensor.setRealValue(value);
 		}
 		return sensorList;
 	}
 
 	@Override
-	public PageInfo<Sensor> findAllSensor(int pageNum, int pageSize) {
-		List<Sensor> sensorList = sensorMapper.findAllSensor(pageNum, pageSize);
+	public PageInfo<SensorVO> findAllSensor(int pageNum, int pageSize) {
+		List<SensorVO> sensorList = sensorMapper.findAllSensor(pageNum, pageSize);
 		for (int i = 0; i < sensorList.size(); i++) {
-			Sensor sensor = sensorList.get(i);
+			SensorVO sensor = sensorList.get(i);
 			// 获取实时数值
-			Integer value = mqttMessageConsumer.getValue(sensor.getId());
+			Double value = redisService.getRealValue(sensor.getId());
 			sensor.setRealValue(value);
 		}
 		return new PageInfo<>(sensorList);
 	}
 
 	@Override
-	public void addSensorValue(Integer sensorId, Integer value) {
+	public void addSensorValue(Integer sensorId, Double value) {
 		SensorValue sensorValue = new SensorValue();
 		sensorValue.setSensorId(sensorId);
         sensorValue.setTime(new Date());
         sensorValue.setValue(value);
 		sensorValueMapper.addSensorValue(sensorValue);
-		
+
+		Threshold threshold = redisService.getThreshold(sensorId);
+		if(threshold == null) {
+			return;
+		}
+		Integer max = threshold.getMax();
+		Integer min = threshold.getMin();
+		Double realValue = redisService.getRealValue(sensorId);
+		if(value < min || value > max) {
+			if(realValue > min && realValue < max) {
+				// 之前正常，现在异常 报警
+				mqttMessageSender.sendMessage("sm/warn/"+sensorId, value);
+			}
+		} else {
+			if(realValue < min || realValue > max) {
+				// 之前异常，现在正常 通知
+				mqttMessageSender.sendMessage("sm/normal/"+sensorId, value);
+			}
+		}
 	}
 
 	@Override
-	public void addSensor(Sensor sensor) {
+	public void addSensor(SensorDTO sensor) {
 		sensorMapper.insertSensor(sensor);
 	}
 

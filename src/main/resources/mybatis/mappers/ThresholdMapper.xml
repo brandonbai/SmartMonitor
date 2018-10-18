@@ -3,6 +3,11 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.brandonbai.smartmonitor.mapper.ThresholdMapper">
+
+	<insert id="insertThreshold">
+		INSERT INTO tb_threshold VALUES (null, #{max}, #{min}, #{sensorId})
+	</insert>
+
 	<select id="findAll" resultMap="thresholdRM">
 		SELECT * FROM
 		tb_threshold t

@@ -5,13 +5,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.github.brandonbai.smartmonitor.dto.SensorDTO;
+import com.github.brandonbai.smartmonitor.vo.SensorVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import com.github.brandonbai.smartmonitor.pojo.Response;
-import com.github.brandonbai.smartmonitor.pojo.Sensor;
 import com.github.brandonbai.smartmonitor.pojo.SensorValue;
 import com.github.brandonbai.smartmonitor.service.SensorService;
 import com.github.pagehelper.PageInfo;
@@ -40,7 +41,7 @@ public class SensorController {
 
 	@RequestMapping("sensor/add")
 	@ApiOperation(value="查询传感器列表", notes = "根据区域id查询传感器列表", response = Response.class)
-	public Response sensorInfo(@RequestBody Sensor sensor) {
+	public Response sensorInfo(@RequestBody SensorDTO sensor) {
 
 		if(sensor == null) {
 			return Response.err("名称不能为空");
@@ -65,7 +66,7 @@ public class SensorController {
 	@ApiOperation(value="查询传感器列表", notes = "分页查询", response = Response.class)
 	public Response sensorList(@RequestParam(defaultValue="0")Integer pageNum, @RequestParam(defaultValue="0")Integer pageSize) {
 		
-		PageInfo<Sensor> pi = sensorService.findAllSensor(pageNum, pageSize);
+		PageInfo<SensorVO> pi = sensorService.findAllSensor(pageNum, pageSize);
 		
 		return Response.ok(pi);
 	}

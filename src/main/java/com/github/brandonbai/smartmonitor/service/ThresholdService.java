@@ -12,22 +12,32 @@ import com.github.brandonbai.smartmonitor.pojo.Threshold;
  *
  */
 public interface ThresholdService {
-	
+
 	/**
-	 * �޸���ֵ
-	 * @param map
+	 * 更新阈值
+	 * @param threshold
+	 */
+	void updateThreshold(Threshold threshold);
+
+	/**
+	 * 新增阈值
+	 * @param threshold
+	 */
+	void insertThreshold(Threshold threshold);
+
+	/**
+	 * 获取阈值列表
+	 * @param pageNum
+	 * @param pageSize
 	 * @return
 	 */
-	public void updateThresholds(Threshold threshold) ;
-	
+	List<Threshold> getThresholds(int pageNum, int pageSize);
+
 	/**
-	 * ��ȡ��ֵ
+	 * 查看阈值
+	 * @param id
+	 * @return
 	 */
-	public List<Threshold> getThresholds(int pageNum, int pageSize);
-	
-	/**
-	 * ��ȡ��ֵ
-	 */
-	public Threshold findOne(Integer id);
+	Threshold findOne(Integer id);
 
 }

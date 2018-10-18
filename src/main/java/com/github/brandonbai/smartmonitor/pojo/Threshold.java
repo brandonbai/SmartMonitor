@@ -1,5 +1,7 @@
 package com.github.brandonbai.smartmonitor.pojo;
 
+import io.swagger.models.auth.In;
+
 /**
  * 
  * Threshold 
@@ -9,11 +11,12 @@ package com.github.brandonbai.smartmonitor.pojo;
  *
  */
 public class Threshold {
+
 	private Integer id;
 	private Integer max;
 	private Integer min;
-	private Sensor sensor;
-	
+	private Integer sensorId;
+
 	public Threshold(){}
 	
 	public Integer getId() {
@@ -24,12 +27,12 @@ public class Threshold {
 		this.id = id;
 	}
 
-	public Sensor getSensor() {
-		return sensor;
+	public Integer getSensorId() {
+		return sensorId;
 	}
 
-	public void setSensor(Sensor sensor) {
-		this.sensor = sensor;
+	public void setSensorId(Integer sensorId) {
+		this.sensorId = sensorId;
 	}
 
 	public Integer getMax() {

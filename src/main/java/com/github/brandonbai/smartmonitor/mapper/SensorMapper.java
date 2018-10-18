@@ -2,6 +2,7 @@ package com.github.brandonbai.smartmonitor.mapper;
 
 import java.util.List;
 
+import com.github.brandonbai.smartmonitor.vo.SensorVO;
 import org.apache.ibatis.annotations.Param;
 
 import com.github.brandonbai.smartmonitor.pojo.Sensor;
@@ -15,9 +16,9 @@ import com.github.brandonbai.smartmonitor.pojo.Sensor;
  */
 public interface SensorMapper {
 
-	List<Sensor> findSensorByAreaId(Integer areaId);
+	List<SensorVO> findSensorByAreaId(Integer areaId);
 
-	List<Sensor> findAllSensor(@Param("pageNum") int pageNum, 
+	List<SensorVO> findAllSensor(@Param("pageNum") int pageNum,
             @Param("pageSize") int pageSize);
 
     void insertSensor(Sensor sensor);

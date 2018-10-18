@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.github.brandonbai.smartmonitor.service.RedisService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.brandonbai.smartmonitor.mapper.ThresholdMapper;
@@ -22,14 +24,24 @@ public class ThresholdServiceImpl implements ThresholdService {
 	
 	@Resource
 	private ThresholdMapper thresholdMapper;
+
+	@Autowired
+	private RedisService redisService;
 	
 	@Override
-	public void updateThresholds(Threshold threshold) {
-			thresholdMapper.update(threshold);
+	public void updateThreshold(Threshold threshold) {
+		thresholdMapper.update(threshold);
+		redisService.setThreshold(threshold);
+	}
+
+	@Override
+	public void insertThreshold(Threshold threshold) {
+		thresholdMapper.insertThreshold(threshold);
 	}
 
 	@Override
 	public List<Threshold> getThresholds(int pageNum, int pageSize) {
+		// TODO
 		return thresholdMapper.findAll(pageNum, pageSize);
 	}
 

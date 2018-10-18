@@ -36,7 +36,7 @@ public class ThresholdController {
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	@ApiOperation(value="修改阈值", response = Response.class)
 	public Response updateThreshold(@RequestBody Threshold threshold) {
-		thresholdService.updateThresholds(threshold);
+		thresholdService.updateThreshold(threshold);
 		return Response.ok(thresholdService.findOne(threshold.getId()));
 	}
 

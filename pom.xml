@@ -5,7 +5,7 @@
   <artifactId>smartmonitor</artifactId>
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>smartmonitor Maven Webapp</name>
+  <name>smart-monitor Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
 	<parent>
@@ -75,6 +75,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-integration</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
@@ -174,12 +178,6 @@
 			<artifactId>quartz-jobs</artifactId>
 			<version>${quartz.version}</version>
 		</dependency>
-		<!--joda日期处理工具 -->
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>${joda.time.version}</version>
-		</dependency>
 		<!-- pdfbox -->
 		<dependency>
 			<groupId>org.apache.pdfbox</groupId>
@@ -191,6 +189,12 @@
 			<groupId>org.docx4j</groupId>
 			<artifactId>docx4j</artifactId>
 			<version>3.3.7</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.xmlgraphics</groupId>
@@ -296,6 +300,6 @@
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
-		<finalName>smartmonitor</finalName>
+		<finalName>smart-monitor</finalName>
 	</build>
 </project>

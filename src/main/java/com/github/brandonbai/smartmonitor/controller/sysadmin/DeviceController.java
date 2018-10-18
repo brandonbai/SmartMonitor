@@ -18,7 +18,7 @@ import com.github.pagehelper.PageInfo;
  * 
  * DeviceController 
  * 设备相关
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月15日
  *
  */

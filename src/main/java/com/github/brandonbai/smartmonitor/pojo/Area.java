@@ -4,7 +4,7 @@ package com.github.brandonbai.smartmonitor.pojo;
  * 
  * Area 
  * 区域类
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2017年10月11日
  *
  */

@@ -14,7 +14,7 @@ import com.github.brandonbai.smartmonitor.service.LogService;
  * 
  * LogController 
  * 日志处理
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月15日
  */
 @RestController

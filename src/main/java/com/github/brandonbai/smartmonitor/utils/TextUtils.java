@@ -4,7 +4,7 @@ package com.github.brandonbai.smartmonitor.utils;
  * 
  * TextUtils 
  * 文本工具
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月19日
  *
  */

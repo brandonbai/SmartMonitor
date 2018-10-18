@@ -12,6 +12,8 @@ import javax.annotation.Resource;
 
 /**
  * mqtt消费者
+ * @author brandonbai
+ * @since 2018/10/06
  */
 @Component
 public class MqttMessageConsumer implements MessageHandler {

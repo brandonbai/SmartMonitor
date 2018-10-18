@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
 /**
  * 
  * MD5 
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月16日
  *
  */

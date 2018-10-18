@@ -9,6 +9,10 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
+/**
+ * @author brandonbai
+ * @since 2018/10/06
+ */
 @Component
 public class MqttMessageSender {
 

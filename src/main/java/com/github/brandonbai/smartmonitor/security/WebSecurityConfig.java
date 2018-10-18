@@ -11,6 +11,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 
 /**
  * SpringSecurity的配置
+ * @author brandonbai
+ * @since 2018/10/06
  */
 @Configuration
 @EnableWebSecurity

@@ -19,7 +19,7 @@ import com.github.brandonbai.smartmonitor.utils.TextUtils;
  * 
  * UserController 
  * 用户相关
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月15日
  *
  */

@@ -6,7 +6,7 @@ import com.github.pagehelper.PageInfo;
 /**
  * 
  * DataTypeService 
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月19日
  *
  */

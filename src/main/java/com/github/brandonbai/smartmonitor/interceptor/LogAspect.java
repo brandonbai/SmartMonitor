@@ -18,7 +18,7 @@ import javax.annotation.Resource;
  * 
  * LogAspect 
  * 日志存储切面
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月15日
  *
  */

@@ -15,7 +15,7 @@ import com.github.pagehelper.PageInfo;
  * 
  * AreaController 
  * 区域处理
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月15日
  *
  */

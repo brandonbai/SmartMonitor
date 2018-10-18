@@ -7,7 +7,7 @@ import com.github.brandonbai.smartmonitor.utils.TextUtils;
  * 
  * User 
  * 用户
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月11日
  *
  */

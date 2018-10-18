@@ -4,6 +4,8 @@ import com.github.brandonbai.smartmonitor.pojo.Device;
 
 /**
  * 设备vo
+ * @author brandonbai
+ * @since 2018/10/06
  */
 public class DeviceVO extends Device {
 

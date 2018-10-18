@@ -4,7 +4,7 @@ package com.github.brandonbai.smartmonitor.exception;
  * 
  * MsgException 
  * 自定义异常
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月15日
  *
  */

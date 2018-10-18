@@ -22,9 +22,8 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 
 /**
  * token的校验
- * 该类继承自BasicAuthenticationFilter，在doFilterInternal方法中，
- * 从http头的Authorization 项读取token数据，然后用Jwts包提供的方法校验token的合法性。
- * 如果校验通过，就认为这是一个取得授权的合法请求
+ * @author brandonbai
+ * @since 2018/10/06
  */
 public class JWTAuthenticationFilter extends BasicAuthenticationFilter {
 

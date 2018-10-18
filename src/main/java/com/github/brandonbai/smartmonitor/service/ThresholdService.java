@@ -7,7 +7,7 @@ import com.github.brandonbai.smartmonitor.pojo.Threshold;
 /**
  * 
  * ThresholdService 
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月19日
  *
  */

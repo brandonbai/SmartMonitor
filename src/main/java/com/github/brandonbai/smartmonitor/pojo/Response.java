@@ -4,7 +4,7 @@ package com.github.brandonbai.smartmonitor.pojo;
  * 
  * Response 
  * 统一返回的JSON格式对应的实体类
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月11日
  *
  */

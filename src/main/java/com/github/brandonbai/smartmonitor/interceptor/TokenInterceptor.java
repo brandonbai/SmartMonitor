@@ -12,7 +12,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  * 
  * TokenInterceptor 
  * token拦截器
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年11月11日
  *
  */

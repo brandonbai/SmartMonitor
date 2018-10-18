@@ -17,7 +17,7 @@ import com.github.pagehelper.PageInfo;
  * 
  * DataTypeController 
  * 数据类型处理
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月15日
  *
  */

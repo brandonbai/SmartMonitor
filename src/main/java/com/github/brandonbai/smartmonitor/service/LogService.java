@@ -7,7 +7,7 @@ import com.github.brandonbai.smartmonitor.pojo.Log;
 /**
  * 
  * LogService 
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月19日
  *
  */

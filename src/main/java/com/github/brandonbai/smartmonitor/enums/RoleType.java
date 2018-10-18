@@ -4,7 +4,7 @@ package com.github.brandonbai.smartmonitor.enums;
  * 
  * RoleType 
  * 角色类型
- * @author Feihu Ji
+ * @author brandonbai
  * 
  */
 public enum RoleType {

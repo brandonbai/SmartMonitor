@@ -10,7 +10,7 @@ import com.github.pagehelper.PageInfo;
 /**
  * 
  * DeviceService 
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月19日
  *
  */

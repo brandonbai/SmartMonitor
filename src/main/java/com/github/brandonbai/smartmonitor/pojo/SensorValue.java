@@ -6,7 +6,7 @@ import java.util.Date;
  * 
  * SensorValue 
  * 传感器采集数值
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月11日
  *
  */

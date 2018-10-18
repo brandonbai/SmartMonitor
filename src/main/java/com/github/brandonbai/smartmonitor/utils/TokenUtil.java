@@ -16,6 +16,8 @@ import java.util.Map;
 
 /**
  * token工具类
+ * @author brandonbai
+ * @since 2018/10/06
  */
 public class TokenUtil {
 

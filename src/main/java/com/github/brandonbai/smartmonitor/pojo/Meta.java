@@ -4,7 +4,7 @@ package com.github.brandonbai.smartmonitor.pojo;
  * 
  * Meta 
  * 统一返回JSON对应的信息类
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月15日
  *
  */

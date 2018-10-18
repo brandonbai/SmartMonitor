@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 
 /**
  * mqtt配置
- * @author jifeihu
+ * @author brandonbai
  * @since 2018年6月13日
  */
 @Configuration

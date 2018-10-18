@@ -19,8 +19,8 @@ import com.github.pagehelper.PageInfo;
 /**
  * 
  * SensorServiceImpl 
- * @author Feihu Ji
- * @sine 2016年10月19日
+ * @author brandonbai
+ * @since 2016年10月19日
  *
  */
 @Service

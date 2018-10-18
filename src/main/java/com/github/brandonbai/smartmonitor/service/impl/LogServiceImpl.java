@@ -14,8 +14,8 @@ import com.github.brandonbai.smartmonitor.service.LogService;
 /**
  * 
  * LogServiceImpl 
- * @author Feihu Ji
- * @sine 2016年10月19日
+ * @author brandonbai
+ * @since 2016年10月19日
  *
  */
 @Service

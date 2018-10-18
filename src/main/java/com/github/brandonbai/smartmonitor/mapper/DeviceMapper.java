@@ -10,7 +10,7 @@ import com.github.brandonbai.smartmonitor.pojo.Device;
 /**
  * 
  * DeviceMapper 
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月17日
  *
  */

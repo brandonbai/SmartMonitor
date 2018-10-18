@@ -6,7 +6,7 @@ import java.util.Date;
  * 
  * Log 
  * 日志
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月11日
  *
  */

@@ -14,7 +14,7 @@ import com.github.brandonbai.smartmonitor.service.ThresholdService;
  * 
  * ThresholdController 
  * 阈值处理
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月15日
  *
  */

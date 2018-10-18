@@ -20,7 +20,7 @@ import com.github.pagehelper.PageInfo;
  * 
  * SensorController 
  * 传感器相关
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月15日
  *
  */

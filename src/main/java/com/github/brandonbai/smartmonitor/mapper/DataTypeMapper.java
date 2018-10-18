@@ -9,7 +9,7 @@ import com.github.brandonbai.smartmonitor.pojo.DataType;
 /**
  * 
  * DataTypeMapper 
- * @author Feihu Ji
+ * @author brandonbai
  * @since 2016年10月17日
  *
  */

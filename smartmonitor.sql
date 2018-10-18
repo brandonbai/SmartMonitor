@@ -152,7 +152,6 @@ CREATE TABLE `tb_sensor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL COMMENT '名称',
   `unit` varchar(20) DEFAULT NULL COMMENT '单位',
-  `real_value` int(11) DEFAULT NULL COMMENT '实时值',
   `device_id` int(11) DEFAULT NULL COMMENT '设备id',
   `node_id` int(11) DEFAULT NULL COMMENT '节点id',
   `threshold_id` int(11) DEFAULT NULL COMMENT '阈值id',
@@ -166,7 +165,7 @@ CREATE TABLE `tb_sensor` (
 
 LOCK TABLES `tb_sensor` WRITE;
 /*!40000 ALTER TABLE `tb_sensor` DISABLE KEYS */;
-INSERT INTO `tb_sensor` VALUES (1,'sensor1','L',NULL,1,NULL,NULL);
+INSERT INTO `tb_sensor` VALUES (1,'sensor1','L',1,NULL,NULL);
 /*!40000 ALTER TABLE `tb_sensor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,8 +180,9 @@ CREATE TABLE `tb_sensor_value` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sensor_id` int(11) DEFAULT NULL COMMENT '传感器id',
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '时间',
+  `value` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -191,6 +191,7 @@ CREATE TABLE `tb_sensor_value` (
 
 LOCK TABLES `tb_sensor_value` WRITE;
 /*!40000 ALTER TABLE `tb_sensor_value` DISABLE KEYS */;
+INSERT INTO `tb_sensor_value` VALUES (1,1,'2018-10-18 04:05:42',123),(2,1,'2018-10-18 04:05:52',117);
 /*!40000 ALTER TABLE `tb_sensor_value` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,4 +258,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-12 17:20:34
+-- Dump completed on 2018-10-18 14:19:25

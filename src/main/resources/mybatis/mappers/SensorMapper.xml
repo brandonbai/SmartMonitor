@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ON s.id = t.tId
 	</select>
 	
-	<resultMap type="SensorVO" id="sensorRM" autoMapping="true">
+	<resultMap type="com.github.brandonbai.smartmonitor.vo.SensorVO" id="sensorRM" autoMapping="true">
 		<id column="id" property="id"/>
 		<association property="threshold" javaType="Threshold">
 			<id column="tId" property="id"/>

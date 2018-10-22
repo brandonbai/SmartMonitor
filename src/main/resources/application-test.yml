@@ -14,7 +14,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
   redis:
     database: 0
-    host: 192.168.85.153
+    host: 192.168.85.155
     port: 6379
     password:
     pool:
@@ -28,7 +28,7 @@ mybatis:
   type-aliases-package: com.github.brandonbai.smartmonitor.pojo
 
 mqtt:
-  url: tcp://192.168.85.153:1883
+  url: tcp://192.168.85.155gi:1883
   username: lilei
   password: 123456
 

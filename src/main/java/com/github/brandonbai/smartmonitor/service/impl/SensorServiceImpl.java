@@ -118,6 +118,7 @@ public class SensorServiceImpl implements SensorService {
 				mqttMessageSender.sendMessage("sm/normal/"+sensorId, value);
 			}
 		}
+		redisService.setRealValue(sensorId, value);
 	}
 
 	@Override

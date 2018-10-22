@@ -19,7 +19,7 @@ import com.github.brandonbai.smartmonitor.service.ThresholdService;
  *
  */
 @RestController
-@RequestMapping("/threshold/")
+@RequestMapping("/threshold")
 @CrossOrigin
 @Api(tags="区阈值理")
 public class ThresholdController {
@@ -27,17 +27,24 @@ public class ThresholdController {
 	@Resource
 	private ThresholdService thresholdService;
 	
-	@RequestMapping("{sensorId}")
+	@GetMapping("/info/{sensorId}")
 	@ApiOperation(value="查询阈值", notes = "根据传感器id查询阈值",response = Response.class)
 	public Response thresholdInfo(@PathVariable Integer sensorId) {
 		return Response.ok(thresholdService.findOne(sensorId));
 	}
 
-	@RequestMapping(value = "update", method = RequestMethod.POST)
+	@PostMapping(value = "/update")
 	@ApiOperation(value="修改阈值", response = Response.class)
 	public Response updateThreshold(@RequestBody Threshold threshold) {
 		thresholdService.updateThreshold(threshold);
 		return Response.ok(thresholdService.findOne(threshold.getId()));
+	}
+
+	@PostMapping(value = "/add")
+	@ApiOperation(value="新增阈值", response = Response.class)
+	public Response addThreshold(@RequestBody Threshold threshold) {
+		thresholdService.insertThreshold(threshold);
+		return Response.ok();
 	}
 
 }

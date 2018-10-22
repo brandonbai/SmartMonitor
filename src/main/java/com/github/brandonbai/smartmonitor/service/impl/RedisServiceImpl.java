@@ -1,12 +1,12 @@
 package com.github.brandonbai.smartmonitor.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.github.brandonbai.smartmonitor.mqtt.MqttMessageConsumer;
 import com.github.brandonbai.smartmonitor.pojo.Threshold;
 import com.github.brandonbai.smartmonitor.service.RedisService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * redisService
@@ -16,16 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class RedisServiceImpl implements RedisService {
 
-    @Autowired
+    @Resource
     private RedisTemplate<String, String> redisTemplate;
-
-    private MqttMessageConsumer mqttMessageConsumer;
-
-    @Autowired
-    public void setMqttMessageConsumer(MqttMessageConsumer mqttMessageConsumer) {
-        this.mqttMessageConsumer = mqttMessageConsumer;
-        this.mqttMessageConsumer.setRedisService(this);
-    }
 
     @Override
     public Double getRealValue(Integer sensorId) {
@@ -45,8 +37,8 @@ public class RedisServiceImpl implements RedisService {
     }
 
     @Override
-    public Threshold getThreshold(Integer thresholdId) {
-        String value = redisTemplate.opsForValue().get(thresholdId);
+    public Threshold getThreshold(Integer sensorId) {
+        String value = redisTemplate.opsForValue().get(formatSensorThresholdId(sensorId));
         return JSON.parseObject(value, Threshold.class);
     }
 

@@ -16,7 +16,7 @@ import javax.script.ScriptEngineManager;
 public class LuaJTest {
 
     @Test
-    public void test1() {
+    public void testLua1() {
         int size = 10000;
 
         Globals globals = JsePlatform.standardGlobals();
@@ -32,16 +32,16 @@ public class LuaJTest {
     }
 
     @Test
-    public void test2() {
+    public void testLua2() {
         int size = 10000;
 
         ScriptEngineManager sem = new ScriptEngineManager();
         ScriptEngine scriptEngine = sem.getEngineByName("lua");
         long start = System.currentTimeMillis();
         for (int i = 0; i < size; i++) {
-            String jsStr = String.format("return %d > %d", i, i+1);
+            String luaStr = String.format("return %d > %d", i, i+1);
             try{
-                scriptEngine.eval(jsStr);
+                scriptEngine.eval(luaStr);
             }catch (Exception e) {
                 e.printStackTrace();
             }
@@ -52,7 +52,7 @@ public class LuaJTest {
     }
 
     @Test
-    public void test3() {
+    public void testJavaScript() {
         int size = 10000;
 
         ScriptEngineManager sem = new ScriptEngineManager();
@@ -70,4 +70,6 @@ public class LuaJTest {
         System.out.printf("js：%d ms\n" ,end - start);
 
     }
+
+
 }

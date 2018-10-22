@@ -2,7 +2,6 @@ package com.github.brandonbai.smartmonitor;
 
 import com.github.brandonbai.smartmonitor.config.MqttConfig;
 import com.github.brandonbai.smartmonitor.mqtt.MqttMessageSender;
-import org.aspectj.weaver.loadtime.DefaultMessageHandler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

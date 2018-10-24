@@ -1,8 +1,10 @@
 package com.github.brandonbai.smartmonitor.service;
 
 import com.github.brandonbai.smartmonitor.pojo.Threshold;
+import org.springframework.data.redis.core.ZSetOperations;
 
 import java.util.Map;
+import java.util.Set;
 
 /**
  * redisService
@@ -43,4 +45,17 @@ public interface RedisService {
      * @return
      */
     Map<String,String> getDashboardStatisticInfo();
+
+    /**
+     * 增加本月采集数据量
+     * @param isWarn 是否异常
+     */
+    void incDataNumber(boolean isWarn);
+
+    /**
+     * 获取按月统计的异常/正常数据
+     * @return
+     */
+    Map<String, Object> getMonthDataStatistic();
+
 }

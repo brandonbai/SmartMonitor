@@ -10,14 +10,16 @@ import com.github.brandonbai.smartmonitor.pojo.Log;
 import com.github.brandonbai.smartmonitor.pojo.Threshold;
 import com.github.brandonbai.smartmonitor.service.RedisService;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * redisService
+ *
  * @author brandonbai
  * @since 2018/10/18
  */
@@ -65,19 +67,19 @@ public class RedisServiceImpl implements RedisService {
         String messageNum = redisTemplate.opsForValue().get(DASHBOARD_MESSAGE_NUMBER);
         String deviceNum = redisTemplate.opsForValue().get(DASHBOARD_DEVICE_NUMBER);
         String warnNum = redisTemplate.opsForValue().get(DASHBOARD_WARN_NUMBER);
-        if(sensorNum == null) {
+        if (sensorNum == null) {
             sensorNum = String.valueOf(sensorMapper.selectCount(null));
             redisTemplate.opsForValue().set(DASHBOARD_SENSOR_NUMBER, sensorNum);
         }
-        if(messageNum == null) {
+        if (messageNum == null) {
             messageNum = String.valueOf(sensorMapper.selectCount(null));
             redisTemplate.opsForValue().set(DASHBOARD_MESSAGE_NUMBER, messageNum);
         }
-        if(deviceNum == null) {
+        if (deviceNum == null) {
             deviceNum = String.valueOf(deviceMapper.selectCount(null));
             redisTemplate.opsForValue().set(DASHBOARD_DEVICE_NUMBER, deviceNum);
         }
-        if(warnNum == null) {
+        if (warnNum == null) {
             Log log = new Log();
             log.setType(Log.OUT_OF_THRESHOLD);
             warnNum = String.valueOf(logMapper.selectCount(log));
@@ -89,6 +91,24 @@ public class RedisServiceImpl implements RedisService {
         map.put(DASHBOARD_MESSAGE_NUMBER, messageNum);
         map.put(DASHBOARD_DEVICE_NUMBER, deviceNum);
         map.put(DASHBOARD_WARN_NUMBER, warnNum);
+
+        return map;
+    }
+
+    @Override
+    public void incDataNumber(boolean isWarn) {
+        String now = new SimpleDateFormat("yyMM").format(new Date());
+        final String key = "DATA_NUM" + now;
+        String updateKey = isWarn ? "isWarn" : "normal";
+        redisTemplate.opsForHash().increment(key, updateKey, 1);
+    }
+
+    public Map<String, Object> getMonthDataStatistic() {
+        Set<ZSetOperations.TypedTuple<String>> warnDataNumberMonth = redisTemplate.opsForZSet().rangeWithScores(DATA_NUMBER_MONTH_WARN, 0, -1);
+        Set<ZSetOperations.TypedTuple<String>> normalDataNumberMonth = redisTemplate.opsForZSet().rangeWithScores(DATA_NUMBER_MONTH_NORMAL, 0, -1);
+        Map<String, Object> map = new HashMap<>();
+        map.put(DATA_NUMBER_MONTH_WARN, warnDataNumberMonth);
+        map.put(DATA_NUMBER_MONTH_NORMAL, normalDataNumberMonth);
 
         return map;
     }

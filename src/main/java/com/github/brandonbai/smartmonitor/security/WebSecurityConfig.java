@@ -27,6 +27,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/user/login").permitAll()
+                .antMatchers("/swagger-ui.html").permitAll()
+                .antMatchers("/swagger-resources/**").permitAll()
+                .antMatchers("/v2/api-docs").permitAll()
+                .antMatchers("/webjars/springfox-swagger-ui/**").permitAll()
                 .antMatchers("/threshold/update").hasRole(RoleType.ROLE_ADMIN.getFlag())
                 .antMatchers("/device/control").hasRole(RoleType.ROLE_ADMIN.getFlag())
                 .anyRequest().authenticated()  // 所有请求需要身份认证

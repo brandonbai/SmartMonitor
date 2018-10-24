@@ -112,7 +112,8 @@ public class SensorServiceImpl implements SensorService {
 		Integer max = threshold.getMax();
 		Integer min = threshold.getMin();
 		Double realValue = redisService.getRealValue(sensorId);
-		if(value < min || value > max) {
+		boolean isWarn = value < min || value > max;
+		if(isWarn) {
 			if(realValue > min && realValue < max) {
 				// 之前正常，现在异常 报警
 				mqttMessageSender.sendMessage("sm/warn/"+sensorId, value);
@@ -133,6 +134,9 @@ public class SensorServiceImpl implements SensorService {
 				logService.addLog(log);
 			}
 		}
+		// 异常/正常数量+1
+		redisService.incDataNumber(isWarn);
+		// 设置实时数值
 		redisService.setRealValue(sensorId, value);
 	}
 

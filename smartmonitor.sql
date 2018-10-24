@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_area`
+-- Table structure for table `area`
 --
 
-DROP TABLE IF EXISTS `tb_area`;
+DROP TABLE IF EXISTS `area`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_area` (
+CREATE TABLE `area` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL COMMENT '名称',
   `description` text COMMENT '描述',
@@ -31,23 +31,23 @@ CREATE TABLE `tb_area` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_area`
+-- Dumping data for table `area`
 --
 
-LOCK TABLES `tb_area` WRITE;
-/*!40000 ALTER TABLE `tb_area` DISABLE KEYS */;
-INSERT INTO `tb_area` VALUES (1,'??1','??');
-/*!40000 ALTER TABLE `tb_area` ENABLE KEYS */;
+LOCK TABLES `area` WRITE;
+/*!40000 ALTER TABLE `area` DISABLE KEYS */;
+INSERT INTO `area` VALUES (1,'区域1','区域');
+/*!40000 ALTER TABLE `area` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tb_dataType`
+-- Table structure for table `dataType`
 --
 
-DROP TABLE IF EXISTS `tb_dataType`;
+DROP TABLE IF EXISTS `dataType`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_dataType` (
+CREATE TABLE `dataType` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL COMMENT '名称',
   `description` text COMMENT '描述',
@@ -56,22 +56,22 @@ CREATE TABLE `tb_dataType` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_dataType`
+-- Dumping data for table `dataType`
 --
 
-LOCK TABLES `tb_dataType` WRITE;
-/*!40000 ALTER TABLE `tb_dataType` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_dataType` ENABLE KEYS */;
+LOCK TABLES `dataType` WRITE;
+/*!40000 ALTER TABLE `dataType` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dataType` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tb_device`
+-- Table structure for table `device`
 --
 
-DROP TABLE IF EXISTS `tb_device`;
+DROP TABLE IF EXISTS `device`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_device` (
+CREATE TABLE `device` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL COMMENT '名称',
   `state` bit(1) DEFAULT NULL COMMENT '状态',
@@ -82,22 +82,22 @@ CREATE TABLE `tb_device` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_device`
+-- Dumping data for table `device`
 --
 
-LOCK TABLES `tb_device` WRITE;
-/*!40000 ALTER TABLE `tb_device` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_device` ENABLE KEYS */;
+LOCK TABLES `device` WRITE;
+/*!40000 ALTER TABLE `device` DISABLE KEYS */;
+/*!40000 ALTER TABLE `device` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tb_log`
+-- Table structure for table `log`
 --
 
-DROP TABLE IF EXISTS `tb_log`;
+DROP TABLE IF EXISTS `log`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_log` (
+CREATE TABLE `log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` int(11) DEFAULT NULL COMMENT '类型',
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '时间',
@@ -108,22 +108,22 @@ CREATE TABLE `tb_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_log`
+-- Dumping data for table `log`
 --
 
-LOCK TABLES `tb_log` WRITE;
-/*!40000 ALTER TABLE `tb_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_log` ENABLE KEYS */;
+LOCK TABLES `log` WRITE;
+/*!40000 ALTER TABLE `log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `log` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tb_node`
+-- Table structure for table `node`
 --
 
-DROP TABLE IF EXISTS `tb_node`;
+DROP TABLE IF EXISTS `node`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_node` (
+CREATE TABLE `node` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL COMMENT '名称',
   `description` text COMMENT '描述',
@@ -133,22 +133,22 @@ CREATE TABLE `tb_node` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_node`
+-- Dumping data for table `node`
 --
 
-LOCK TABLES `tb_node` WRITE;
-/*!40000 ALTER TABLE `tb_node` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_node` ENABLE KEYS */;
+LOCK TABLES `node` WRITE;
+/*!40000 ALTER TABLE `node` DISABLE KEYS */;
+/*!40000 ALTER TABLE `node` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tb_sensor`
+-- Table structure for table `sensor`
 --
 
-DROP TABLE IF EXISTS `tb_sensor`;
+DROP TABLE IF EXISTS `sensor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_sensor` (
+CREATE TABLE `sensor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL COMMENT '名称',
   `unit` varchar(20) DEFAULT NULL COMMENT '单位',
@@ -160,74 +160,75 @@ CREATE TABLE `tb_sensor` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_sensor`
+-- Dumping data for table `sensor`
 --
 
-LOCK TABLES `tb_sensor` WRITE;
-/*!40000 ALTER TABLE `tb_sensor` DISABLE KEYS */;
-INSERT INTO `tb_sensor` VALUES (1,'sensor1','L',1,NULL,NULL);
-/*!40000 ALTER TABLE `tb_sensor` ENABLE KEYS */;
+LOCK TABLES `sensor` WRITE;
+/*!40000 ALTER TABLE `sensor` DISABLE KEYS */;
+INSERT INTO `sensor` VALUES (1,'sensor1','L',1,NULL,NULL);
+/*!40000 ALTER TABLE `sensor` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tb_sensor_value`
+-- Table structure for table `sensor_value`
 --
 
-DROP TABLE IF EXISTS `tb_sensor_value`;
+DROP TABLE IF EXISTS `sensor_value`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_sensor_value` (
+CREATE TABLE `sensor_value` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sensor_id` int(11) DEFAULT NULL COMMENT '传感器id',
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '时间',
   `value` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_sensor_value`
+-- Dumping data for table `sensor_value`
 --
 
-LOCK TABLES `tb_sensor_value` WRITE;
-/*!40000 ALTER TABLE `tb_sensor_value` DISABLE KEYS */;
-INSERT INTO `tb_sensor_value` VALUES (1,1,'2018-10-18 04:05:42',123),(2,1,'2018-10-18 04:05:52',117);
-/*!40000 ALTER TABLE `tb_sensor_value` ENABLE KEYS */;
+LOCK TABLES `sensor_value` WRITE;
+/*!40000 ALTER TABLE `sensor_value` DISABLE KEYS */;
+INSERT INTO `sensor_value` VALUES (1,1,'2018-10-18 04:05:42',123),(2,1,'2018-10-18 04:05:52',117),(3,1,'2018-10-18 06:47:39',11),(4,1,'2018-10-18 06:49:10',11),(5,1,'2018-10-18 06:49:41',21),(6,1,'2018-10-18 06:52:45',21),(7,1,'2018-10-18 06:53:16',11),(8,1,'2018-10-18 06:54:21',31);
+/*!40000 ALTER TABLE `sensor_value` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tb_threshold`
+-- Table structure for table `threshold`
 --
 
-DROP TABLE IF EXISTS `tb_threshold`;
+DROP TABLE IF EXISTS `threshold`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_threshold` (
+CREATE TABLE `threshold` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `max` int(11) DEFAULT NULL COMMENT '最大值',
   `min` int(11) DEFAULT NULL COMMENT '最小值',
   `sensor_id` int(11) DEFAULT NULL COMMENT '传感器id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_threshold`
+-- Dumping data for table `threshold`
 --
 
-LOCK TABLES `tb_threshold` WRITE;
-/*!40000 ALTER TABLE `tb_threshold` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_threshold` ENABLE KEYS */;
+LOCK TABLES `threshold` WRITE;
+/*!40000 ALTER TABLE `threshold` DISABLE KEYS */;
+INSERT INTO `threshold` VALUES (1,20,0,1);
+/*!40000 ALTER TABLE `threshold` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tb_user`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `tb_user`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_user` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) DEFAULT NULL COMMENT '用户名称',
   `role_id` int(11) DEFAULT NULL COMMENT '角色id',
@@ -240,13 +241,13 @@ CREATE TABLE `tb_user` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_user`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `tb_user` WRITE;
-/*!40000 ALTER TABLE `tb_user` DISABLE KEYS */;
-INSERT INTO `tb_user` VALUES (1,'feihuhu',1,'e10adc3949ba59abbe56e057f20f883e','feihuhu',1,'13294029161');
-/*!40000 ALTER TABLE `tb_user` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'feihuhu',1,'e10adc3949ba59abbe56e057f20f883e','feihuhu',1,'13294029161');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -258,4 +259,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-18 14:19:25
+-- Dump completed on 2018-10-24 14:34:42

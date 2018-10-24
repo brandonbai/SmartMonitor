@@ -21,7 +21,7 @@ public class Log {
 	private int type;
 	private Date time;
 	private String content;
-	private String username;
+	private Integer userId;
 	
 	public int getType() {
 		return type;
@@ -47,12 +47,12 @@ public class Log {
 		this.content = content;
 	}
 
-	public String getUsername() {
-		return username;
+	public Integer getUserId() {
+		return userId;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class Log {
 				"content='" + content + '\'' +
 				", type=" + type +
 				", time=" + time +
-				", username='" + username + '\'' +
+				", userId='" + userId + '\'' +
 				'}';
 	}
 }

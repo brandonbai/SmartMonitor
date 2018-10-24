@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			log l 
 		LEFT JOIN 
 			( SELECT id u_id, username FROM user ) u 
-		ON u.u_id = l.userId
+		ON u.u_id = l.user_id
 		ORDER BY time DESC
 	</select>
 	

@@ -37,7 +37,7 @@ public class LogAspect {
         log.setContent("修改id为"+threshold.getId()+"的阈值为："+threshold.getMin()+"~"+threshold.getMax());
         log.setTime(new Date());
         log.setType(Log.CHANGE_THRESHOLD);
-        log.setUsername(TokenUtil.getUser().getId()+"");
+        log.setUserId(TokenUtil.getUser().getId());
         logService.addLog(log);
     }
     @AfterReturning("execution(* com.github.brandonbai.smartmonitor.service..*.controlDevice(..))")
@@ -47,7 +47,7 @@ public class LogAspect {
         log.setContent("发送控制设备指令："+command);
         log.setTime(new Date());
         log.setType(Log.CONTROL_DEVICE);
-        log.setUsername(TokenUtil.getUser().getId()+"");
+        log.setUserId(TokenUtil.getUser().getId());
         logService.addLog(log);
     }
 

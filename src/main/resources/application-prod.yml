@@ -7,7 +7,7 @@ spring:
     time-zone: GMT+8
     default-property-inclusion: non-null
   datasource:
-    url: jdbc:mysql://localhost:3306/smartmonitor
+    url: jdbc:mysql://localhost:3306/smartmonitor?useUnicode=true&characterEncoding=UTF-8
     username:  root
     password:  root
     driver-class-name:  com.mysql.jdbc.Driver

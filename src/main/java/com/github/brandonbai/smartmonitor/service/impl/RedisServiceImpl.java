@@ -97,12 +97,12 @@ public class RedisServiceImpl implements RedisService {
 
     @Override
     public void incDataNumber(boolean isWarn) {
+        String key = isWarn ? DATA_NUMBER_MONTH_WARN : DATA_NUMBER_MONTH_NORMAL;
         String now = new SimpleDateFormat("yyMM").format(new Date());
-        final String key = "DATA_NUM" + now;
-        String updateKey = isWarn ? "isWarn" : "normal";
-        redisTemplate.opsForHash().increment(key, updateKey, 1);
+        redisTemplate.opsForZSet().incrementScore(key, now, 1);
     }
 
+    @Override
     public Map<String, Object> getMonthDataStatistic() {
         Set<ZSetOperations.TypedTuple<String>> warnDataNumberMonth = redisTemplate.opsForZSet().rangeWithScores(DATA_NUMBER_MONTH_WARN, 0, -1);
         Set<ZSetOperations.TypedTuple<String>> normalDataNumberMonth = redisTemplate.opsForZSet().rangeWithScores(DATA_NUMBER_MONTH_NORMAL, 0, -1);

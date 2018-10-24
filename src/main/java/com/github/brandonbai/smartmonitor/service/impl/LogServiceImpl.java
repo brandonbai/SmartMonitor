@@ -39,9 +39,9 @@ public class LogServiceImpl implements LogService {
 
 	@Override
 	public void addLog(Log log) {
-		logMapper.addLog(log);
+		logMapper.insert(log);
 		// 发消息
-		mqttMessageSender.sendMessage(log.getUsername(), log);
+		mqttMessageSender.sendMessage(""+log.getUserId(), log);
 	}
 
 }

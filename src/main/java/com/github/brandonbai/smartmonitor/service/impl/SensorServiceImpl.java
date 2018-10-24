@@ -119,7 +119,7 @@ public class SensorServiceImpl implements SensorService {
 				mqttMessageSender.sendMessage("sm/warn/"+sensorId, value);
 				Log log = new Log();
 				log.setType(Log.OUT_OF_THRESHOLD);
-				log.setContent(String.format("节点[id=%d]数据异常，数值为%f", sensorId, value));
+				log.setContent(String.format("节点[id=%d]数据异常，数值为%.2f", sensorId, value));
 				log.setTime(new Date());
 				logService.addLog(log);
 			}
@@ -129,7 +129,7 @@ public class SensorServiceImpl implements SensorService {
 				mqttMessageSender.sendMessage("sm/normal/"+sensorId, value);
 				Log log = new Log();
 				log.setType(Log.OUT_OF_THRESHOLD);
-				log.setContent(String.format("节点[id=%d]异常恢复，数值为%f", sensorId, value));
+				log.setContent(String.format("节点[id=%d]异常恢复，数值为%.2f", sensorId, value));
 				log.setTime(new Date());
 				logService.addLog(log);
 			}

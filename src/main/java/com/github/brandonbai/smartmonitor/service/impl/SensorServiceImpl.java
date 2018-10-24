@@ -11,10 +11,13 @@ import com.github.brandonbai.smartmonitor.dto.SensorDTO;
 import com.github.brandonbai.smartmonitor.mapper.ThresholdMapper;
 import com.github.brandonbai.smartmonitor.mqtt.MqttMessageConsumer;
 import com.github.brandonbai.smartmonitor.mqtt.MqttMessageSender;
+import com.github.brandonbai.smartmonitor.pojo.Log;
 import com.github.brandonbai.smartmonitor.pojo.Threshold;
+import com.github.brandonbai.smartmonitor.service.LogService;
 import com.github.brandonbai.smartmonitor.service.RedisService;
 import com.github.brandonbai.smartmonitor.vo.SensorVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.integration.mqtt.outbound.MqttPahoMessageHandler;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +46,8 @@ public class SensorServiceImpl implements SensorService {
 	private MqttMessageSender mqttMessageSender;
 	@Resource
 	private RedisService redisService;
+	@Resource
+	private LogService logService;
 
 	private MqttMessageConsumer mqttMessageConsumer;
 
@@ -111,11 +116,21 @@ public class SensorServiceImpl implements SensorService {
 			if(realValue > min && realValue < max) {
 				// 之前正常，现在异常 报警
 				mqttMessageSender.sendMessage("sm/warn/"+sensorId, value);
+				Log log = new Log();
+				log.setType(Log.OUT_OF_THRESHOLD);
+				log.setContent(String.format("节点[id=%d]数据异常，数值为%f", sensorId, value));
+				log.setTime(new Date());
+				logService.addLog(log);
 			}
 		} else {
 			if(realValue < min || realValue > max) {
 				// 之前异常，现在正常 通知
 				mqttMessageSender.sendMessage("sm/normal/"+sensorId, value);
+				Log log = new Log();
+				log.setType(Log.OUT_OF_THRESHOLD);
+				log.setContent(String.format("节点[id=%d]异常恢复，数值为%f", sensorId, value));
+				log.setTime(new Date());
+				logService.addLog(log);
 			}
 		}
 		redisService.setRealValue(sensorId, value);

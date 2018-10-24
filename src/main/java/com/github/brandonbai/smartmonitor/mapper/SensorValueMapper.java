@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.github.brandonbai.smartmonitor.pojo.SensorValue;
+import tk.mybatis.mapper.common.Mapper;
 
 /**
  * 
@@ -14,7 +15,7 @@ import com.github.brandonbai.smartmonitor.pojo.SensorValue;
  * @since 2016年10月17日
  *
  */
-public interface SensorValueMapper {
+public interface SensorValueMapper extends Mapper<SensorValue> {
 	
 	List<SensorValue> findBySensorId(Integer sensorId);
 	

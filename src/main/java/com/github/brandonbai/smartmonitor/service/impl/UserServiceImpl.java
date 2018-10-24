@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public void updateUser(User user) throws MsgException {
-		userMapper.update(user);
+		userMapper.updateUser(user);
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.github.brandonbai.smartmonitor.pojo.DataType;
+import tk.mybatis.mapper.common.Mapper;
 
 /**
  * 
@@ -13,13 +14,13 @@ import com.github.brandonbai.smartmonitor.pojo.DataType;
  * @since 2016年10月17日
  *
  */
-public interface DataTypeMapper {
+public interface DataTypeMapper extends Mapper<DataType> {
 
-	void add(DataType dataType);
+	void addDataType(DataType dataType);
 
-	void delete(Integer dataTypeId);
+	void deleteDataType(Integer dataTypeId);
 
-	void update(DataType dataType);
+	void updateDataType(DataType dataType);
 
 	DataType findOne(Integer dataTypeId);
 

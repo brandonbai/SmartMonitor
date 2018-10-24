@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.github.brandonbai.smartmonitor.exception.MsgException;
 import com.github.brandonbai.smartmonitor.pojo.User;
+import tk.mybatis.mapper.common.Mapper;
 
 /**
  * UserMapper
@@ -13,7 +14,7 @@ import com.github.brandonbai.smartmonitor.pojo.User;
  * @author brandonbai
  * @since 2016年10月17日
  */
-public interface UserMapper {
+public interface UserMapper extends Mapper<User> {
 
     /**
      * 通过用户名和密码查找用户
@@ -28,7 +29,7 @@ public interface UserMapper {
      *
      * @param user 用户
      */
-    void update(User user) throws MsgException;
+    void updateUser(User user) throws MsgException;
 
     /**
      * 通过用户名查找用户

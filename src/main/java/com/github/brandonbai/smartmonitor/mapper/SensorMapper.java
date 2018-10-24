@@ -6,6 +6,7 @@ import com.github.brandonbai.smartmonitor.vo.SensorVO;
 import org.apache.ibatis.annotations.Param;
 
 import com.github.brandonbai.smartmonitor.pojo.Sensor;
+import tk.mybatis.mapper.common.Mapper;
 
 /**
  * 
@@ -14,7 +15,7 @@ import com.github.brandonbai.smartmonitor.pojo.Sensor;
  * @since 2016年10月17日
  *
  */
-public interface SensorMapper {
+public interface SensorMapper extends Mapper<Sensor> {
 
 	List<SensorVO> findSensorByAreaId(Integer areaId);
 

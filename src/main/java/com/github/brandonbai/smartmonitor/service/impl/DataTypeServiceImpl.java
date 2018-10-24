@@ -40,20 +40,20 @@ public class DataTypeServiceImpl implements DataTypeService {
 	@Override
 	public void update(DataType dataType) {
 		
-		dataTypeMapper.update(dataType);
+		dataTypeMapper.updateDataType(dataType);
 	}
 
 	@Override
 	public void delete(Integer dataTypeId) {
 		
-		dataTypeMapper.delete(dataTypeId);
+		dataTypeMapper.deleteDataType(dataTypeId);
 		
 	}
 
 	@Override
 	public void add(DataType dataType) {
 
-		dataTypeMapper.add(dataType);
+		dataTypeMapper.addDataType(dataType);
 		
 	}
 

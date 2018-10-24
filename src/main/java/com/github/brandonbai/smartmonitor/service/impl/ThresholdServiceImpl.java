@@ -30,7 +30,7 @@ public class ThresholdServiceImpl implements ThresholdService {
 	
 	@Override
 	public void updateThreshold(Threshold threshold) {
-		thresholdMapper.update(threshold);
+		thresholdMapper.updateThreshold(threshold);
 		redisService.setThreshold(threshold);
 	}
 

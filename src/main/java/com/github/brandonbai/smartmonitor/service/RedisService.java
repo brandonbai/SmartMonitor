@@ -2,6 +2,8 @@ package com.github.brandonbai.smartmonitor.service;
 
 import com.github.brandonbai.smartmonitor.pojo.Threshold;
 
+import java.util.Map;
+
 /**
  * redisService
  * @author brandonbai
@@ -35,4 +37,10 @@ public interface RedisService {
      * @return
      */
     Threshold getThreshold(Integer thresholdId);
+
+    /**
+     * 获取首页统计信息
+     * @return
+     */
+    Map<String,String> getDashboardStatisticInfo();
 }

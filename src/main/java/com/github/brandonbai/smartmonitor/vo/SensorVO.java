@@ -1,6 +1,7 @@
 package com.github.brandonbai.smartmonitor.vo;
 
 import com.github.brandonbai.smartmonitor.pojo.Sensor;
+import com.github.brandonbai.smartmonitor.pojo.Threshold;
 
 /**
  * SensorVO
@@ -14,11 +15,21 @@ public class SensorVO extends Sensor {
      */
     private Double realValue;
 
+    private Threshold threshold;
+
     public Double getRealValue() {
         return realValue;
     }
 
     public void setRealValue(Double realValue) {
         this.realValue = realValue;
+    }
+
+    public Threshold getThreshold() {
+        return threshold;
+    }
+
+    public void setThreshold(Threshold threshold) {
+        this.threshold = threshold;
     }
 }

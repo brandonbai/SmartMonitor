@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.github.brandonbai.smartmonitor.pojo.Node;
+import tk.mybatis.mapper.common.Mapper;
 
 /**
  * 
@@ -13,18 +14,18 @@ import com.github.brandonbai.smartmonitor.pojo.Node;
  * @since 2016年10月17日
  *
  */
-public interface NodeMapper {
+public interface NodeMapper extends Mapper<Node> {
 
 	List<Node> findAll(@Param("pageNum") int pageNum, 
             @Param("pageSize") int pageSize);
 
 	Node findOne(Integer nodeId);
 
-	void update(Node node);
+	void updateNode(Node node);
 
-	void delete(Integer nodeId);
+	void deleteNode(Integer nodeId);
 
-	void add(Node node);
+	void addNode(Node node);
 
 	
 }

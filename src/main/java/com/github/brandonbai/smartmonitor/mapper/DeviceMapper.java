@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.github.brandonbai.smartmonitor.pojo.Command;
 import com.github.brandonbai.smartmonitor.pojo.Device;
+import tk.mybatis.mapper.common.Mapper;
 
 /**
  * 
@@ -14,7 +15,7 @@ import com.github.brandonbai.smartmonitor.pojo.Device;
  * @since 2016年10月17日
  *
  */
-public interface DeviceMapper {
+public interface DeviceMapper extends Mapper<Device> {
 
 	void updateDeviceState(@Param("id") Integer id, @Param("state") Boolean state);
 

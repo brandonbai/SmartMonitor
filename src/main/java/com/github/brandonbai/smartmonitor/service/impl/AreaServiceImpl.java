@@ -43,21 +43,21 @@ public class AreaServiceImpl implements AreaService {
 	@Override
 	public void update(Area area) {
 
-		areaMapper.update(area);
+		areaMapper.updateArea(area);
 		
 	}
 	
 	@Override
 	public void delete(Integer areaId) {
 		
-		areaMapper.delete(areaId);
+		areaMapper.deleteArea(areaId);
 		
 	}
 	
 	@Override
 	public void add(Area area) {
 		
-		areaMapper.add(area);
+		areaMapper.addArea(area);
 		
 	}
 	

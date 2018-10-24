@@ -40,21 +40,21 @@ public class NodeServiceImpl implements NodeService{
 	@Override
 	public void update(Node node) {
 		
-		nodeMapper.update(node);
+		nodeMapper.updateNode(node);
 		
 	}
 
 	@Override
 	public void delete(Integer nodeId) {
 		
-		nodeMapper.delete(nodeId);
+		nodeMapper.deleteNode(nodeId);
 		
 	}
 
 	@Override
 	public void add(Node node) {
 		
-		nodeMapper.add(node);
+		nodeMapper.addNode(node);
 		
 	}
 

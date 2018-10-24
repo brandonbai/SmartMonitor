@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.github.brandonbai.smartmonitor.pojo.Area;
+import tk.mybatis.mapper.common.Mapper;
 
 /**
  * 
@@ -13,17 +14,17 @@ import com.github.brandonbai.smartmonitor.pojo.Area;
  * @since 2016年10月17日
  *
  */
-public interface AreaMapper {
+public interface AreaMapper extends Mapper<Area> {
 	
 	List<Area> findAll(@Param("pageNum") int pageNum,
             @Param("pageSize") int pageSize);
 
 	Area findOne(Integer areaId);
 
-	void update(Area area);
+	void updateArea(Area area);
 
-	void delete(Integer areaId);
+	void deleteArea(Integer areaId);
 
-	void add(Area area);
+	void addArea(Area area);
 
 }

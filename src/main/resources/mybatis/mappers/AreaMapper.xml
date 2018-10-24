@@ -5,25 +5,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.github.brandonbai.smartmonitor.mapper.AreaMapper">
 	
 	<select id="findAll" resultType="Area">
-		select * from tb_area
+		select * from area
 	</select>
 	
 	<select id="findOne" resultType="Area">
-		select * from tb_area where id = #{areaId}
+		select * from area where id = #{areaId}
 	</select>
 	
-	<update id="update">
-		update tb_area set name = #{name},
+	<update id="updateArea">
+		update area set name = #{name},
 		description = #{area.description}
 		where id = #{area.id}
 	</update>
 	
-	<delete id="delete">
-		delete from tb_area where id = #{areaId}
+	<delete id="deleteArea">
+		delete from area where id = #{areaId}
 	</delete>
 	
-	<insert id="add">
-		insert into tb_area values(null,#{name},#{description})
+	<insert id="addArea">
+		insert into area values(null,#{name},#{description})
 	</insert>
 	
 </mapper>

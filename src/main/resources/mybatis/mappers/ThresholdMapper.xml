@@ -5,14 +5,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.github.brandonbai.smartmonitor.mapper.ThresholdMapper">
 
 	<insert id="insertThreshold">
-		INSERT INTO tb_threshold VALUES (null, #{max}, #{min}, #{sensorId})
+		INSERT INTO threshold VALUES (null, #{max}, #{min}, #{sensorId})
 	</insert>
 
 	<select id="findAll" resultMap="thresholdRM">
 		SELECT * FROM
-		tb_threshold t
+		threshold t
 		LEFT JOIN
-		(SELECT id s_id, name FROM tb_sensor) s
+		(SELECT id s_id, name FROM sensor) s
 		ON t.id=s.s_id
 	</select>
 	
@@ -26,15 +26,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="findOne" resultMap="thresholdRM">
 		SELECT * FROM
-		tb_threshold t
+		threshold t
 		LEFT JOIN
-		(SELECT id s_id, name FROM tb_sensor) s
+		(SELECT id s_id, name FROM sensor) s
 		ON t.id=s.s_id
 		where id = #{id}
 	</select>
 	
-	<update id="update">
-		update tb_threshold
+	<update id="updateThreshold">
+		update threshold
 		<set>
 			max=#{max},
 			min=#{min}

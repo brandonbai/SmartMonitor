@@ -7,16 +7,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findSensorByAreaId" resultMap="sensorRM">
 		SELECT * FROM
 		(SELECT * FROM 
-			tb_sensor s 
+			sensor s 
 			LEFT JOIN
 			(SELECT * FROM 
-				(SELECT id nId, name node_name, area_id FROM tb_node ) n
+				(SELECT id nId, name node_name, area_id FROM node ) n
 				LEFT JOIN
-				(SELECT id aId, name area_name FROM tb_area ) a
+				(SELECT id aId, name area_name FROM area ) a
 				ON n.area_id = a.aId WHERE a.aId = #{areaId} ) an
 			ON s.node_id = an.nId) s
 		LEFT JOIN
-		(SELECT id tId, max, min FROM tb_threshold) t
+		(SELECT id tId, max, min FROM threshold) t
 		ON s.id = t.tId
 	</select>
 	
@@ -32,21 +32,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findAllSensor" resultMap="sensorRM">
 		SELECT * FROM
 		(SELECT * FROM
-		tb_sensor s
+		sensor s
 		LEFT JOIN
 		(SELECT * FROM
-		(SELECT id nId, name node_name, area_id FROM tb_node ) n
+		(SELECT id nId, name node_name, area_id FROM node ) n
 		LEFT JOIN
-		(SELECT id aId, name area_name FROM tb_area ) a
+		(SELECT id aId, name area_name FROM area ) a
 		ON n.area_id = a.aId) an
 		ON s.node_id = an.nId) s
 		LEFT JOIN
-		(SELECT id tId, max, min FROM tb_threshold) t
+		(SELECT id tId, max, min FROM threshold) t
 		ON s.id = t.tId
 	</select>
 
 	<insert id="insertSensor" >
-		INSERT INTO tb_sensor VALUES (NULL,#{name},#{unit},#{realValue},#{deviceId},#{nodeId})
+		INSERT INTO sensor VALUES (NULL,#{name},#{unit},#{realValue},#{deviceId},#{nodeId})
 	</insert>
 
 </mapper>

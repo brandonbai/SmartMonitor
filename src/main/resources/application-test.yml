@@ -8,9 +8,9 @@ spring:
     default-property-inclusion: non-null
   datasource:
     url: jdbc:mysql://localhost:3306/smartmonitor
-    username:  root
-    password:  root
-    driver-class-name:  com.mysql.jdbc.Driver
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
   redis:
     database: 0
@@ -23,12 +23,26 @@ spring:
     timeout: 0
 
 mybatis:
-  config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mappers/*.xml
   type-aliases-package: com.github.brandonbai.smartmonitor.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
+mapper:
+    #mappers: com.github.brandonbai.smartmonitor.mapper
+    not-empty: false
+    identity: MYSQL
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql;pageNum=pageNum;pageSize=pageSize;
+    page-size-zero: true
 
 mqtt:
-  url: tcp://192.168.85.155gi:1883
+  url: tcp://192.168.85.155:1883
   username: lilei
   password: 123456
 

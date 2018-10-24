@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="findBySensorId" resultType="SensorValue">
 		SELECT * FROM
-		tb_sensor_value
+		sensor_value
 		WHERE sensor_id = #{sensorId}
 		ORDER BY time DESC
 		LIMIT 0,10
@@ -14,14 +14,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="findByTime" resultType="SensorValue">
 		SELECT * FROM
-		tb_sensor_value
+		sensor_value
 		WHERE sensor_id = #{sId}
 		AND DATE(time) &gt;= #{ft} AND DATE(time) &lt;= #{lt}
 		ORDER BY time
 	</select>
 
 	<insert id="addSensorValue">
-		insert into tb_sensor_value values(null, #{sensorId}, #{time}, #{value})
+		insert into sensor_value values(null, #{sensorId}, #{time}, #{value})
 	</insert>
 
 </mapper>

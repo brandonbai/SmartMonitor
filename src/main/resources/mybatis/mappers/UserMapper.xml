@@ -5,19 +5,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.github.brandonbai.smartmonitor.mapper.UserMapper">
 	
 	<select id="findUser" resultType="User">
-		select * from tb_user where username = #{username} and password = #{password}
+		select * from user where username = #{username} and password = #{password}
 	</select>
 	
 	<select id="findAll" resultType="User">
-		select * from tb_user
+		select * from user
 	</select>
 	
 	<select id="findUserByUsername" resultType="User">
-		select * from tb_user where username = #{username}
+		select * from user where username = #{username}
 	</select>
 	
-	<update id="update">
-		update tb_user
+	<update id="updateUser">
+		update user
 		<set>
 			<if test="username != null">username=#{username},</if>
 			<if test="name != null">name=#{name},</if>
@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<update id="changePassword">
-		update tb_user
+		update user
 		set password=#{password}
 		where id = #{id}
 	</update>

@@ -7,24 +7,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="findLog" resultType="Log">
 		SELECT * FROM 
-			tb_log l 
+			log l 
 		LEFT JOIN 
-			( SELECT id u_id, username FROM tb_user ) u 
+			( SELECT id u_id, username FROM user ) u 
 		ON u.u_id = l.userId
 		ORDER BY time DESC
 	</select>
 	
 	<select id="findLogByDate" resultType="Log">
 		SELECT * FROM 
-			tb_log l 
+			log l 
 		LEFT JOIN 
-			( SELECT id u_id, username FROM tb_user ) u 
+			( SELECT id u_id, username FROM user ) u 
 		ON u.u_id = l.userId
 		WHERE Date(time) = #{date} 
 	</select>
 	
 	<insert id="addLog">
-		insert into tb_log values (
+		insert into log values (
 			null,
 			#{type},
 			#{content},

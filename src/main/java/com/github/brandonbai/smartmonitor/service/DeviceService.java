@@ -30,4 +30,15 @@ public interface DeviceService {
 
 	Command getAutoCommand(Integer deviceId, String flag);
 
+	/**
+	 * 添加设备
+	 * @param device
+	 */
+    void addDevice(Device device);
+
+	/**
+	 * 修改设备
+	 * @param device
+	 */
+	void updateDevice(Device device);
 }

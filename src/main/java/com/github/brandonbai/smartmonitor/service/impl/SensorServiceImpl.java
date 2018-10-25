@@ -15,6 +15,7 @@ import com.github.brandonbai.smartmonitor.pojo.Log;
 import com.github.brandonbai.smartmonitor.pojo.Threshold;
 import com.github.brandonbai.smartmonitor.service.LogService;
 import com.github.brandonbai.smartmonitor.service.RedisService;
+import com.github.brandonbai.smartmonitor.utils.RedisKeyConstant;
 import com.github.brandonbai.smartmonitor.vo.SensorVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -48,6 +49,8 @@ public class SensorServiceImpl implements SensorService {
 	private RedisService redisService;
 	@Resource
 	private LogService logService;
+	@Resource
+	private RedisTemplate<String, String> redisTemplate;
 
 	private MqttMessageConsumer mqttMessageConsumer;
 
@@ -122,6 +125,7 @@ public class SensorServiceImpl implements SensorService {
 				log.setContent(String.format("节点[id=%d]数据异常，数值为%.2f", sensorId, value));
 				log.setTime(new Date());
 				logService.addLog(log);
+				redisTemplate.opsForValue().increment(RedisKeyConstant.DASHBOARD_WARN_NUMBER, 1);
 			}
 		} else {
 			if(realValue < min || realValue > max) {
@@ -132,6 +136,7 @@ public class SensorServiceImpl implements SensorService {
 				log.setContent(String.format("节点[id=%d]异常恢复，数值为%.2f", sensorId, value));
 				log.setTime(new Date());
 				logService.addLog(log);
+				redisTemplate.opsForValue().increment(RedisKeyConstant.DASHBOARD_WARN_NUMBER, -1);
 			}
 		}
 		// 异常/正常数量+1
@@ -143,6 +148,7 @@ public class SensorServiceImpl implements SensorService {
 	@Override
 	public void addSensor(SensorDTO sensor) {
 		sensorMapper.insertSensor(sensor);
+		redisTemplate.delete(RedisKeyConstant.DASHBOARD_SENSOR_NUMBER);
 	}
 
 }

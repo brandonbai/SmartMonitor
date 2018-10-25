@@ -23,7 +23,7 @@ import com.github.pagehelper.PageInfo;
  *
  */
 @RestController
-@RequestMapping("/device/")
+@RequestMapping("/device")
 @CrossOrigin
 @Api(tags="设备管理")
 public class DeviceController {
@@ -31,7 +31,7 @@ public class DeviceController {
 	@Resource
 	private DeviceService deviceService;
 	
-	@RequestMapping(value = "control", method = RequestMethod.POST)
+	@RequestMapping(value = "/control", method = RequestMethod.POST)
 	@ApiOperation(value="控制设备",notes = "传输控制指令", response = Response.class)
 	public Response deviceControl(String command) throws MsgException {
 		if(StringUtils.isEmpty(command)) {
@@ -41,14 +41,14 @@ public class DeviceController {
 		return Response.ok();
 	}
 
-	@RequestMapping("list/{areaId}")
+	@RequestMapping("/list/{areaId}")
 	@ApiOperation(value="查看设备列表", notes = "根据区域id查询设备列表", response = Response.class)
 	public Response deviceInfo(@PathVariable Integer areaId) {
 		
 		return Response.ok(deviceService.getDevices(areaId));
 	}
 	
-	@RequestMapping("list")
+	@RequestMapping("/list")
 	@ApiOperation(value="查询设备列表", response = Response.class)
 	public Response deviceInfo(@RequestParam(defaultValue="0")Integer pageNum, @RequestParam(defaultValue="0")Integer pageSize) {
 		
@@ -56,11 +56,27 @@ public class DeviceController {
 		return Response.ok(pi);
 	}
 	
-	@RequestMapping("commands/{deviceId}")
+	@RequestMapping("/commands/{deviceId}")
 	@ApiOperation(value="查询指令列表", notes = "根据设备id查询指令列表", response = Response.class)
 	public Response commands(@PathVariable Integer deviceId) {
 
 		return Response.ok(deviceService.getCommands(deviceId));
+	}
+
+	@RequestMapping("/add")
+	@ApiOperation(value="添加设备", response = Response.class)
+	public Response add(@RequestBody Device device) {
+
+		deviceService.addDevice(device);
+		return Response.ok();
+	}
+
+	@RequestMapping("/update")
+	@ApiOperation(value="修改设备", response = Response.class)
+	public Response update(@RequestBody Device device) {
+
+		deviceService.updateDevice(device);
+		return Response.ok();
 	}
 
 }

@@ -2,6 +2,8 @@ package com.github.brandonbai.smartmonitor.service.impl;
 
 import java.util.List;
 
+import com.github.brandonbai.smartmonitor.utils.RedisKeyConstant;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import com.github.brandonbai.smartmonitor.exception.MsgException;
@@ -22,7 +24,10 @@ import javax.annotation.Resource;
  */
 @Service
 public class DeviceServiceImpl implements DeviceService {
-	
+
+	@Resource
+	private RedisTemplate<String, String> redisTemplate;
+
 	@Resource
 	private DeviceMapper deviceMapper;
 
@@ -34,7 +39,6 @@ public class DeviceServiceImpl implements DeviceService {
 	/**
 	 * 设备控制
 	 * @param command 命令
-	 * @return 下位机返回的结果
 	 */
 	@Override
 	public void controlDevice(String command) throws MsgException {
@@ -43,26 +47,16 @@ public class DeviceServiceImpl implements DeviceService {
 			String flag = deviceMapper.getFlagByCommand(command);
 			if(FLAG_ON.equals(flag)) {
 				if(!device.getState()) {
-//					if(!monitorWebSocketHandler.sendMessage(command)) {
-//						throw new MsgException("发送指令失败，请检查下位机连接状况");
-//					}
 					updateDeviceState(device.getId(), true);
 				}else {
 					throw new MsgException("设备已经开启，请勿重复操作");
 				}
 			} else if(FLAG_OFF.equals(flag)) {
 				if(device.getState()) {
-//					if(!monitorWebSocketHandler.sendMessage(command)) {
-//						throw new MsgException("发送指令失败，请检查下位机连接状况");
-//					}
 					updateDeviceState(device.getId(), false);
 				}else {
 					throw new MsgException("设备已经关闭，请勿重复操作");
 				}
-			} else {
-//				if(!monitorWebSocketHandler.sendMessage(command)) {
-//					throw new MsgException("发送指令失败，请检查下位机连接状况");
-//				}
 			}
 			
 		}
@@ -72,7 +66,6 @@ public class DeviceServiceImpl implements DeviceService {
 	@Override
 	public void updateDeviceState(Integer id, Boolean state) {
 		deviceMapper.updateDeviceState(id, state);
-		
 	}
 
 	@Override
@@ -96,10 +89,21 @@ public class DeviceServiceImpl implements DeviceService {
 	}
 
 	@Override
+	public void addDevice(Device device) {
+		deviceMapper.insert(device);
+		redisTemplate.delete(RedisKeyConstant.DASHBOARD_DEVICE_NUMBER);
+	}
+
+	@Override
+	public void updateDevice(Device device) {
+		deviceMapper.updateByPrimaryKey(device);
+	}
+
+	@Override
 	public PageInfo<Device> getAllDevices(int pageNum, int pageSize) {
 		
 		List<Device> list = deviceMapper.getAllDevices(pageNum, pageSize);
 		
-		return new PageInfo<Device>(list);
+		return new PageInfo<>(list);
 	}
 }

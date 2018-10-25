@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
 
 /**
- *
  * @author brandonbai
  * @since 2018/05/31
  */
@@ -18,4 +17,4 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
- }
+}

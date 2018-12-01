@@ -1,0 +1,2 @@
+2017-03-15 14:18:33 com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: Unexpected value at line 1 column 56
+2017-03-15 14:18:52 java.lang.ClassCastException: com.google.gson.internal.LinkedTreeMap cannot be cast to org.jifeihu.smartshed.bean.Sensor

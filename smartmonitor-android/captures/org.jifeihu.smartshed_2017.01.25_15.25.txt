@@ -1,0 +1,33 @@
+Applications Memory Usage (kB):
+Uptime: 9380286 Realtime: 32783090
+
+** MEMINFO in pid 27081 [org.jifeihu.smartshed] **
+                         Shared  Private     Heap     Heap     Heap
+                   Pss    Dirty    Dirty     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------
+       Native        0        0        0    44228     7067     1188
+       Dalvik    32514     4464    31988    31488    21069    10419
+       Cursor        0        0        0                           
+       Ashmem        0        0        0                           
+    Other dev        4       52        0                           
+     .so mmap     1775      504     1064                           
+    .jar mmap        0        0        0                           
+    .apk mmap      215        0        0                           
+    .ttf mmap      505        0        0                           
+    .dex mmap     2508        0       72                           
+   Other mmap     1639       76      188                           
+      Unknown     6221       96     6188                           
+        TOTAL    45381     5192    39500    75716    28136    11607
+ 
+ Objects
+               Views:      830         ViewRootImpl:       20
+         AppContexts:       10           Activities:        8
+              Assets:        4        AssetManagers:        4
+       Local Binders:       21        Proxy Binders:       25
+    Death Recipients:        0
+     OpenSSL Sockets:        0
+ 
+ SQL
+         MEMORY_USED:        0
+  PAGECACHE_OVERFLOW:        0          MALLOC_SIZE:        0
+ 

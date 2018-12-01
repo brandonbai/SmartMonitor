@@ -1,0 +1,6 @@
+DeviceServlet				rc;command
+LoginServlet				username;password
+LogServlet					[date]
+SensorValueServlet			flag;[ft][lt]
+ThresholdServlet			GET/{POST:temp_max...}
+UpdateUserServlet			User对象

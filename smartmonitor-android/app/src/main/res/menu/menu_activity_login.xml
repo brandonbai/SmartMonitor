@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="org.jifeihu.smartshed.view.activity.LoginActivity">
+    <item
+        android:id="@+id/menu_set_conn"
+        android:title="连接设置"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_conn_cooper"
+        android:title="直连模式"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+</menu>

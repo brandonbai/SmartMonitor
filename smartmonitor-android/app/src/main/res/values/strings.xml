@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">智能农棚</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_login">登录</string>
+    <string name="title_activity_settings">设置</string>
+    <string name="title_activity_thresholds">阈值设置</string>
+    <string name="title_activity_data_monitor">数据监测</string>
+    <string name="title_activity_real_data">实时数据</string>
+    <string name="title_activity_history_data">查看</string>
+    <string name="title_activity_about">关于</string>
+    <string name="title_activity_message">我的消息</string>
+    <string name="title_activity_instructions">使用帮助</string>
+    <string name="title_activity_direct_connection">直连模式</string>
+    <string name="title_activity_profile">个人信息</string>
+    <string name="about_version">2.0</string>
+    <string name="author">冀飞虎</string>
+    <string name="about_email">jiflytiger@163.com</string>
+    <string name="error_not_have_privilege">无权限</string>
+    <string name="request_failed">请求失败</string>
+    <string name="request_success">请求成功</string>
+    <string name="send_success">发送成功</string>
+    <string name="warning_operate_frequently">请勿频繁操作</string>
+    <string name="error_change">修改失败</string>
+    <string name="success_change">修改成功</string>
+    <string name="message_null">无记录</string>
+    <string name="error_null">输入不能为空</string>
+    <string name="error_not_repeat_password">两次输入密码不一致</string>
+    <string name="error_format_ip">IP地址格式不正确</string>
+    <string name="error_format_port">端口号格式不正确</string>
+    <string name="prompt_username">用户名</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_sign_in_short">登录</string>
+    <string name="error_invalid_password">密码不能为空</string>
+    <string name="error_incorrect_password">用户名或密码不正确</string>
+    <string name="error_field_required">用户名不能为空</string>
+    <string name="error_max_lower_than_min">最大值不能小于最小值</string>
+    <string name="device_control">设备控制</string>
+    <string name="device_info">设备信息</string>
+    <string name="sensor_info">传感器信息</string>
+    <string name="scroll_control">卷帘控制</string>
+    <string name="water_control">水泵控制</string>
+    <string name="user_about">用户相关</string>
+    <string name="name">名称</string>
+    <string name="value_max">最大值</string>
+    <string name="value_min">最小值</string>
+    <string name="threshold">阈值</string>
+    <string name="temp">温度</string>
+    <string name="air_humidity">空气湿度</string>
+    <string name="soil_moisture">土壤湿度</string>
+    <string name="light">光照强度</string>
+    <string name="data_monitor">数据检测</string>
+    <string name="password_change">修改密码</string>
+    <string name="logout">注销</string>
+    <string name="unit_temp">℃</string>
+    <string name="unit_humidity">RH</string>
+    <string name="unit_light">Lx</string>
+    <string name="request_filed_and_check">请求失败，请检查网络连接或下拉刷新重试</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_sensor_detail">详情</string>
+    <string name="transform_speed">传输间隔/s</string>
+    <string name="speed">speed</string>
+    <string name="min">最小值</string>
+    <string name="min_flag">min</string>
+    <string name="max">最大值</string>
+    <string name="max_flag">max</string>
+    <string name="average">平均值</string>
+    <string name="avg">avg</string>
+    <string name="real_time_value">实时值</string>
+    <string name="real_time">real time</string>
+    <string name="unit_data_num">/条</string>
+    <string name="data_num">数据量</string>
+    <string name="not_record">无该时间段内的记录</string>
+    <string name="about_content">「智能农业大棚管理助手」- 现代化农业管理助手。\n\n智慧农业、智慧生活。
+        智能农业大棚管理助手将互联网思维融入到传统的农业生产中，
+        结合zigbee技术，将农业大棚中各种环境信息及相关设备与移动手机完美融合，为用户提供实时精准的
+        农业生产信息并实现相关设备的远程控制。\n\n用户手机通过WIFI与zigbee节点相连，主
+        要实现以下功能：\n\n数据监测：通过手机查看大棚内实时的环境信息，如温度、湿度、光照强度等。方
+        便用户适时调整农业生产计划，做出合理安排。\n\n设备管理：查看终端节点的状态信息及对可控设备实
+        现远程控制，方便、快捷。\n\n参数设置：对温度、湿度、光强等的阈值进行设置。当数值超出阈值时，
+        对相关设备实现自动控制，高效、快捷。</string>
+</resources>

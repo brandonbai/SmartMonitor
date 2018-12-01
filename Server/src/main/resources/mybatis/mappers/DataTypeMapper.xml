@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.brandonbai.smartmonitor.mapper.DataTypeMapper">
+	
+	<select id="findAll" resultType="DataType">
+		select * from dataType
+	</select>
+	
+	<select id="findOne" resultType="DataType">
+		select * from dataType where id = #{dataTypeId}
+	</select>
+	
+	<update id="updateDataType">
+		update dataType set name = #{dataType.name},
+		description = #{dataType.description}
+		where id = #{dataType.id}
+	</update>
+	
+	<delete id="deleteDataType">
+		delete from dataType where id = #{dataTypeId}
+	</delete>
+	
+	<insert id="addDataType">
+		insert into dataType values(null,#{dataType.name},#{dataType.description})
+	</insert>
+	
+</mapper>

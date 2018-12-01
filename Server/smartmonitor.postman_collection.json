@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "b36c72cf-3888-47f9-a6b4-542c4861605d",
+		"name": "smartmonitor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "userinfo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlSWQiOjEsInRlbCI6IjEzMjk0MDI5MTYxIiwiaWQiOjEsImV4cCI6MTU0MDM1NjEzMSwiaWF0IjoxNTQwMzUyNTMxLCJ1c2VybmFtZSI6ImZlaWh1aHUifQ.Ai4fFQxI7vGEhwWUfnHGRKEsLA_0JXlNQriD9UxkRGg"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8082/user/userInfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"userInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "feihuhu",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8082/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-update",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlSWQiOjEsInRlbCI6IjEzMDk0MDI5MTYxIiwidXNlck5hbWUiOiJmZWlodSIsImV4cCI6MTUzODcyODEwNSwiaWF0IjoxNTM4NzI0NTA1fQ.HuXExYLGwiLw_8tZaxoZ33kl847SQqoRtdTrqKylLKM"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\",\n\t\"name\": \"feihuhu\",\n\t\"username\": \"feihuhu\",\n\t\"tel\":\"13294029161\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8082/user/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-changePwd",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlSWQiOjEsInRlbCI6IjEzMjk0MDI5MTYxIiwiaWQiOjEsImV4cCI6MTUzODczMTg5MywiaWF0IjoxNTM4NzI4MjkzLCJ1c2VybmFtZSI6ImZlaWh1aHUifQ.KiWf3mjSDkzXk4KdpceLCv_AI1nex8calIrM2DF9AR8"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\",\n\t\"password\":\"123456\",\n\t\"newPassword\":\"123456\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8082/user/changePwd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"changePwd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "area-add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlSWQiOjEsInRlbCI6IjEzMjk0MDI5MTYxIiwiaWQiOjEsImV4cCI6MTUzODczMTg5MywiaWF0IjoxNTM4NzI4MjkzLCJ1c2VybmFtZSI6ImZlaWh1aHUifQ.KiWf3mjSDkzXk4KdpceLCv_AI1nex8calIrM2DF9AR8"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"区域1\",\n\t\"description\":\"描述\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8082/area/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"area",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sensor-add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlSWQiOjEsInRlbCI6IjEzMjk0MDI5MTYxIiwiaWQiOjEsImV4cCI6MTUzOTMzNTk2MiwiaWF0IjoxNTM5MzMyMzYyLCJ1c2VybmFtZSI6ImZlaWh1aHUifQ.AjaQxJQSBBTLwaBq6BTL9aZ_COR3fXT1lWV0zkegwbE",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"sensor1\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8082/sysinfo/sensor/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"sysinfo",
+						"sensor",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sensor-list",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlSWQiOjEsInRlbCI6IjEzMjk0MDI5MTYxIiwiaWQiOjEsImV4cCI6MTU0MDM1NjEzMSwiaWF0IjoxNTQwMzUyNTMxLCJ1c2VybmFtZSI6ImZlaWh1aHUifQ.Ai4fFQxI7vGEhwWUfnHGRKEsLA_0JXlNQriD9UxkRGg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8082/sysinfo/sensor/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"sysinfo",
+						"sensor",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "threshold-add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlSWQiOjEsInRlbCI6IjEzMjk0MDI5MTYxIiwiaWQiOjEsImV4cCI6MTUzOTg0ODMwNSwiaWF0IjoxNTM5ODQ0NzA1LCJ1c2VybmFtZSI6ImZlaWh1aHUifQ.zNSYKOtnKERPP4M4cT3w9g9RCNXc3eVSjaDzPAdXwHE",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8082/threshold/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"threshold",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dashboard-info-statstic",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlSWQiOjEsInRlbCI6IjEzMjk0MDI5MTYxIiwiaWQiOjEsImV4cCI6MTU0MDM3NDY1NCwiaWF0IjoxNTQwMzcxMDU0LCJ1c2VybmFtZSI6ImZlaWh1aHUifQ.y0MFRu0fxHDERtKLXGfiezJnp7eLwNl9aVytp51XVvw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8082/dashboard/info/statistic",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"dashboard",
+						"info",
+						"statistic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "log-list",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlSWQiOjEsInRlbCI6IjEzMjk0MDI5MTYxIiwiaWQiOjEsImV4cCI6MTU0MDM3MDk0NSwiaWF0IjoxNTQwMzY3MzQ1LCJ1c2VybmFtZSI6ImZlaWh1aHUifQ.684f8Lv6KEVr3MD-SaGalFUV8O-kspSBnoNGjc8ZEj4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8082/log/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"log",
+						"list"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "data-month-statistic",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlSWQiOjEsInRlbCI6IjEzMjk0MDI5MTYxIiwiaWQiOjEsImV4cCI6MTU0MDM3NDY1NCwiaWF0IjoxNTQwMzcxMDU0LCJ1c2VybmFtZSI6ImZlaWh1aHUifQ.y0MFRu0fxHDERtKLXGfiezJnp7eLwNl9aVytp51XVvw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8082/dashboard/month/statistic",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"dashboard",
+						"month",
+						"statistic"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

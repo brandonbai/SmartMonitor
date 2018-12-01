@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="smartmonitor:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="smartmonitor.war">
-      <element id="artifact" artifact-name="smartmonitor:war exploded" />
-    </root>
-  </artifact>
-</component>
